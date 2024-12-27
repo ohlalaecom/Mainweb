@@ -1,0 +1,36 @@
+{
+    "imageSwatcher": {  
+        "vendor": "Go Pro",
+        "price": "29.39",
+        "sale": "false",
+        "categories": [
+            {
+                "id": "1",
+                "value": "phone",
+                "name": "Phones & Accessories"
+            }
+        ],
+
+        "brand": [
+            {
+                "id": "1",
+                "value": "apple",
+                "text": "Apple"
+            }
+        ],
+        "size": [
+            {
+                "id": "1",
+                "value": "s"
+            },
+            {
+                "id": "2",
+                "value": "m"
+            },
+            {
+                "id": "3",
+                "value": "l"
+            }
+        ]
+    }
+}

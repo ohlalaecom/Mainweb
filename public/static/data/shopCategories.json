@@ -1,0 +1,264 @@
+{
+    "categories": [
+      {
+        "id": "3",
+        "thumbnail": "/static/img/categories/shop/3.jpg",
+        "title": "Consumer Electrics",
+        "links": [
+          "Air Conditioners",
+          "Audios & Theaters",
+          "Car Electronics",
+          "Office Electronics"
+        ]
+      },
+      {
+        "id": "5",
+        "thumbnail": "/static/img/categories/shop/5.jpg",
+        "title": "Computers & Technologies",
+        "links": ["Desktop PC", "Laptop", "Smartphones"]
+      },
+      {
+        "id": "7",
+        "thumbnail": "/static/img/categories/shop/7.jpg",
+        "title": "Phone & Accessories",
+        "links": ["Iphone 8", "Iphone X", "Samsung Note 8"]
+      }
+      
+    ],
+    "shop_categories_catalog": [
+      {
+        "text": "Consumer Electrics",
+        "url": "/shop",
+        "extraClass": "menu-item-has-children",
+        "subClass": "sub-menu",
+        "subMenu": [
+          {
+            "text": "Air Conditioners",
+            "url": "/shop",
+            "extraClass": "menu-item-has-children",
+            "subClass": "sub-menu",
+            "subMenu": [
+              {
+                "text": "Accessories",
+                "url": "/shop"
+              },
+              {
+                "text": "Type Hanging Cell",
+                "url": "/shop"
+              },
+              {
+                "text": "Type Hanging Wall",
+                "url": "/shop"
+              }
+            ]
+          },
+          {
+            "text": "Audios & Theaters",
+            "url": "/shop",
+            "extraClass": "menu-item-has-children",
+            "subClass": "sub-menu",
+            "subMenu": [
+              {
+                "text": "Headphone",
+                "url": "/shop"
+              },
+              {
+                "text": "Home Theater System",
+                "url": "/shop"
+              },
+              {
+                "text": "Speakers",
+                "url": "/shop"
+              }
+            ]
+          },
+          {
+            "text": "Car Electronics",
+            "url": "/shop",
+            "extraClass": "menu-item-has-children",
+            "subClass": "sub-menu",
+            "subMenu": [
+              {
+                "text": "Audio & Video",
+                "url": "/shop"
+              },
+              {
+                "text": "Car Security",
+                "url": "/shop"
+              },
+              {
+                "text": "Radar Detector",
+                "url": "/shop"
+              },
+              {
+                "text": "Vehicle GPS",
+                "url": "/shop"
+              }
+            ]
+          },
+          {
+            "text": "Office Electronics",
+            "url": "/shop",
+            "extraClass": "menu-item-has-children",
+            "subClass": "sub-menu",
+            "subMenu": [
+              {
+                "text": "Printers",
+                "url": "/shop"
+              },
+              {
+                "text": "Projectors",
+                "url": "/shop"
+              },
+              {
+                "text": "Scanners",
+                "url": "/shop"
+              },
+              {
+                "text": "Store & Business",
+                "url": "/shop"
+              }
+            ]
+          },
+          {
+            "text": "TV Televisions",
+            "url": "/shop",
+            "extraClass": "menu-item-has-children",
+            "subClass": "sub-menu",
+            "subMenu": [
+              {
+                "text": "4K Ultra HD TVs",
+                "url": "/shop"
+              },
+              {
+                "text": "LED TVs",
+                "url": "/shop"
+              },
+              {
+                "text": "OLED TVs",
+                "url": "/shop"
+              }
+            ]
+          },
+          {
+            "text": "Washing Machines",
+            "url": "/shop",
+            "extraClass": "menu-item-has-children",
+            "subClass": "sub-menu",
+            "subMenu": [
+              {
+                "text": "Type Drying Clothes",
+                "url": "/shop"
+              },
+              {
+                "text": "Type Horizontal",
+                "url": "/shop"
+              },
+              {
+                "text": "Type Vertical",
+                "url": "/shop"
+              }
+            ]
+          },
+          {
+            "text": "Refrigerators",
+            "url": "/shop"
+          }
+        ]
+      },
+      {
+        "text": "Computers & Technologies",
+        "url": "/shop",
+        "extraClass": "menu-item-has-children",
+        "subClass": "sub-menu",
+        "subMenu": [
+          {
+            "text": "Desktop PC",
+            "url": "/shop"
+          },
+          {
+            "text": "Laptop",
+            "url": "/shop"
+          },
+          {
+            "text": "Smartphones",
+            "url": "/shop"
+          }
+        ]
+      },
+      {
+        "text": "Phones & Accessories",
+        "url": "/shop",
+        "extraClass": "menu-item-has-children",
+        "subClass": "sub-menu",
+        "subMenu": [
+          {
+            "text": "Iphone 8",
+            "url": "/shop"
+          },
+          {
+            "text": "Iphone X",
+            "url": "/shop"
+          },
+          {
+            "text": "Sam Sung Note 8",
+            "url": "/shop"
+          },
+          {
+            "text": "Sam Sung S8",
+            "url": "/shop"
+          }
+        ]
+      }
+    ],
+    "electronicCollection": [
+      {
+        "type": "large",
+        "imagePath": "/static/img/categories/electronic/large.jpg",
+        "text": ""
+      },
+      {
+        "type": "item",
+        "imagePath": "/static/img/categories/electronic/1.jpg",
+        "text": "Audios & Theaters ",
+        "item": 2
+      },
+      {
+        "type": "item",
+        "imagePath": "/static/img/categories/electronic/2.jpg",
+        "text": "TV Televisions",
+        "item": 2
+      },
+      {
+        "type": "item",
+        "imagePath": "/static/img/categories/electronic/3.jpg",
+        "text": "Washing Machines",
+        "item": 4
+      },
+      {
+        "type": "item",
+        "imagePath": "/static/img/categories/electronic/4.jpg",
+        "text": "Air Conditioners",
+        "item": 5
+      },
+      {
+        "type": "item",
+        "imagePath": "/static/img/categories/electronic/5.jpg",
+        "text": "Refrigerators",
+        "item": 10
+      },
+      {
+        "type": "item",
+        "imagePath": "/static/img/categories/electronic/6.jpg",
+        "text": "Office Electronics",
+        "item": 2
+      },
+      {
+        "type": "item",
+        "imagePath": "/static/img/categories/electronic/7.jpg",
+        "text": "Car Electronics",
+        "item": 3
+      }
+    ]
+  }
+  

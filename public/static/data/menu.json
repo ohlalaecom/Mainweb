@@ -1,0 +1,239 @@
+{
+    "menuPrimary": {
+        "menu_1": [
+            {
+                "text": "Home",
+                "url": "/"
+            },
+            {
+                "text": "Computer & Technology",
+                "url": "/",
+                "extraClass": "menu-item-has-children has-mega-menu",
+                "subClass": "sub-menu",
+                "mega": "true",
+                "megaContent": [
+                    {
+                        "heading": "Computers",
+                        "megaItems": [
+                            {
+                                "text": "Computer & Tablets",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Laptop",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Monitors",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Networking",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Drive & Storages",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Computer Components",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Security & Protection",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Gaming Laptop",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Accessories",
+                                "url": "/shop"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "text": "Consumer Electronics",
+                "url": "/",
+                "extraClass": "menu-item-has-children has-mega-menu",
+                "subClass": "sub-menu",
+                "mega": "true",
+                "megaContent": [
+                    {
+                        "heading": "Electronic",
+                        "megaItems": [
+                            {
+                                "text": "Home Audio & Theaters",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "TV & Videos",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Camera, Photos & Videos",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Cellphones & Accessories",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Headphones",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Videogames",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Wireless Speakers",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Office Electronic",
+                                "url": "/shop"
+                            }
+                        ]
+                    },
+                    {
+                        "heading": "Accessories & Parts",
+                        "megaItems": [
+                            {
+                                "text": "Digital Cables",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Audio & Video Cables",
+                                "url": "/shop"
+                            },
+                            {
+                                "text": "Batteries",
+                                "url": "/shop"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "product_categories": [
+        {
+            "icon": "icon-desktop",
+            "text": "Computer & Technology",
+            "url": "/shop",
+            "extraClass": "menu-item-has-children has-mega-menu",
+            "subClass": "sub-menu",
+            "megaContent": [
+                {
+                    "heading": "Computers",
+                    "megaItems": [
+                        {
+                            "text": "Computer & Tablets",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Laptop",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Monitors",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Networking",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Drive & Storages",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Computer Components",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Security & Protection",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Gaming Laptop",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Accessories",
+                            "url": "/shop"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "icon": "icon-laundry",
+            "text": "Consumer Electronic",
+            "url": "/shop",
+            "extraClass": "menu-item-has-children has-mega-menu",
+            "subClass": "sub-menu",
+            "mega": true,
+            "megaContent": [
+                {
+                    "heading": "Electronic",
+                    "megaItems": [
+                        {
+                            "text": "Home Audio & Theaters",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "TV & Videos",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Camera, Photos & Videos",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Cellphones & Accessories",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Headphones",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Videogames",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Wireless Speakers",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Office Electronic",
+                            "url": "/shop"
+                        }
+                    ]
+                },
+                {
+                    "heading": "Accessories & Parts",
+                    "megaItems": [
+                        {
+                            "text": "Digital Cables",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Audio & Video Cables",
+                            "url": "/shop"
+                        },
+                        {
+                            "text": "Batteries",
+                            "url": "/shop"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
