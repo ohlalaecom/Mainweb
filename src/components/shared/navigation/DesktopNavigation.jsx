@@ -31,6 +31,7 @@ export default function DesktopNavigation() {
                     text: formatSlugToText(category.attributes.slug),
                     url: category.attributes.slug,
                 }));
+
                 setCategories(transformedCategories);
             }
             setLoading(false);  // Set loading to false after categories are fetched

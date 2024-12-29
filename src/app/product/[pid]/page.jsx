@@ -22,6 +22,12 @@ const ProductDefaultPage = () => {
         getStrapiProduct(pid);
     }, [pid]);
 
+    useEffect(() => {
+        if (product) {
+            console.log('Fetched product data:', product);
+        }
+    }, [product]);
+
     const breadCrumb = [
         {
             text: 'Home',

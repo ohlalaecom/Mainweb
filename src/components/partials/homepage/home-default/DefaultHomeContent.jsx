@@ -24,10 +24,7 @@ export default function DefaultHomeContent() {
                 title="Consumer Electronics"
             />
            
-            <HomeDefaultProductListing
-                categorySlug="garden-and-kitchen"
-                title="Kitchen"
-            />
+      
             <HomeAds />
             {/* <DownLoadApp /> */}
             <NewArrivals collectionSlug="hot-new-arrivals" />

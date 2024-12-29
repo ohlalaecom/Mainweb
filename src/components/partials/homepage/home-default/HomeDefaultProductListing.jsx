@@ -94,7 +94,7 @@ const HomeDefaultProductListing = ({ categorySlug, title }) => {
                     <ul className="ps-section__links">
                         {sectionLinksView}
                         <li>
-                            <Link href={`/shop`}>View All</Link>
+                            <Link href={`/shop`}>View All Products</Link>
                         </li>
                     </ul>
                 </div>

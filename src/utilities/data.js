@@ -12,10 +12,9 @@ export const EXAMPLE_CATEGORY = [
     'Headphone',
     'Home Theater System',
     'Speakers',
-    'Car Electronics',
+    
     'Audio & Video',
-    'Car Security',
-    'Radar Detector',
+   
     'Vehicle GPS',
     'Office Electronics',
     'Printers',
@@ -30,5 +29,5 @@ export const EXAMPLE_CATEGORY = [
     'Washing Machines',
     'Type Horizontal',
     'Type Vertical',
-    'Powers And Hand Tools',
+   
 ];

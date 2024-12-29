@@ -32,10 +32,13 @@ export default function ProductScreen() {
 
                 // Fetch products associated with the category
                 if (category) {
-                    const productsResponse = await fetch(
-                        `https://strapi-app-tntk.onrender.com/api/products?filters[product_categories][slug][$eq]=${slug}`
-                    );
+                    // Fetch products associated with the category and include the thumbnail and images
+const productsResponse = await fetch(
+    `https://strapi-app-tntk.onrender.com/api/products?filters[product_categories][slug][$eq]=${slug}&populate[thumbnail]=true&populate[images]=true&populate[attributes]=true`
+);
+
                     const productsData = await productsResponse.json();
+                    console.log('Fetched products checking:', productsData?.data);
                     setProducts(productsData?.data || []);
                 }
             } catch (error) {
