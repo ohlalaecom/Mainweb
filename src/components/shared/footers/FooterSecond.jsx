@@ -140,7 +140,8 @@ const FooterSecond = ({ classes }) => (
                 </div>
             </div>
             <div className="ps-footer__copyright">
-                <p>&copy;2024 Ohlala Ecommerce. All Rights Reserved</p>
+                <p>&copy; 2025 Ohlala Ecommerce. All Rights Reserved. Powered by <a href="https://ipcoresolutionsindia.com" target="_blank" style="text-decoration: none; color: inherit;">IP Core Solutions India Pvt. Ltd.</a></p>
+
                 <p>
                     <span>We Using Safe Payment For:</span>
                     <Link href="/page/blank">
