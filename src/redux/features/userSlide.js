@@ -2,22 +2,31 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     isLoggedIn: false,
+    user: null, // Store user data
 };
 
-export const ecommerce = createSlice({
-    name: 'message',
+export const userSlide = createSlice({
+    name: 'user',
     initialState,
     reducers: {
         reset: () => initialState,
         userChangeIsLoggedIn: (state, action) => {
             return {
                 ...state,
-                isLoggedIn: action.payload,
+                isLoggedIn: action.payload.isLoggedIn,
+                user: action.payload.user || state.user, // Store user data if logged in
             };
+        },
+        setUser: (state, action) => {
+            state.user = action.payload;
+        },
+        clearUser: (state) => {
+            state.isLoggedIn = false;
+            state.user = null;
         },
     },
 });
 
-export const { reset, userChangeIsLoggedIn } = ecommerce.actions;
+export const { reset, userChangeIsLoggedIn, setUser, clearUser } = userSlide.actions;
 
-export default ecommerce.reducer;
+export default userSlide.reducer;

@@ -1,10 +1,7 @@
-import React, { useState, useEffect } from 'react';  // <-- Add this import
-
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import DefaultMenu from '../../elements/menu/DefaultMenu';
-import CurrencyDropdown from '../headers/modules/CurrencyDropdown';
-import LanguageSwicher from '../headers/modules/LanguageSwicher';
 import MenuCategoriesDropdown from '~/components/shared/menus/MenuCategoriesDropdown';
+import LanguageSwicher from '../headers/modules/LanguageSwicher';
 
 // Utility function to transform slugs into readable text
 const formatSlugToText = (slug) => {
@@ -17,9 +14,8 @@ const formatSlugToText = (slug) => {
 };
 
 export default function DesktopNavigation() {
-    const [categories, setCategories] = useState([]);  // Holds the fetched categories
-    const [loading, setLoading] = useState(true);  // Loading state for categories
-    const [user, setUser] = useState(null);  // Holds the user state
+    const [categories, setCategories] = useState([]); // Holds the fetched categories
+    const [loading, setLoading] = useState(true); // Loading state for categories
 
     // Fetch categories from the API
     const fetchCategories = async () => {
@@ -31,10 +27,9 @@ export default function DesktopNavigation() {
                     text: formatSlugToText(category.attributes.slug),
                     url: category.attributes.slug,
                 }));
-
                 setCategories(transformedCategories);
             }
-            setLoading(false);  // Set loading to false after categories are fetched
+            setLoading(false); // Set loading to false after categories are fetched
         } catch (error) {
             console.error('Error fetching categories:', error);
             setLoading(false);
@@ -44,18 +39,7 @@ export default function DesktopNavigation() {
     // Fetch categories when the component mounts
     useEffect(() => {
         fetchCategories();
-        // Retrieve user from localStorage
-        const storedUser = localStorage.getItem('user');
-        if (storedUser) {
-            setUser(JSON.parse(storedUser));
-        }
     }, []);
-
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        localStorage.removeItem('user');
-        setUser(null);
-    };
 
     return (
         <nav className="navigation">
@@ -67,27 +51,9 @@ export default function DesktopNavigation() {
                     <ul className="menu">
                         {categories.map((category, index) => (
                             <li key={index}>
-                                <Link href={`/category/${category.url}`}>
-                                    {category.text}
-                                </Link>
+                                <Link href={`/category/${category.url}`}>{category.text}</Link>
                             </li>
                         ))}
-                        {user ? (
-                            <>
-                                <li>
-                                    <Link href="/account/profile">Profile</Link>
-                                </li>
-                                <li>
-                                    <button onClick={handleLogout} className="logout-btn">
-                                        Logout
-                                    </button>
-                                </li>
-                            </>
-                        ) : (
-                            <li>
-                                <Link href="/account/login">Login</Link>
-                            </li>
-                        )}
                         <li>
                             <Link href="/shop/track-your-order">Track your Order</Link>
                         </li>

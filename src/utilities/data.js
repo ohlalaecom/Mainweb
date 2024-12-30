@@ -1,6 +1,6 @@
 export const EXAMPLE_CATEGORY = [
     'All',
-    'Computers & Technologies',
+    'computers-and-technologies',
     'Desktop PC',
     'Laptop',
     'Smartphones',

@@ -1,0 +1,66 @@
+.ps-my-account {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 20px 0;
+}
+
+.ps-form--account {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.ps-tab-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.ps-tab-list li {
+    margin-right: 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.ps-tab-list li.active {
+    color: #007bff;
+}
+
+.ps-form__content {
+    margin-top: 20px;
+}
+
+.ps-form-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.ps-btn {
+    width: 100%;
+    padding: 32px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.ps-btn:hover {
+    background-color: #0056b3;
+}

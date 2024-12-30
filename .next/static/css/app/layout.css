@@ -19308,7 +19308,7 @@ textarea.form-control {
   left: 0;
   height: 100%;
   width: 100%;
-  z-index: 99999;
+  z-index: 9999;
   visibility: hidden;
   opacity: 0;
   transition: all 0.4s ease;
@@ -22895,6 +22895,7 @@ backgr .ps-vendor-banner:before {
 }
 .navigation__extra > li a:hover {
   color: #cccccc;
+  text-decoration: none;
 }
 .navigation__extra > li:last-child {
   margin-right: 0;

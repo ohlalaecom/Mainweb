@@ -1,8 +1,11 @@
 import React from 'react';
+import { useSelector } from 'react-redux'; // Import to access Redux state
 import Link from 'next/link';
 import FormChangeUserInformation from '~/components/shared/FormChangeUserInformation';
 
 const UserInformation = () => {
+    const { user, isLoggedIn } = useSelector((state) => state.user); // Get user info and login status from Redux
+
     const accountLinks = [
         {
             text: 'Account Information',
@@ -37,7 +40,7 @@ const UserInformation = () => {
         },
     ];
 
-    //Views
+    // Account links view
     const accountLinkView = accountLinks.map((item) => (
         <li key={item.text} className={item.active ? 'active' : ''}>
             <Link href={item.url}>
@@ -51,32 +54,24 @@ const UserInformation = () => {
         <section className="ps-my-account ps-page--account">
             <div className="container">
                 <div className="row">
+                    {/* Sidebar Section */}
                     <div className="col-lg-3">
                         <div className="ps-section__left">
                             <aside className="ps-widget--account-dashboard">
                                 <div className="ps-widget__header">
-                                    <img src="/static/img/users/3.jpg" />
+                                    <img src="/static/img/users/3.jpg" alt="User" />
                                     <figure>
-                                        <figcaption>Hello</figcaption>
-                                        <p>username@gmail.com</p>
+                                        <figcaption>
+                                            {isLoggedIn && user ? `Hello, ${user.username}` : 'Hello, Guest'}
+                                        </figcaption>
+                                        <p>{isLoggedIn && user ? user.email : 'Not logged in'}</p>
                                     </figure>
                                 </div>
                                 <div className="ps-widget__content">
                                     <ul className="ps-list--user-links">
-                                        {accountLinks.map((link) => (
-                                            <li
-                                                key={link.text}
-                                                className={
-                                                    link.active ? 'active' : ''
-                                                }>
-                                                <Link href={link.url}>
-                                                    <i className={link.icon} />
-                                                    {link.text}
-                                                </Link>
-                                            </li>
-                                        ))}
+                                        {accountLinkView}
                                         <li>
-                                            <Link href="/account/my-account">
+                                            <Link href="/account/logout">
                                                 <i className="icon-power-switch" />
                                                 Logout
                                             </Link>
@@ -86,6 +81,8 @@ const UserInformation = () => {
                             </aside>
                         </div>
                     </div>
+
+                    {/* Main Content Section */}
                     <div className="col-lg-9">
                         <div className="ps-page__content">
                             <FormChangeUserInformation />

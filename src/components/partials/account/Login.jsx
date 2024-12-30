@@ -1,180 +1,121 @@
 'use client';
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { Form, Input, notification, Button } from 'antd';
+import React from 'react';
+import { Form, Input, notification, Button, Modal } from 'antd';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { setUser, userChangeIsLoggedIn } from '~/redux/features/userSlide'; // Import Redux actions
+import './login.css';
 
 export default function Login() {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [user, setUser] = useState(null); // To store user details
     const Router = useRouter();
+    const dispatch = useDispatch(); // Dispatch to update the Redux store
+    const [loading, setLoading] = React.useState(false); // For loading state
+    const [isModalVisible, setIsModalVisible] = React.useState(false); // For success modal
 
     const handleLogin = async (values) => {
-        const { Email, password } = values;
+        const { username, password } = values;
+        setLoading(true); // Set loading state to true while waiting for API response
 
         try {
-            // Replace with your Strapi login API URL
-            const response = await axios.post('https://strapi-app-tntk.onrender.com/api/auth', {
-                identifier: Email, // 'identifier' is used for email or username
-                password: password,
-            });
+            // Sending login credentials to the API
+            const response = await axios.post(
+                'https://strapi-app-tntk.onrender.com/api/auth/local',
+                { identifier: username, password }
+            );
 
             if (response.status === 200) {
-                // Assuming the response contains the user data
-                const { user } = response.data;
-                setUser(user);
-                setIsLoggedIn(true);
+                // Successfully logged in
+
+                // Assuming the response contains user data
+                const userData = response.data.user;
+
+                // Store user data and update login state in Redux
+                dispatch(setUser(userData));
+                dispatch(userChangeIsLoggedIn({ isLoggedIn: true, user: userData }));
+
+                // Display success notification
                 notification.success({
                     message: 'Login Successful!',
-                    description: 'You have successfully logged in.',
+                    description: 'You are now logged in.',
                 });
+
+                // Redirect to home page
+                Router.push('/');
             }
         } catch (error) {
-            console.log(error);
+            console.error(error);
+
+            // Display error notification on failure
             notification.error({
-            
                 message: 'Login Failed',
-                description: 'Invalid credentials. Please try again.',
+                description: error.response?.data?.error?.message || 'Invalid credentials. Please try again.',
             });
+        } finally {
+            setLoading(false); // Reset loading state after the response
         }
     };
-
-    const handleLogout = () => {
-        setIsLoggedIn(false);
-        setUser(null);
-        notification.success({
-            message: 'Logged Out',
-            description: 'You have successfully logged out.',
-        });
-        Router.push('/account/login'); // Redirect to login page
-    };
-
-    if (isLoggedIn) {
-        // If logged in, show user details and logout button
-        return (
-            <div className="ps-my-account">
-                <div className="container">
-                    <div className="ps-form--account">
-                        <div className="ps-form__content">
-                            <h5>Welcome, {user.email}</h5> {/* Assuming the user object has an 'email' field */}
-                            <Button
-                                type="primary"
-                                onClick={handleLogout}
-                                className="ps-btn ps-btn--fullwidth"
-                            >
-                                Logout
-                            </Button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        );
-    }
 
     return (
         <div className="ps-my-account">
             <div className="container">
                 <Form className="ps-form--account" onFinish={handleLogin}>
                     <ul className="ps-tab-list">
-                        <li className="active">
-                            <Link href={'/account/login'}>Login</Link>
+                        <li className="active" style={{ marginLeft: "auto", marginRight: "auto" }}>
+                            <a href={'/account/login'}>Login</a>
                         </li>
-                        <li>
-                            <Link href={'/account/register'}>Register</Link>
+                        <li style={{ marginLeft: "auto", marginRight: "auto" }}>
+                            <a href={'/account/register'}>Register</a>
                         </li>
                     </ul>
-                    <div className="ps-tab active" id="sign-in">
-                        <div className="ps-form__content">
-                            <h5>Log In Your Account</h5>
-                            <div className="form-group">
-                                <Form.Item
-                                    name="username"
-                                    rules={[{ required: true, message: 'Please input your email or username!' }]}
-                                >
-                                    <Input
-                                        className="form-control"
-                                        type="text"
-                                        placeholder="Username or email address"
-                                    />
-                                </Form.Item>
-                            </div>
-                            <div className="form-group form-forgot">
-                                <Form.Item
-                                    name="password"
-                                    rules={[{ required: true, message: 'Please input your password!' }]}
-                                >
-                                    <Input
-                                        className="form-control"
-                                        type="password"
-                                        placeholder="Password..."
-                                    />
-                                </Form.Item>
-                            </div>
-                            <div className="form-group">
-                                <div className="ps-checkbox">
-                                    <input
-                                        className="form-control"
-                                        type="checkbox"
-                                        id="remember-me"
-                                        name="remember-me"
-                                    />
-                                    <label htmlFor="remember-me">Remember me</label>
-                                </div>
-                            </div>
-                            <div className="form-group submit">
-                                <button
-                                    type="submit"
-                                    className="ps-btn ps-btn--fullwidth"
-                                >
-                                    Login
-                                </button>
-                            </div>
+                    <div className="ps-form__content">
+                        <h5 className="ps-form-title">Log In to Your Account</h5>
+                        <div className="form-group">
+                            <Form.Item
+                                name="username"
+                                rules={[{ required: true, message: 'Please input your email or username!' }]}>
+                                <Input
+                                    className="form-control"
+                                    type="email"
+                                    placeholder="Username or email address"
+                                />
+                            </Form.Item>
                         </div>
-                        <div className="ps-form__footer">
-                            <p>Connect with:</p>
-                            <ul className="ps-list--social">
-                                <li>
-                                    <a
-                                        className="facebook"
-                                        href="#"
-                                        onClick={(e) => e.preventDefault()}
-                                    >
-                                        <i className="fa fa-facebook" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        className="google"
-                                        href="#"
-                                        onClick={(e) => e.preventDefault()}
-                                    >
-                                        <i className="fa fa-google-plus" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        className="twitter"
-                                        href="#"
-                                        onClick={(e) => e.preventDefault()}
-                                    >
-                                        <i className="fa fa-twitter" />
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        className="instagram"
-                                        href="#"
-                                        onClick={(e) => e.preventDefault()}
-                                    >
-                                        <i className="fa fa-instagram" />
-                                    </a>
-                                </li>
-                            </ul>
+                        <div className="form-group">
+                            <Form.Item
+                                name="password"
+                                rules={[{ required: true, message: 'Please input your password!' }]}>
+                                <Input
+                                    className="form-control"
+                                    type="password"
+                                    placeholder="Password"
+                                />
+                            </Form.Item>
+                        </div>
+                        <div className="form-group submit">
+                            <Button
+                                type="submit"
+                                className="ps-btn ps-btn--fullwidth"
+                                htmlType="submit"
+                                style={{height: "59px"}}
+                                loading={loading} >
+                                {loading ? 'Logging In...' : ''}
+                                Login
+                            </Button>
                         </div>
                     </div>
                 </Form>
             </div>
+
+            {/* Success Modal */}
+            <Modal
+                title="Login Successful"
+                visible={isModalVisible}
+                onOk={() => Router.push('/')}
+                onCancel={() => setIsModalVisible(false)}
+            >
+                <p>You are successfully logged in!</p>
+            </Modal>
         </div>
     );
 }
