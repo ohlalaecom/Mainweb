@@ -16,7 +16,7 @@ const ShoppingCart = ({ source }) => {
         <div className="ps-section--shopping ps-shopping-cart">
             <div className="container">
                 <div className="ps-section__header">
-                    <h1>Shopping Cart</h1>
+                    <h2>Shopping Cart</h2>
                 </div>
                 <div className="ps-section__content">
                     <ModuleEcomerceCartItems cartItems={cartItems} />

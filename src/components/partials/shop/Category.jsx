@@ -60,7 +60,7 @@ const ShopCategoryPage = () => {
                 {products.length > 0 ? (
                     products.map((product) => (
                         <li key={product.id}>
-                            <Link href={`/shop/${product.attributes.slug}`}>
+                            <Link href={`/product/${product.attributes.slug}`}>
                                 {product.attributes.name}
                             </Link>
                         </li>
