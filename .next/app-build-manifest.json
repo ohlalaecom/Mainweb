@@ -1,21 +1,75 @@
 {
   "pages": {
-    "/layout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/layout.css",
-      "static/chunks/app/layout.js"
-    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/page.css",
       "static/chunks/app/page.js"
     ],
+    "/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/layout.css",
+      "static/chunks/app/layout.js"
+    ],
     "/template": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/template.js"
+    ],
+    "/page/privacypolicy/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page/privacypolicy/page.css",
+      "static/chunks/app/page/privacypolicy/page.js"
+    ],
+    "/page/termsandconditions/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page/termsandconditions/page.css",
+      "static/chunks/app/page/termsandconditions/page.js"
+    ],
+    "/page/shipping/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page/shipping/page.css",
+      "static/chunks/app/page/shipping/page.js"
+    ],
+    "/page/return/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page/return/page.css",
+      "static/chunks/app/page/return/page.js"
+    ],
+    "/page/faqs/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page/faqs/page.css",
+      "static/chunks/app/page/faqs/page.js"
+    ],
+    "/page/about-us/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page/about-us/page.css",
+      "static/chunks/app/page/about-us/page.js"
+    ],
+    "/page/affiliate/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page/affiliate/page.css",
+      "static/chunks/app/page/affiliate/page.js"
+    ],
+    "/page/careers/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page/careers/page.css",
+      "static/chunks/app/page/careers/page.js"
+    ],
+    "/page/contact-us/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/page/contact-us/page.css",
+      "static/chunks/app/page/contact-us/page.js"
     ],
     "/category/[slug]/page": [
       "static/chunks/webpack.js",
@@ -23,17 +77,23 @@
       "static/css/app/category/[slug]/page.css",
       "static/chunks/app/category/[slug]/page.js"
     ],
-    "/shop/page": [
+    "/account/checkout/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/shop/page.css",
-      "static/chunks/app/shop/page.js"
+      "static/css/app/account/checkout/page.css",
+      "static/chunks/app/account/checkout/page.js"
     ],
-    "/product/[pid]/page": [
+    "/account/shipping/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/product/[pid]/page.css",
-      "static/chunks/app/product/[pid]/page.js"
+      "static/css/app/account/shipping/page.css",
+      "static/chunks/app/account/shipping/page.js"
+    ],
+    "/account/payment/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/account/payment/page.css",
+      "static/chunks/app/account/payment/page.js"
     ]
   }
 }

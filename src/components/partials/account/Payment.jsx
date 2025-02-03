@@ -11,7 +11,7 @@ const Payment = () => {
         <div className="ps-checkout ps-section--shopping">
             <div className="container">
                 <div className="ps-section__header">
-                    <h1>Payment</h1>
+                    <h2 style={{fontSize:"37px"}}>Payment</h2>
                 </div>
                 <div className="ps-section__content">
                     <div className="row">

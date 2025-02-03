@@ -17,7 +17,7 @@ export default function DefaultHomeContent() {
             <HomeDefaultBanner />
             <SiteFeatures />
             <HomeDefaultDealOfDay collectionSlug="deals-of-the-day" />
-            <HomeAdsColumns />
+            {/* <HomeAdsColumns /> */}
             <HomeDefaultTopCategories />
             <HomeDefaultProductListing
                 categorySlug="consumer-electronics"
@@ -25,7 +25,7 @@ export default function DefaultHomeContent() {
             />
            
       
-            <HomeAds />
+            {/* <HomeAds /> */}
             {/* <DownLoadApp /> */}
             <NewArrivals collectionSlug="hot-new-arrivals" />
             <Newletters />

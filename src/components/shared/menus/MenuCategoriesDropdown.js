@@ -29,7 +29,7 @@ const MenuCategoriesDropdown = () => {
             const products = data?.data || []; // Safeguard for null or missing data
             return products.map((product) => ({
                 text: product.attributes.name,
-                url: `/shop/${product.attributes.id}`,
+                url: `/product/${product.attributes.id}`,
             }));
         } catch (error) {
             console.error('Error fetching products:', error);

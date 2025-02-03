@@ -2,6 +2,7 @@
 const { createServer } = require('http')
 const { parse } = require('url')
 const next = require('next')
+const cors=require("cors")
 
 const dev = process.env.NODE_ENV !== 'production'
 const hostname = 'localhost'
@@ -9,7 +10,7 @@ const port = process.env.PORT || 3000
 
 const app = next({ dev, hostname, port })
 const handle = app.getRequestHandler()
-
+app.use(cors())
 app.prepare().then(() => {
   createServer(async (req, res) => {
     try {

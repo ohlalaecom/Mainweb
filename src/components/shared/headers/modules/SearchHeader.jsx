@@ -19,6 +19,13 @@ const SearchHeader = () => {
         setKeyword('');
     }
 
+
+    const handleChange = (event) => {
+        const selectedPath = event.target.value;
+        if (selectedPath) {
+            Router.push(`/category/${selectedPath}`);
+        }
+    };
     function handleSubmit(e) {
         e.preventDefault();
         Router.push(`/search?keyword=${keyword}`);
@@ -84,10 +91,10 @@ const SearchHeader = () => {
             method="get"
             onSubmit={handleSubmit}>
             <div className="ps-form__categories">
-                <select className="form-control">
-                    {EXAMPLE_CATEGORY.map((option) => (
-                        <option value={option} key={option}>
-                            {option}
+                <select className="form-control" onChange={handleChange} defaultValue="">
+                    {EXAMPLE_CATEGORY.map((category, index) => (
+                        <option key={index} value={category.path}>
+                            {category.name}
                         </option>
                     ))}
                 </select>

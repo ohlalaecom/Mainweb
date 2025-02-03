@@ -1,0 +1,122 @@
+/* Basic Styling for the Table */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    table-layout: fixed; /* Ensures consistent column widths */
+}
+
+/* Header Styling */
+.table thead {
+    background-color: lightblue;
+    font-weight: bold;
+}
+
+.table th, .table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    overflow: hidden; /* Prevents text overflow */
+    text-overflow: ellipsis; /* Adds ellipsis for overflowed text */
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+/* Define specific column widths */
+.table th:nth-child(1), .table td:nth-child(1) {
+    width: 15%; /* Product column */
+}
+
+.table th:nth-child(2), .table td:nth-child(2) {
+    width: 25%; /* Name column */
+}
+
+.table th:nth-child(3), .table td:nth-child(3) {
+    width: 15%; /* Price column */
+}
+
+.table th:nth-child(4), .table td:nth-child(4) {
+    width: 20%; /* Quantity column */
+}
+
+.table th:nth-child(5), .table td:nth-child(5) {
+    width: 15%; /* Total column */
+}
+
+/* Image Styling */
+.ps-cart-item__thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    display: block;
+    margin: auto; /* Centers images */
+}
+
+/* Quantity buttons and span spacing */
+.form-group--number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-group--number button {
+    width: 30px;
+    height: 30px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.form-group--number span {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.form-group--number button:hover {
+    background-color: #ddd;
+}
+
+/* Ensure the table is responsive */
+@media (max-width: 768px) {
+    .table {
+        font-size: 14px;
+    }
+
+    .table td, .table th {
+        padding: 8px;
+    }
+
+    /* Stack table rows in a vertical layout for small screens */
+    .table, .table thead, .table tbody, .table th, .table td, .table tr {
+        display: block;
+    }
+
+    .table tr {
+        margin-bottom: 15px;
+    }
+
+    .table td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    .form-group--number {
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .ps-cart-item__thumbnail {
+        width: 60px;
+        height: 60px;
+    }
+}

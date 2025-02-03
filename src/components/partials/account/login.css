@@ -1,66 +1,124 @@
 .ps-my-account {
-    font-family: Arial, sans-serif;
-    font-size: 16px;
-    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f7f7f7;
+    padding: 20px;
 }
 
 .ps-form--account {
-    background-color: #f9f9f9;
-    padding: 20px;
+    background: #ffffff;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 480px;
+    width: 100%;
+}
+
+.ps-form-title {
+    font-size: 22px !important;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .ps-tab-list {
     display: flex;
+    font-size: 30px;
+    justify-content: center;
+    margin-bottom: 20px;
     list-style: none;
     padding: 0;
-    margin: 0;
-    border-bottom: 2px solid #ddd;
+    font-size: 25px;
+   
+}
+
+a{
+    text-decoration: none !important;
 }
 
 .ps-tab-list li {
-    margin-right: 20px;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.ps-tab-list li.active {
-    color: #007bff;
-}
-
-.ps-form__content {
-    margin-top: 20px;
-}
-
-.ps-form-title {
+    margin: 0 10px;
     font-size: 20px;
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 20px;
 }
 
-.form-control {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.successmessage{
+    z-index: 999999999; 
+    color: royalblue;
 }
 
-.ps-btn {
-    width: 100%;
-    padding: 32px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
+
+
+.ps-tab-list li span {
     cursor: pointer;
+    color: #007bff;
+    font-size: 30px;
 }
 
-.ps-btn:hover {
-    background-color: #0056b3;
+.ps-tab-list li.active span {
+    font-weight: bold;
+    color: #000;
 }
+
+.ps-form__content .ps-login-links {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.ps-login-links a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+
+
+/* Main success message notification styles */
+.successmessage {
+    position: relative; /* Ensures z-index works */
+    z-index: 999999; /* High z-index to bring the notification to the top */
+}
+
+/* Close button styling */
+.successmessage .ant-notification-notice-close {
+    position: absolute; /* Allows proper placement */
+    top: 8px; /* Adjust for vertical placement */
+    right: 8px; /* Adjust for horizontal placement */
+    font-size: 16px; /* Make it prominent */
+    color: red !important; /* Red color for visibility */
+    font-weight: bold !important; /* Make it stand out */
+    z-index: 999999; /* Ensure it is above any overlapping elements */
+}
+
+/* Hover effect for the close button */
+.successmessage .ant-notification-notice-close:hover {
+    color: darkred !important; /* Slightly darker red for hover */
+}
+
+/* Ensure the notification container has a high z-index */
+.ant-notification {
+    z-index: 999999; /* Set high stacking context */
+    position: fixed; /* Keeps the notification at the top level */
+    top: 0; /* Ensures placement at the top */
+    left: 0;
+    right: 0;
+}
+
+/* Prevent overlapping elements from intercepting clicks */
+.overlapping-element-class {
+    pointer-events: none; /* Disable clicks on the overlapping element */
+}
+
+/* Optional: Add styles to the notification itself for better visibility */
+.ant-notification-notice {
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+    border: 1px solid #ccc; /* Light border for better separation */
+    border-radius: 8px; /* Rounded corners for a clean look */
+    background-color: #fff; /* Ensure a white background */
+    padding: 16px; /* Add some spacing inside the notification */
+}
+
+
+
+
+

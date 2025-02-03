@@ -40,17 +40,17 @@ const FooterWidgets = () => (
             <h4 className="widget-title">Quick links</h4>
             <ul className="ps-list--link">
                 <li>
-                    <Link href="/page/blank">Policy</Link>
+                    <Link href="/page/privacypolicy">Privacy Policy</Link>
                 </li>
 
                 <li>
-                    <Link href="/page/blank">Term & Condition</Link>
+                    <Link href="/page/termsandconditions">Term & Condition</Link>
                 </li>
                 <li>
-                    <Link href="/page/blank">Shipping</Link>
+                    <Link href="/page/shipping">Shipping</Link>
                 </li>
                 <li>
-                    <Link href="/page/blank">Return</Link>
+                    <Link href="/page/return">Return</Link>
                 </li>
                 <li>
                     <Link href="/page/faqs">FAQs</Link>
@@ -64,33 +64,17 @@ const FooterWidgets = () => (
                     <Link href="/page/about-us">About Us</Link>
                 </li>
                 <li>
-                    <Link href="/page/blank">Affilate</Link>
+                    <Link href="/page/affiliate">Affilate</Link>
                 </li>
                 <li>
-                    <Link href="/page/blank">Career</Link>
+                    <Link href="/page/careers">Career</Link>
                 </li>
                 <li>
                     <Link href="/page/contact-us">Contact</Link>
                 </li>
             </ul>
         </aside>
-        <aside className="widget widget_footer">
-            <h4 className="widget-title">Bussiness</h4>
-            <ul className="ps-list--link">
-                <li>
-                    <Link href="/page/about-us">Our Press</Link>
-                </li>
-                <li>
-                    <Link href="/account/checkout">Checkout</Link>
-                </li>
-                <li>
-                    <Link href="/account/user-information">My account</Link>
-                </li>
-                <li>
-                    <Link href={'/shop'}>Shop</Link>
-                </li>
-            </ul>
-        </aside>
+
     </div>
 );
 

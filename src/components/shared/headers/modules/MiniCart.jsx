@@ -1,22 +1,24 @@
 import React, { useEffect, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
-import OnCartProduct from '~/components/elements/products/OnCartProduct';
 import useEcomerce from '~/hooks/useEcomerce';
 import { calculateAmount } from '~/utilities/ecomerce-helpers';
 import useGetProducts from '~/hooks/useGetProducts';
+import { getStrapiImageURL } from '~/services/strapiServices/image/getStrapiImageService';
 
 const MiniCart = () => {
     const { removeItem } = useEcomerce();
     const cartItems = useSelector(({ ecomerce }) => ecomerce.cartItems);
     const { getStrapiProducts, products } = useGetProducts();
 
-    function handleRemoveItem(e, productId) {
+    // Remove item from cart
+    const handleRemoveItem = (e, productId) => {
         e.preventDefault();
         removeItem({ id: productId }, cartItems, 'cart');
-    }
+    };
 
-    function getCartProducts() {
+    // Fetch products for the cart
+    useEffect(() => {
         if (cartItems.length > 0) {
             const query = {
                 filters: {
@@ -27,80 +29,30 @@ const MiniCart = () => {
             };
             getStrapiProducts(query);
         }
-    }
-
-    useEffect(() => {
-        getCartProducts();
     }, [cartItems]);
 
+    // Map products with fallback image handling
     const cartProducts = useMemo(() => {
-        if (cartItems.length === 0) return [];
+        if (!products || products.length === 0) return [];
         return products.map((product) => {
+            const thumbnail =
+                product.attributes.thumbnail &&
+                getStrapiImageURL(product.attributes.thumbnail);
+
             return {
                 id: product.id,
                 title: product.attributes.title || 'Untitled Product',
                 slug: product.attributes.slug || 'untitled-product',
-                thumbnailImage: product.attributes.thumbnail || null,
+                thumbnailImage: thumbnail || 'https://via.placeholder.com/400', // Fallback image
                 price: product.attributes.price || 0,
-                sale_price: product.attributes.sale_price || 0,
                 quantity:
-                    cartItems.find((item) => item.id === product.id)
-                        ?.quantity ?? 0,
+                    cartItems.find((item) => item.id === product.id)?.quantity ?? 0,
             };
         });
     }, [products, cartItems]);
 
-    const cartAmount = useMemo(() => {
-        return calculateAmount(cartProducts);
-    }, [cartProducts]);
-
-    const cartItemsContent = useMemo(() => {
-        if (cartProducts.length === 0) {
-            return (
-                <div className="ps-cart__content">
-                    <div className="ps-cart__items">
-                        <span>No products in cart</span>
-                    </div>
-                </div>
-            );
-        }
-
-        return (
-            <div className="ps-cart__content">
-                <div className="ps-cart__items">
-                    {cartProducts.map((item) => {
-                        return (
-                            <OnCartProduct product={item} key={item.id}>
-                                <a
-                                    className="ps-product__remove"
-                                    onClick={(e) =>
-                                        handleRemoveItem(e, item.id)
-                                    }>
-                                    <i className="icon-cross" />
-                                </a>
-                            </OnCartProduct>
-                        );
-                    })}
-                </div>
-                <div className="ps-cart__footer">
-                    <h3>
-                        Sub Total:
-                        <strong>${cartAmount}</strong>
-                    </h3>
-                    <figure>
-                        <Link
-                            href={'/account/shopping-cart'}
-                            className="ps-btn">
-                            View Cart
-                        </Link>
-                        <Link href={'/account/checkout'} className="ps-btn">
-                            Checkout
-                        </Link>
-                    </figure>
-                </div>
-            </div>
-        );
-    }, [cartProducts]);
+    // Calculate total amount
+    const cartAmount = useMemo(() => calculateAmount(cartProducts), [cartProducts]);
 
     return (
         <div className="ps-cart--mini">
@@ -110,7 +62,56 @@ const MiniCart = () => {
                     <i>{cartProducts.length}</i>
                 </span>
             </a>
-            {cartItemsContent}
+            <div className="ps-cart__content">
+                {cartProducts.length > 0 ? (
+                    <>
+                        <div className="ps-cart__items">
+                            {cartProducts.map((product) => (
+                                <div key={product.id} className="product-item">
+                                    <img
+                                        src={product.thumbnailImage}
+                                        alt={product.title}
+                                        style={{
+                                            width: '100px',
+                                            height: '100px',
+                                            objectFit: 'cover',
+                                        }}
+                                        onError={(e) => {
+                                            e.target.src =
+                                                'https://via.placeholder.com/400'; // Final fallback
+                                        }}
+                                    />
+                                    <h3>{product.title}</h3>
+                                    <p>Price: ${product.price}</p>
+                                    <p>Quantity: {product.quantity}</p>
+                                    <button
+                                        className="remove-item"
+                                        onClick={(e) => handleRemoveItem(e, product.id)}>
+                                        Remove
+                                    </button>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="ps-cart__footer">
+                            <h3>
+                                Sub Total: <strong>${cartAmount}</strong>
+                            </h3>
+                            <figure>
+                                <Link href="/account/shopping-cart" className="ps-btn">
+                                    View Cart
+                                </Link>
+                                <Link href="/account/checkout" className="ps-btn">
+                                    Checkout
+                                </Link>
+                            </figure>
+                        </div>
+                    </>
+                ) : (
+                    <div className="ps-cart__items">
+                        <span>No products in cart</span>
+                    </div>
+                )}
+            </div>
         </div>
     );
 };

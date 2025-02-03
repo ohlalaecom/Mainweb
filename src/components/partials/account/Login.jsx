@@ -1,121 +1,150 @@
 'use client';
-import React from 'react';
-import { Form, Input, notification, Button, Modal } from 'antd';
-import { useRouter } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
+import { Form, Input, notification, Button } from 'antd';
+import { useRouter, useSearchParams } from 'next/navigation'; // Next.js hooks
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
-import { setUser, userChangeIsLoggedIn } from '~/redux/features/userSlide'; // Import Redux actions
+import { setUser, userChangeIsLoggedIn } from '~/redux/features/userSlide';
 import './login.css';
 
 export default function Login() {
-    const Router = useRouter();
-    const dispatch = useDispatch(); // Dispatch to update the Redux store
-    const [loading, setLoading] = React.useState(false); // For loading state
-    const [isModalVisible, setIsModalVisible] = React.useState(false); // For success modal
+    const router = useRouter();
+    const dispatch = useDispatch();
+    const [loading, setLoading] = useState(false);
+    const [authenticated, setAuthenticated] = useState(false);
+    const searchParams = useSearchParams();
+    const redirectUrl = searchParams.get('redirect') || '/';
+
+    useEffect(() => {
+        const user = localStorage.getItem('userData');
+        setAuthenticated(!!user); // If user data exists, authenticated = true
+    }, []);
+
+    const fetchLatestUserData = async (token) => {
+        try {
+            const response = await axios.get(
+                'https://strapi-app-tntk.onrender.com/api/users/me?populate=address,contact_1,contact_2,dob',
+                {
+                    headers: { Authorization: `Bearer ${token}` },
+                }
+            );
+
+            if (response.status === 200) {
+                const userData = response.data;
+                const enrichedUserData = {
+                    ...userData,
+                    address: userData.address || null,
+                    contact_1: userData.contact_1 || null,
+                    contact_2: userData.contact_2 || null,
+                    dob: userData.dob || null,
+                };
+
+                dispatch(setUser(enrichedUserData));
+                localStorage.setItem('userData', JSON.stringify(enrichedUserData));
+                return enrichedUserData;
+            }
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            notification.error({
+                message: 'Error',
+                description: 'Failed to fetch additional user details.',
+            });
+            return null;
+        }
+    };
 
     const handleLogin = async (values) => {
-        const { username, password } = values;
-        setLoading(true); // Set loading state to true while waiting for API response
-
+        setLoading(true);
         try {
-            // Sending login credentials to the API
+            const { username, password } = values;
             const response = await axios.post(
                 'https://strapi-app-tntk.onrender.com/api/auth/local',
                 { identifier: username, password }
             );
 
             if (response.status === 200) {
-                // Successfully logged in
-
-                // Assuming the response contains user data
+                const token = response.data.jwt;
                 const userData = response.data.user;
 
-                // Store user data and update login state in Redux
-                dispatch(setUser(userData));
+                localStorage.setItem('authToken', token);
+                localStorage.setItem('userData', JSON.stringify(userData));
                 dispatch(userChangeIsLoggedIn({ isLoggedIn: true, user: userData }));
 
-                // Display success notification
+                await fetchLatestUserData(token);
+
                 notification.success({
+                    className: "successmessage",
                     message: 'Login Successful!',
                     description: 'You are now logged in.',
                 });
 
-                // Redirect to home page
-                Router.push('/');
+                router.push(redirectUrl);
+            } else {
+                throw new Error('Login failed');
             }
         } catch (error) {
-            console.error(error);
-
-            // Display error notification on failure
+            console.error('Login error:', error);
             notification.error({
                 message: 'Login Failed',
                 description: error.response?.data?.error?.message || 'Invalid credentials. Please try again.',
             });
         } finally {
-            setLoading(false); // Reset loading state after the response
+            setLoading(false);
         }
     };
 
     return (
         <div className="ps-my-account">
             <div className="container">
-                <Form className="ps-form--account" onFinish={handleLogin}>
-                    <ul className="ps-tab-list">
-                        <li className="active" style={{ marginLeft: "auto", marginRight: "auto" }}>
-                            <a href={'/account/login'}>Login</a>
-                        </li>
-                        <li style={{ marginLeft: "auto", marginRight: "auto" }}>
-                            <a href={'/account/register'}>Register</a>
-                        </li>
-                    </ul>
-                    <div className="ps-form__content">
-                        <h5 className="ps-form-title">Log In to Your Account</h5>
-                        <div className="form-group">
+                {!authenticated ? (
+                    <Form className="ps-form--account" onFinish={handleLogin}>
+                        <ul className="ps-tab-list">
+                            <li className="active">
+                                <span>Login</span>
+                            </li>
+                            <li>
+                                <span className="ps-tab-link" onClick={() => router.push('/account/register')}>
+                                    Register
+                                </span>
+                            </li>
+                        </ul>
+                        <div className="ps-form__content">
+                            <h5 className="ps-form-title">Log In to Your Account</h5>
                             <Form.Item
                                 name="username"
-                                rules={[{ required: true, message: 'Please input your email or username!' }]}>
-                                <Input
-                                    className="form-control"
-                                    type="email"
-                                    placeholder="Username or email address"
-                                />
+                                rules={[{ required: true, message: 'Please input your email or username!' }]}
+                            >
+                                <Input className="form-control" placeholder="Username or email address" />
                             </Form.Item>
-                        </div>
-                        <div className="form-group">
                             <Form.Item
                                 name="password"
-                                rules={[{ required: true, message: 'Please input your password!' }]}>
-                                <Input
-                                    className="form-control"
-                                    type="password"
-                                    placeholder="Password"
-                                />
+                                rules={[{ required: true, message: 'Please input your password!' }]}
+                            >
+                                <Input type="password" className="form-control" placeholder="Password" />
                             </Form.Item>
-                        </div>
-                        <div className="form-group submit">
                             <Button
-                                type="submit"
-                                className="ps-btn ps-btn--fullwidth"
+                                type="primary"
                                 htmlType="submit"
-                                style={{height: "59px"}}
-                                loading={loading} >
-                                {loading ? 'Logging In...' : ''}
-                                Login
+                                className="ps-btn ps-btn--fullwidth"
+                                style={{ height:"55px" }}
+                                loading={loading}
+                            >
+                                {loading ? 'Logging In...' : 'Login'}
                             </Button>
+                            <div className="ps-login-links">
+                                <a href="/forgot-password">Forgot Password?</a>
+                            </div>
                         </div>
+                    </Form>
+                ) : (
+                    <div>
+                        <h4>You are already logged in.</h4>
+                        <Button type="link" onClick={() => router.push('/')}>
+                            Go to Homepage
+                        </Button>
                     </div>
-                </Form>
+                )}
             </div>
-
-            {/* Success Modal */}
-            <Modal
-                title="Login Successful"
-                visible={isModalVisible}
-                onOk={() => Router.push('/')}
-                onCancel={() => setIsModalVisible(false)}
-            >
-                <p>You are successfully logged in!</p>
-            </Modal>
         </div>
     );
 }

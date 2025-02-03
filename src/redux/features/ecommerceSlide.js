@@ -34,6 +34,21 @@ export const ecommerce = createSlice({
                 compareItems: action.payload,
             };
         },
+        // Add these reducers for quantity handling
+        increaseItemQty: (state, action) => {
+            const itemId = action.payload;
+            const cartItem = state.cartItems.find((item) => item.id === itemId);
+            if (cartItem) {
+                cartItem.quantity += 1;
+            }
+        },
+        decreaseItemQty: (state, action) => {
+            const itemId = action.payload;
+            const cartItem = state.cartItems.find((item) => item.id === itemId);
+            if (cartItem && cartItem.quantity > 1) {
+                cartItem.quantity -= 1;
+            }
+        },
     },
 });
 
@@ -42,6 +57,8 @@ export const {
     changeCartItems,
     changeWishlistItems,
     changeCompareItems,
+    increaseItemQty, // Export new actions
+    decreaseItemQty, // Export new actions
 } = ecommerce.actions;
 
 export default ecommerce.reducer;

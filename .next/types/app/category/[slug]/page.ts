@@ -1,4 +1,4 @@
-// File: C:\Users\xpres\Downloads\Ecom-from-Praveen\martfury-react-3.0.0.3\martfury-react-3.0.0.3\Mainweb\src\app\category\[slug]\page.jsx
+// File: C:\Users\xpres\Downloads\Ecom-from-Praveen\Mainweb\src\app\category\[slug]\page.jsx
 import * as entry from '../../../../../src/app/category/[slug]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

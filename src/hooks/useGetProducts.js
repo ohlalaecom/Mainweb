@@ -4,6 +4,7 @@ import {
     getStrapiEntriesService,
     getStrapiEntryByIdService,
 } from '~/services/strapi/strapiQueryServices';
+import { getStrapiImageURL } from '~/services/strapiServices/image/getStrapiImageService';
 
 const COLLECTION_TYPE = 'products';
 
@@ -12,6 +13,7 @@ export default function useGetProducts() {
     const [product, setProduct] = useState(null);
     const [products, setProducts] = useState([]);
     const [meta, setMeta] = useState(null);
+
     const toggleLoading = (state) => setLoading(state);
 
     const getStrapiProducts = async (queryRaw) => {
@@ -21,7 +23,16 @@ export default function useGetProducts() {
                 COLLECTION_TYPE,
                 queryRaw
             );
-            setProducts(response.data || []);
+
+            // Map products to include properly formatted thumbnail URLs
+            const formattedProducts = response.data.map((product) => ({
+                ...product,
+                thumbnail: product.attributes.thumbnail
+                    ? getStrapiImageURL(product.attributes.thumbnail)
+                    : null,
+            }));
+
+            setProducts(formattedProducts || []);
             setMeta(response.meta || null);
         } catch (error) {
             console.error('Error fetching products:', error);
@@ -40,7 +51,15 @@ export default function useGetProducts() {
                 payload,
                 DEFAULT_QUERY_GET_PRODUCT
             );
-            setProduct(response);
+
+            const formattedProduct = {
+                ...response,
+                thumbnail: response.attributes.thumbnail
+                    ? getStrapiImageURL(response.attributes.thumbnail)
+                    : null,
+            };
+
+            setProduct(formattedProduct);
         } catch (error) {
             console.error('Error fetching product:', error);
             setProduct(null);

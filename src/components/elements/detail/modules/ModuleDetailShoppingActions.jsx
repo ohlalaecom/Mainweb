@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { useRouter } from 'next/navigation';
-import { Modal } from 'antd';
+import { Modal, notification } from 'antd';
 import useEcomerce from '~/hooks/useEcomerce';
+
+// function handleAddItemToCart(e) {
+//     e.preventDefault();
+//     addItem({ id: product.id, quantity: 1 }, ecomerce.cartItems, 'cart');
+//     notification.open({
+//         message: 'Cart Updated',
+//         description: 'This product has been added to your cart',
+//         duration: 500,
+//     });
+// }
 
 const ModuleDetailShoppingActions = ({
     ecomerce,
@@ -19,6 +29,11 @@ const ModuleDetailShoppingActions = ({
             ecomerce.cartItems,
             'cart'
         );
+        notification.open({
+            message: 'Cart Updated',
+            description: 'This product has been added to your cart',
+            duration: 500,
+        });
     }
 
     function handleBuynow(e) {

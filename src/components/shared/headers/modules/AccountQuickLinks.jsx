@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 import { clearUser } from '~/redux/features/userSlide';
+import { useRouter } from 'next/navigation'; // Next.js hooks
 
 const AccountQuickLinks = () => {
     const dispatch = useDispatch();
@@ -9,6 +10,23 @@ const AccountQuickLinks = () => {
 
     const [dropdownVisible, setDropdownVisible] = useState(false);
     const dropdownRef = useRef(null);
+    const router = useRouter();
+    const [authenticated, setAuthenticated] = useState(false);
+    const [adminName, setAdminName] = useState("");
+    
+    useEffect(() => {
+        // Check if the component is running in the browser and access localStorage
+        if (typeof window !== "undefined") {
+            const userData = localStorage.getItem("userData");
+            if (userData) {
+                setAuthenticated(true);  // Update state based on the value in localStorage
+                const userDatajson = JSON.parse(userData)
+                console.log("i am hero of the code ", userDatajson);
+                setAdminName(userDatajson.username);
+            }
+        }
+    }, []);
+
 
     // Toggle the dropdown visibility
     const toggleDropdown = () => {
@@ -16,12 +34,29 @@ const AccountQuickLinks = () => {
         console.log(`Dropdown visibility: ${!dropdownVisible}`);
     };
 
+    const [loggedOut, setLoggedOut] = useState(false);
+
+    useEffect(() => {
+        if (loggedOut) {
+            window.location.reload();
+        }
+    }, [loggedOut]);
+
+
     // Handle logout logic
     const handleLogout = (e) => {
         e.preventDefault();
+        // localStorage.removeItem('authToken');
+        // localStorage.removeItem('isLoggedIn');
+        // localStorage.removeItem('userData');
         if (window.confirm('Are you sure you want to logout?')) {
-            localStorage.removeItem('user');
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('userData');
+            setLoggedOut(true)
+            router.push("/");
             dispatch(clearUser());
+            
         }
     };
 
@@ -62,9 +97,9 @@ const AccountQuickLinks = () => {
                 }}
             >
                 <i className="icon-user" style={{ fontSize: '20px' }} />
-                {isLoggedIn && user ? (
+                {authenticated ? (
                     <span>
-                        Welcome, {user.username || 'User'}{' '}
+                        Welcome, {adminName || 'User'}{' '}
                         <span style={{ fontSize: '14px', marginLeft: '5px' }}>▼</span>
                     </span>
                 ) : (
@@ -76,7 +111,7 @@ const AccountQuickLinks = () => {
             </div>
 
             {/* Dropdown Menu */}
-            {dropdownVisible && isLoggedIn && (
+            {dropdownVisible && authenticated && (
                 <div
                     className="ps-dropdown-menu"
                     style={{

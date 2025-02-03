@@ -15,22 +15,22 @@ const FooterSecond = ({ classes }) => (
                                     </h4>
                                     <ul className="ps-list--link">
                                         <li>
-                                            <Link href="/page/blank">
-                                                Policy
+                                            <Link href="/page/policy">
+                                                Privacy Policy
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href="/page/blank">
+                                            <Link href="/page/terms">
                                                 Term & Condition
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href="/page/blank">
+                                            <Link href="/page/shipping">
                                                 Shipping
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href="/page/blank">
+                                            <Link href="/page/return">
                                                 Return
                                             </Link>
                                         </li>
@@ -50,15 +50,11 @@ const FooterSecond = ({ classes }) => (
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link href="/product/affiliate">
+                                            <Link href="/page/affiliate">
                                                 Affilate
                                             </Link>
                                         </li>
-                                        <li>
-                                            <Link href="/page/blank">
-                                                Career
-                                            </Link>
-                                        </li>
+                                     
                                         <li>
                                             <Link href="/page/contact-us">
                                                 Contact

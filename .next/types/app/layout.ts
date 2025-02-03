@@ -1,4 +1,4 @@
-// File: C:\Users\xpres\Downloads\Ecom-from-Praveen\martfury-react-3.0.0.3\martfury-react-3.0.0.3\Mainweb\src\app\layout.jsx
+// File: C:\Users\xpres\Downloads\Ecom-from-Praveen\Mainweb\src\app\layout.jsx
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

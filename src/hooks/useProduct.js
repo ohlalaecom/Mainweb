@@ -22,6 +22,7 @@ export default function useProduct(product, productID) {
     );
 
     const productThumbnailImage = product?.thumbnail ? (
+        
         <Image
             src={getStrapiImageURL(product.thumbnail)}
             alt=""
@@ -29,6 +30,7 @@ export default function useProduct(product, productID) {
             width={200}
             height={200}
         />
+        
     ) : (
         <img src="https://placehold.co/400x400" alt="" />
     );
@@ -84,6 +86,7 @@ export default function useProduct(product, productID) {
     );
 
     return {
+        
         thumbnailImage: productThumbnailImage,
         price: productPrice,
         getHeadingPrice: productPrice,
@@ -91,5 +94,7 @@ export default function useProduct(product, productID) {
         brand: productBrand,
         title: productName,
         productName,
+        
     };
+    
 }

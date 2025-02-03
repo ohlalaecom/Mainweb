@@ -11128,27 +11128,27 @@ h6 a {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 30px;
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 22px;
 }
 
 h3 {
-  font-size: 24px;
-}
-
-h4 {
   font-size: 18px;
 }
 
+h4 {
+  font-size: 15px;
+}
+
 h5 {
-  font-size: 14px;
+  font-size: 12px;
 }
 
 h6 {
-  font-size: 12px;
+  font-size: 10px;
 }
 
 p {
@@ -14495,7 +14495,7 @@ textarea.form-control {
   background-color: #008b3e;
 }
 .ps-block--container-hightlight .ps-section__header h3 {
-  font-size: 22px;
+  font-size: 18px;
   margin-bottom: 0;
   font-weight: 600;
   color: #000;

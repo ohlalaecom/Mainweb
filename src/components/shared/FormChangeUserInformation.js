@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
 const FormChangeUserInformation = () => {
+    const [userData, setUserData] = useState(null);
+    const [selectedAddress, setSelectedAddress] = useState(null);
+    useEffect(() => {
+
+        // Retrieve user data from localStorage
+        const storedData = localStorage.getItem('userData');
+        if (storedData) {
+            setUserData(JSON.parse(storedData));
+        }
+
+        // Retrieve the selected address from localStorage
+        const storedAddress = localStorage.getItem('selectedAddress');
+        if (storedAddress) {
+            setSelectedAddress(JSON.parse(storedAddress));
+        }
+    }, []);
+
+    const contact = userData?.email;
     return (
         <form className="ps-form--account-setting">
             <div className="ps-form__header">
@@ -12,6 +31,7 @@ const FormChangeUserInformation = () => {
                         className="form-control"
                         type="text"
                         placeholder="Username or email address"
+
                     />
                 </div>
                 <div className="row">
