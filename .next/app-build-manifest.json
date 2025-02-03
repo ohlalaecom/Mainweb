@@ -77,6 +77,7 @@
       "static/css/app/category/[slug]/page.css",
       "static/chunks/app/category/[slug]/page.js"
     ],
+<<<<<<< HEAD
     "/account/checkout/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
@@ -84,6 +85,9 @@
       "static/chunks/app/account/checkout/page.js"
     ],
     "/account/shipping/page": [
+=======
+    "/product/[pid]/page": [
+>>>>>>> 502ff087ddba46b29ce7ecbbb27a27cc5f0f18d2
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/account/shipping/page.css",

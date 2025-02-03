@@ -106,6 +106,7 @@ const ModuleDetailShoppingActions = ({
                         />
                     </div>
                 </figure>
+
                 <a
                     className="ps-btn ps-btn--black"
                     href="#"
@@ -150,6 +151,7 @@ const ModuleDetailShoppingActions = ({
                             />
                         </div>
                     </figure>
+
                     <a
                         className="ps-btn ps-btn--black"
                         href="#"
