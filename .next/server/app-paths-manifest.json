@@ -1,15 +1,5 @@
 {
-<<<<<<< HEAD
-  "/page/contact-us/page": "app/page/contact-us/page.js",
-  "/category/[slug]/page": "app/category/[slug]/page.js",
-  "/account/checkout/page": "app/account/checkout/page.js",
-  "/account/shipping/page": "app/account/shipping/page.js",
-  "/account/payment/page": "app/account/payment/page.js",
-  "/page/privacypolicy/page": "app/page/privacypolicy/page.js"
-=======
-  "/page": "app/page.js",
-  "/category/[slug]/page": "app/category/[slug]/page.js",
   "/icon.png/route": "app/icon.png/route.js",
-  "/product/[pid]/page": "app/product/[pid]/page.js"
->>>>>>> 502ff087ddba46b29ce7ecbbb27a27cc5f0f18d2
+  "/category/[slug]/page": "app/category/[slug]/page.js",
+  "/page": "app/page.js"
 }

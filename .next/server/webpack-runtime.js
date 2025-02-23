@@ -130,11 +130,7 @@
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-<<<<<<< HEAD
-/******/ 		__webpack_require__.h = () => ("e53f095a23107901")
-=======
-/******/ 		__webpack_require__.h = () => ("f3204f17740ee532")
->>>>>>> 502ff087ddba46b29ce7ecbbb27a27cc5f0f18d2
+/******/ 		__webpack_require__.h = () => ("c60926636989e60a")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/harmony module decorator */
