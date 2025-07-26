@@ -24,7 +24,7 @@ export default function ProductScreen() {
 
                 // Fetch category details
                 const categoryResponse = await fetch(
-                    `https://strapi-app-tntk.onrender.com/api/product-categories?filters[slug][$eq]=${slug}`
+                    `http://157.230.29.110:1337/api/product-categories?filters[slug][$eq]=${slug}`
                 );
                 const categoryData = await categoryResponse.json();
                 const category = categoryData?.data?.[0]?.attributes || null;
@@ -33,9 +33,9 @@ export default function ProductScreen() {
                 // Fetch products associated with the category
                 if (category) {
                     // Fetch products associated with the category and include the thumbnail and images
-const productsResponse = await fetch(
-    `https://strapi-app-tntk.onrender.com/api/products?filters[product_categories][slug][$eq]=${slug}&populate[thumbnail]=true&populate[images]=true&populate[attributes]=true`
-);
+                    const productsResponse = await fetch(
+                        `http://157.230.29.110:1337/api/products?filters[product_categories][slug][$eq]=${slug}&populate[thumbnail]=true&populate[images]=true&populate[attributes]=true`
+                    );
 
                     const productsData = await productsResponse.json();
                     console.log('Fetched products checking:', productsData?.data);

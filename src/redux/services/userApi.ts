@@ -11,7 +11,7 @@ export const userApi = createApi({
   refetchOnFocus: true,
   baseQuery: fetchBaseQuery({
     // baseUrl: "https://jsonplaceholder.typicode.com/",
-    baseUrl: "https://strapi-app-tntk.onrender.com/api",
+    baseUrl: "http://157.230.29.110:1337/api",
   }),
   endpoints: (builder) => ({
     getUsers: builder.query<User[], null>({

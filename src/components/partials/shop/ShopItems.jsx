@@ -25,7 +25,7 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
         try {
             // alert(categorySlug);
             const response = await fetch(
-                `https://strapi-app-tntk.onrender.com/api/products?filters[product_categories][slug][$eq]=${categorySlug}`);
+                `http://157.230.29.110:1337/api/products?filters[product_categories][slug][$eq]=${categorySlug}`);
 
             const data = await response.json();
 

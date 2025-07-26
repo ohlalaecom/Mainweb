@@ -15,8 +15,8 @@ const CategoryProducts = () => {
             const fetchProducts = async () => {
                 try {
                     const response = await axios.get(
-                        //https://strapi-app-tntk.onrender.com/api/products?filters[Computers & Technologies][id][$eq]=5
-                        `https://strapi-app-tntk.onrender.com/api/products?filters[Computers & Technologies][id][$eq]=5`
+                        //http://157.230.29.110:1337/api/products?filters[Computers & Technologies][id][$eq]=5
+                        `http://157.230.29.110:1337/api/products?filters[Computers & Technologies][id][$eq]=5`
                     );
                     setProducts(response.data.data || []);
                     setLoading(false);

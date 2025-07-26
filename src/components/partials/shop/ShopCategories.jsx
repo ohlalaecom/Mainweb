@@ -20,7 +20,7 @@ const ShopCategories = () => {
     // Fetch categories from Strapi
     const fetchCategories = async () => {
         try {
-            const response = await fetch(`https://strapi-app-tntk.onrender.com/api/product-categories`);
+            const response = await fetch(`http://157.230.29.110:1337/api/product-categories`);
             const data = await response.json();
 
             // Transform response if needed
@@ -36,7 +36,7 @@ const ShopCategories = () => {
         try {
             //const formattedTitle = encodeURIComponent(categoryTitle); // Remove spaces
             const response = await fetch(
-                `https://strapi-app-tntk.onrender.com/api/products`
+                `http://157.230.29.110:1337/api/products`
             );
             const data = await response.json();
             // alert(data.data.length);

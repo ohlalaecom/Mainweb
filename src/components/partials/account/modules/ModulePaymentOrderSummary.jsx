@@ -20,14 +20,14 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
 
 
 
-   
-    
-      // Effect hook to watch for the triggerAction state change
-      useEffect(() => {
+
+
+    // Effect hook to watch for the triggerAction state change
+    useEffect(() => {
         if (triggerAction) {
             handleCheckboxChange(); // Call the function when triggered
         }
-      }, [triggerAction]);
+    }, [triggerAction]);
 
 
 
@@ -133,12 +133,12 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
     // Function to submit order data to Strapi and order details
     const submitOrderData = async () => {
         if (isSubmitting || !userId) return; // Prevent multiple submissions if userId is not available
-    
+
         setIsSubmitting(true); // Set submitting state to true to prevent re-triggering
-    
+
         // Generate a unique invoice number for each order
         const invoiceNo = `OH-LALA-${userId}-${new Date().getDate()}${new Date().getMonth() + 1}${new Date().getFullYear().toString().slice(-2)}-${Math.floor(Math.random() * 10000)}`;
-    
+
         // Create Order
         const orderPayload = {
             data: {
@@ -148,11 +148,11 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
                 description: 'Order Description', // Customize the description
             },
         };
-    
+
         try {
             // POST Request to create order
             const orderResponse = await axios.post(
-                'https://strapi-app-tntk.onrender.com/api/orders',
+                'http://157.230.29.110:1337/api/orders',
                 orderPayload,
                 {
                     headers: {
@@ -160,9 +160,9 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
                     },
                 }
             );
-            
+
             const order = orderResponse.data.data;  // Access data from the response correctly
-    
+
             if (order.id) {
                 // Create Order Details using order.id
                 const orderDetailsPromises = cartProducts.map(async (product) => {
@@ -178,10 +178,10 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
                             order: order.id, // Linking to the correct order
                         },
                     };
-    
+
                     // POST Request to create order detail
                     await axios.post(
-                        'https://strapi-app-tntk.onrender.com/api/order-details',
+                        'http://157.230.29.110:1337/api/order-details',
                         orderDetailPayload,
                         {
                             headers: {
@@ -190,10 +190,10 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
                         }
                     );
                 });
-    
+
                 // Wait for all order details to be inserted
                 await Promise.all(orderDetailsPromises);
-    
+
                 message.success('Order submitted successfully!');
             }
         } catch (error) {
@@ -204,7 +204,7 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
             setIsChecked(false); // Reset checkbox state after successful submission
         }
     };
-    
+
 
     // Handle checkbox change directly triggering submission logic
     const handleCheckboxChange = () => {

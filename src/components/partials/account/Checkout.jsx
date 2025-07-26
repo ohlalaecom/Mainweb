@@ -43,7 +43,7 @@ const Checkout = () => {
             try {
                 console.log("else lo try ");
                 const response = await axios.get(
-                    'https://strapi-app-tntk.onrender.com/api/auth/local',
+                    'http://157.230.29.110:1337/api/auth/local',
                     { withCredentials: true }
                 );
 

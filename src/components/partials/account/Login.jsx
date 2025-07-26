@@ -23,7 +23,7 @@ export default function Login() {
     const fetchLatestUserData = async (token) => {
         try {
             const response = await axios.get(
-                'https://strapi-app-tntk.onrender.com/api/users/me?populate=address,contact_1,contact_2,dob',
+                'http://157.230.29.110:1337/api/users/me?populate=address,contact_1,contact_2,dob',
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }
@@ -58,7 +58,7 @@ export default function Login() {
         try {
             const { username, password } = values;
             const response = await axios.post(
-                'https://strapi-app-tntk.onrender.com/api/auth/local',
+                'http://157.230.29.110:1337/api/auth/local',
                 { identifier: username, password }
             );
 
@@ -126,7 +126,7 @@ export default function Login() {
                                 type="primary"
                                 htmlType="submit"
                                 className="ps-btn ps-btn--fullwidth"
-                                style={{ height:"55px" }}
+                                style={{ height: "55px" }}
                                 loading={loading}
                             >
                                 {loading ? 'Logging In...' : 'Login'}

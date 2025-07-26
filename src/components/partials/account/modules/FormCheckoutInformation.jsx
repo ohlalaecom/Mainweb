@@ -5,7 +5,7 @@
 // import axios from 'axios';
 
 // const axiosInstance = axios.create({
-//     baseURL: 'https://strapi-app-tntk.onrender.com/api',
+//     baseURL: 'http://157.230.29.110:1337/api',
 //     withCredentials: true,
 // });
 
@@ -50,8 +50,8 @@
 //     const fetchAddresses = async (userId) => {
 //         try {
 //             const [userResponse, custAddressesResponse] = await Promise.all([
-//                 axios.get(`https://strapi-app-tntk.onrender.com/api/users/${userId}`),
-//                 axios.get('https://strapi-app-tntk.onrender.com/api/cust-addresses', { params: { userId } }),
+//                 axios.get(`http://157.230.29.110:1337/api/users/${userId}`),
+//                 axios.get('http://157.230.29.110:1337/api/cust-addresses', { params: { userId } }),
 //             ]);
 
 //             const userAddress = userResponse.data?.address ? [userResponse.data.address] : [];
@@ -75,7 +75,7 @@
 //         try {
 //             if (addNewAddress || !selectedAddress) {
 //                 console.log("WE ARE POSTING ADDRESSES");
-//                 await axios.post('https://strapi-app-tntk.onrender.com/api/cust-addresses', {
+//                 await axios.post('http://157.230.29.110:1337/api/cust-addresses', {
 //                     data: {
 //                         Address: values.Address,
 //                         Area: values.Area,
@@ -95,7 +95,7 @@
 //             //Update user details if fields are not pre-filled
 //             if (!userDetails.Contact_1 || !userDetails.dob || !userDetails.username || !userDetails.Contact_2) {
 //                 console.log("WE ARE TRYING TO UPDATE THE FIELDS NOW", userDetails.Contact_1, userDetails.Contact_2, userDetails.dob, userDetails.username);
-//                 await axios.put(`https://strapi-app-tntk.onrender.com/api/users/${userDetails.id}`, {
+//                 await axios.put(`http://157.230.29.110:1337/api/users/${userDetails.id}`, {
 //                     email: values.email || userDetails.email,
 //                     Contact_1: values.Contact_1 || userDetails.Contact_1,
 //                     Contact_2: values.Contact_2 || userDetails.Contact_2,
@@ -285,7 +285,7 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-    baseURL: 'https://strapi-app-tntk.onrender.com/api',
+    baseURL: 'http://157.230.29.110:1337/api',
     withCredentials: true,
 });
 
@@ -351,8 +351,8 @@ export default function FormCheckoutInformation({ onSubmit }) {
     const fetchAddresses = async (userId) => {
         try {
             const [userResponse, custAddressesResponse] = await Promise.all([
-                axios.get(`https://strapi-app-tntk.onrender.com/api/users/${userId}`),
-                axios.get('https://strapi-app-tntk.onrender.com/api/cust-addresses', { params: { userId } }),
+                axios.get(`http://157.230.29.110:1337/api/users/${userId}`),
+                axios.get('http://157.230.29.110:1337/api/cust-addresses', { params: { userId } }),
             ]);
 
             const userAddress = userResponse.data?.address ? [userResponse.data.address] : [];
@@ -377,7 +377,7 @@ export default function FormCheckoutInformation({ onSubmit }) {
 
             if (selectedAddress) {
                 console.log("WE ARE POSTING ADDRESSES", selectedAddress);
-                await axios.post('https://strapi-app-tntk.onrender.com/api/cust-addresses', {
+                await axios.post('http://157.230.29.110:1337/api/cust-addresses', {
                     data: {
                         Address: values.Address,
                         Area: values.Area,
@@ -390,7 +390,7 @@ export default function FormCheckoutInformation({ onSubmit }) {
 
                 });
                 const result = existingAddresses.find(item => item.id === selectedAddress);
-                console.log("result",result)
+                console.log("result", result)
 
 
                 localStorage.setItem("selectedAddress", JSON.stringify(result))
@@ -402,7 +402,7 @@ export default function FormCheckoutInformation({ onSubmit }) {
             //Update user details if fields are not pre-filled
             if (true) {
                 console.log("WE ARE TRYING TO UPDATE THE FIELDS NOW", userDetails.id, userDetails.Contact_1, userDetails.Contact_2, userDetails.username);
-                await axios.put(`https://strapi-app-tntk.onrender.com/api/users/${userDetails.id}`, {
+                await axios.put(`http://157.230.29.110:1337/api/users/${userDetails.id}`, {
                     email: userDetails.email,
                     Contact_1: userDetails.Contact_1,
                     Contact_2: userDetails.Contact_2,
