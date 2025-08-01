@@ -14,13 +14,13 @@ const nextSettings = {
     domains: [
       '127.0.0.1',
       'placehold.co',
-      'admin.jacobs-electronics.com', // ✅ Only the domain, no protocol
+      'admin.jacobs-electronics.com', 
     ],
     remotePatterns: [
       {
-        protocol: 'https', // ✅ Correct protocol
-        hostname: 'admin.jacobs-electronics.com', // ✅ No https://
-        pathname: '/uploads/**', // ✅ Correct path
+        protocol: 'https', 
+        hostname: 'admin.jacobs-electronics.com',
+        pathname: '/uploads/**',
       },
     ],
   },

@@ -1,46 +1,43 @@
-import React from 'react';
-import { useSelector } from 'react-redux'; // Import to access Redux state
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import FormChangeUserInformation from '~/components/shared/FormChangeUserInformation';
 
 const UserInformation = () => {
-    const { user, isLoggedIn } = useSelector((state) => state.user); // Get user info and login status from Redux
+    const { isLoggedIn } = useSelector((state) => state.user); // You can remove user if not using Redux for user
+    const [userData, setUserData] = useState(null);
+
+    useEffect(() => {
+        const fetchStrapiUser = async () => {
+            const token = typeof window !== 'undefined' && localStorage.getItem('token');
+
+            if (!token) return;
+
+            try {
+                const response = await axios.get('https://admin.jacobs-electronics.com/api/users/me', {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                });
+                setUserData(response.data);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        };
+
+        fetchStrapiUser();
+    }, []);
 
     const accountLinks = [
-        {
-            text: 'Account Information',
-            url: '/account/user-information',
-            icon: 'icon-user',
-            active: true,
-        },
-        {
-            text: 'Notifications',
-            url: '/account/notifications',
-            icon: 'icon-alarm-ringing',
-        },
-        {
-            text: 'Invoices',
-            url: '/account/invoices',
-            icon: 'icon-papers',
-        },
-        {
-            text: 'Address',
-            url: '/account/addresses',
-            icon: 'icon-map-marker',
-        },
-        {
-            text: 'Recent Viewed Product',
-            url: '/account/recent-viewed-product',
-            icon: 'icon-store',
-        },
-        {
-            text: 'Wishlist',
-            url: '/account/wishlist',
-            icon: 'icon-heart',
-        },
+        { text: 'Account Information', url: '/account/user-information', icon: 'icon-user', active: true },
+        { text: 'Notifications', url: '/account/notifications', icon: 'icon-alarm-ringing' },
+        { text: 'Invoices', url: '/account/invoices', icon: 'icon-papers' },
+        { text: 'Address', url: '/account/addresses', icon: 'icon-map-marker' },
+        { text: 'Recent Viewed Product', url: '/account/recent-viewed-product', icon: 'icon-store' },
+        { text: 'Wishlist', url: '/account/wishlist', icon: 'icon-heart' },
     ];
 
-    // Account links view
     const accountLinkView = accountLinks.map((item) => (
         <li key={item.text} className={item.active ? 'active' : ''}>
             <Link href={item.url}>
@@ -54,7 +51,6 @@ const UserInformation = () => {
         <section className="ps-my-account ps-page--account">
             <div className="container">
                 <div className="row">
-                    {/* Sidebar Section */}
                     <div className="col-lg-3">
                         <div className="ps-section__left">
                             <aside className="ps-widget--account-dashboard">
@@ -62,9 +58,9 @@ const UserInformation = () => {
                                     <img src="/static/img/users/3.jpg" alt="User" />
                                     <figure>
                                         <figcaption>
-                                            {isLoggedIn && user ? `Hello, ${user.username}` : 'Hello, Guest'}
+                                            {isLoggedIn && userData ? `Hello, ${userData.username}` : 'Hello, Guest'}
                                         </figcaption>
-                                        <p>{isLoggedIn && user ? user.email : 'Not logged in'}</p>
+                                        <p>{isLoggedIn && userData ? userData.email : 'Not logged in'}</p>
                                     </figure>
                                 </div>
                                 <div className="ps-widget__content">
@@ -82,10 +78,9 @@ const UserInformation = () => {
                         </div>
                     </div>
 
-                    {/* Main Content Section */}
                     <div className="col-lg-9">
                         <div className="ps-page__content">
-                            <FormChangeUserInformation />
+                            <FormChangeUserInformation user={userData} />
                         </div>
                     </div>
                 </div>

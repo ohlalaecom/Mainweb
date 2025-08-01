@@ -1,8 +1,7 @@
 {
-  "/account/shopping-cart/page": "app/account/shopping-cart/page.js",
-  "/account/checkout/page": "app/account/checkout/page.js",
+  "/account/user-information/page": "app/account/user-information/page.js",
+  "/account/notifications/page": "app/account/notifications/page.js",
   "/icon.png/route": "app/icon.png/route.js",
   "/page": "app/page.js",
-  "/account/shipping/page": "app/account/shipping/page.js",
-  "/account/user-information/page": "app/account/user-information/page.js"
+  "/product/[pid]/page": "app/product/[pid]/page.js"
 }

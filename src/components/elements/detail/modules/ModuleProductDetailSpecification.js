@@ -21,7 +21,7 @@ const ModuleProductDetailSpecification = ({ product }) => {
                 Report Abuse
             </Link>
             <p>
-                <strong>SKU:</strong> SF1133569600-1
+                <strong>SKU:</strong>
             </p>
             <p className="categories">
                 <strong>Categories:</strong>
@@ -29,9 +29,9 @@ const ModuleProductDetailSpecification = ({ product }) => {
             </p>
             <p className="tags">
                 <strong>Tags:</strong>
-                <Link href={'/shop'}>sofa</Link>
+                {/* <Link href={'/shop'}>sofa</Link>
                 <Link href={'/shop'}>technologies</Link>
-                <Link href={'/shop'}>wireless</Link>
+                <Link href={'/shop'}>wireless</Link> */}
             </p>
         </div>
     );

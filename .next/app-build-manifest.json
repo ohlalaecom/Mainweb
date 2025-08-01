@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/page": [
+    "/account/user-information/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/css/app/account/user-information/page.css",
+      "static/chunks/app/account/user-information/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -17,29 +17,23 @@
       "static/chunks/main-app.js",
       "static/chunks/app/template.js"
     ],
-    "/account/user-information/page": [
+    "/account/notifications/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/account/user-information/page.css",
-      "static/chunks/app/account/user-information/page.js"
+      "static/css/app/account/notifications/page.css",
+      "static/chunks/app/account/notifications/page.js"
     ],
-    "/account/shopping-cart/page": [
+    "/product/[pid]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/account/shopping-cart/page.css",
-      "static/chunks/app/account/shopping-cart/page.js"
+      "static/css/app/product/[pid]/page.css",
+      "static/chunks/app/product/[pid]/page.js"
     ],
-    "/account/checkout/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/account/checkout/page.css",
-      "static/chunks/app/account/checkout/page.js"
-    ],
-    "/account/shipping/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/account/shipping/page.css",
-      "static/chunks/app/account/shipping/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ]
   }
 }
