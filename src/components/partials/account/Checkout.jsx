@@ -1,4 +1,4 @@
-'use client'; // Mark this as a client component
+'use client';
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
@@ -9,120 +9,117 @@ import axios from 'axios';
 const Checkout = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const [isMounted, setIsMounted] = useState(false);
+    const [triggerAction, setTriggerAction] = useState(false);
     const router = useRouter();
 
-
-    const [triggerAction, setTriggerAction] = useState(false);
-
-    // Function to trigger the action in B.js
+    // Trigger callback for order summary update
     const handleActionInB = () => {
-        setTriggerAction(true); // Set trigger to true, indicating the action needs to be run
+        setTriggerAction(true);
     };
 
-
-    // useEffect for component mounting and checking authentication
-    useEffect(() => {
-        setIsMounted(true); // Ensure component is mounted
-        if (isMounted) {
-            checkAuthentication();
-        }
-    }, [isMounted]);
-
-    // Check authentication and handle redirection if not authenticated
+    // Check if user is authenticated
     const checkAuthentication = async () => {
-        const user = localStorage.getItem('userData'); // Check if the user is stored in localStorage
+        try {
+            const userData = localStorage.getItem('userData');
 
-        if (user) {
-
-            setIsAuthenticated(true);
-
-            setIsLoading(false);
-        } else {
-            console.log("idi else stage");
-            try {
-                console.log("else lo try ");
-                const response = await axios.get(
-                    'http://157.230.29.110:1337/api/auth/local',
-                    { withCredentials: true }
-                );
+            if (userData) {
+                setIsAuthenticated(true);
+            } else {
+                // Try server-based auth check (fallback)
+                const response = await axios.get('https://admin.jacobs-electronics.com/api/auth/local', {
+                    withCredentials: true
+                });
 
                 if (response.data?.user) {
-
-                    localStorage.setItem('user', JSON.stringify(response.data.user)); // Save user info
+                    localStorage.setItem('userData', JSON.stringify(response.data.user));
                     setIsAuthenticated(true);
                 } else {
-                    console.log("idi final else ");
                     redirectToLogin();
                 }
-            } catch (error) {
-
-                console.error('Error checking authentication:', error);
-                redirectToLogin();
-            } finally {
-                setIsLoading(false);
             }
+        } catch (error) {
+            console.error('Auth error:', error);
+            redirectToLogin();
+        } finally {
+            setIsLoading(false);
         }
     };
 
-    // Redirect the user to the login page with a redirect URL after successful login
+    // Redirect to login page with intended return URL
     const redirectToLogin = () => {
-
-        const redirectUrl = encodeURIComponent('/account/checkout'); // Save the current URL account/checkout
-        router.push(`/account/login?redirect=${redirectUrl}`); // Redirect to login with redirect URL 
+        const redirectUrl = encodeURIComponent('/account/checkout');
+        router.push(`/account/login?redirect=${redirectUrl}`);
     };
 
-    // useEffect for handling redirection after authentication
+    // On mount, check authentication
+    useEffect(() => {
+        checkAuthentication();
+    }, []);
+
+    // Once authenticated, clean up `redirect` from URL
     useEffect(() => {
         if (isAuthenticated) {
-
-            const queryParams = new URLSearchParams(window.location.search);
-            const redirectTo = queryParams.get('redirect') || '/'; // Default to home if no redirect parameter exists
             const url = new URL(window.location.href);
-            url.searchParams.delete('redirect'); // Remove the redirect parameter from the URL
-
-            window.history.pushState({}, '', url);
-
-            router.push("/account/checkout"); // Redirect user after successful login
-
+            if (url.searchParams.has('redirect')) {
+                url.searchParams.delete('redirect');
+                window.history.replaceState({}, '', url.toString());
+            }
         }
-    }, [isAuthenticated, router]);
+    }, [isAuthenticated]);
 
-    if (!isMounted) return null; // Prevent rendering while the component is mounting
-
-    // Show loading state while checking authentication
+    // While loading
     if (isLoading) {
         return (
-            <div className="ps-checkout-loading">
+            <div className="ps-checkout-loading" style={{ textAlign: 'center', padding: '60px 0' }}>
                 <p>Loading...</p>
             </div>
         );
     }
 
-    // If not authenticated, return null and prevent rendering the checkout page
-    if (!isAuthenticated) {
-        return null;
-    }
+    // Block rendering if not authenticated
+    if (!isAuthenticated) return null;
 
-    // Return the checkout page content if authenticated
-    return (
-        <div className="ps-checkout ps-section--shopping">
-            <div className="container">
-                <div className="ps-section__header">
-                    <h2>Checkout Information</h2>
-                </div>
-                <div className="ps-section__content">
-                    <div className="ps-form--checkout">
-                        <div className="ps-form__content">
-                            <div className="row">
-                                <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+    // Render checkout layout
+return (
+    <div className="ps-checkout ps-section--shopping" style={{ backgroundColor: '#f7f9fc', paddingTop: 30, paddingBottom: 60 }}>
+        <div className="container">
+            <div className="ps-section__header" style={{ marginBottom: 10 }}>
+                <h2 style={{ fontSize: '28px', fontWeight: '600', marginBottom: 0, paddingBottom: 0 }}>Checkout Information</h2>
+            </div>
+
+            <div className="ps-section__content">
+                <div className="ps-form--checkout">
+                    <div className="ps-form__content">
+                        <div className="row">
+                            {/* Left Column */}
+                            <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+                                <div
+                                    style={{
+                                        background: '#fff',
+                                        border: '1px solid #e0e0e0',
+                                        borderRadius: 12,
+                                        padding: '24px',
+                                        boxShadow: '0 1px 6px rgba(0, 0, 0, 0.05)',
+                                    }}
+                                >
                                     <FormCheckoutInformation onSubmit={handleActionInB} />
                                 </div>
-                                <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 ps-block--checkout-order">
-                                    <div className="ps-form__orders">
-                                        <h3>Your Order</h3>
-                                        <ModulePaymentOrderSummary triggerAction={triggerAction} />
-                                    </div>
+                            </div>
+
+                            {/* Right Column */}
+                            <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                                <div
+                                    className="ps-form__orders"
+                                    style={{
+                                        background: '#fff',
+                                        border: '1px solid #e0e0e0',
+                                        borderRadius: 12,
+                                        padding: '24px',
+                                        boxShadow: '0 1px 6px rgba(0, 0, 0, 0.05)',
+                                    }}
+                                >
+                                    <h3 style={{ fontSize: '22px', fontWeight: '500', marginBottom: 20 }}>Your Order</h3>
+                                    <ModulePaymentOrderSummary triggerAction={triggerAction} />
                                 </div>
                             </div>
                         </div>
@@ -130,7 +127,9 @@ const Checkout = () => {
                 </div>
             </div>
         </div>
-    );
+    </div>
+)
+
 };
 
 export default Checkout;

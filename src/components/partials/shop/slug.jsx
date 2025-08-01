@@ -17,7 +17,7 @@ export async function getServerSideProps({ params }) {
     const { slug } = params;
     try {
         // Fetch category data based on slug from your API
-        const res = await fetch(`http://157.230.29.110:1337/api/product-categories?slug=${slug}`);
+        const res = await fetch(`https://admin.jacobs-electronics.com/api/product-categories?slug=${slug}`);
         const data = await res.json();
 
         // If the category is found

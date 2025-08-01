@@ -25,7 +25,7 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
         try {
             // alert(categorySlug);
             const response = await fetch(
-                `http://157.230.29.110:1337/api/products?filters[product_categories][slug][$eq]=${categorySlug}`);
+                `https://admin.jacobs-electronics.com/api/products?filters[product_categories][slug][$eq]=${categorySlug}`);
 
             const data = await response.json();
 

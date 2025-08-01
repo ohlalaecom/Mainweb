@@ -4,7 +4,7 @@ const nextSettings = {
     ignoreDuringBuilds: true,
   },
   env: {
-    title: 'Ohlala Online Shop',
+    title: 'Jacobs Electronics',
     titleDescription: 'Elevate Everyday',
   },
   experimental: {
@@ -14,14 +14,13 @@ const nextSettings = {
     domains: [
       '127.0.0.1',
       'placehold.co',
-      '157.230.29.110', // ✅ New IP for your Strapi server
+      'admin.jacobs-electronics.com', // ✅ Only the domain, no protocol
     ],
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: '157.230.29.110', // ✅ Matches your DigitalOcean backend
-        port: '1337',
-        pathname: '/uploads/**', // ✅ Typical upload path in Strapi
+        protocol: 'https', // ✅ Correct protocol
+        hostname: 'admin.jacobs-electronics.com', // ✅ No https://
+        pathname: '/uploads/**', // ✅ Correct path
       },
     ],
   },

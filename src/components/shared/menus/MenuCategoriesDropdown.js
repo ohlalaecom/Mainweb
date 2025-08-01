@@ -18,7 +18,7 @@ const MenuCategoriesDropdown = () => {
     // Function to fetch products based on category ID
     const fetchProducts = async (categoryId) => {
         try {
-            const url = `http://157.230.29.110:1337/api/products?filters[category][id]=${categoryId}`;
+            const url = `https://admin.jacobs-electronics.com/api/products?filters[category][id]=${categoryId}`;
             console.log('Fetching products with URL:', url); // Log the URL for debugging
 
             const response = await fetch(url);
@@ -42,7 +42,7 @@ const MenuCategoriesDropdown = () => {
     useEffect(() => {
         const fetchMenuData = async () => {
             try {
-                const response = await fetch('http://157.230.29.110:1337/api/product-categories');
+                const response = await fetch('https://admin.jacobs-electronics.com/api/product-categories');
                 const data = await response.json();
 
                 console.log('API Response:', data); // Debug response

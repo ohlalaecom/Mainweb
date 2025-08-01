@@ -21,7 +21,7 @@
 //         setLoading(true);
 //         try {
 //             // Strapi API endpoint for Customers
-//             const response = await axios.post('http://157.230.29.110:1337/api/customers', {
+//             const response = await axios.post('https://admin.jacobs-electronics.com/api/customers', {
 //                 data: {
 //                     email: values.Email,
 //                     password: values.password,
@@ -158,7 +158,7 @@ export default function Register() {
         try {
             console.log('Registering user...');
             const response = await axios.post(
-                'http://157.230.29.110:1337/api/auth/local/register',
+                'https://admin.jacobs-electronics.com/api/auth/local/register',
                 {
                     username: values.Email, // Use email as the username
                     email: values.Email,

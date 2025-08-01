@@ -20,7 +20,7 @@ export default function DesktopNavigation() {
     // Fetch categories from the API
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://157.230.29.110:1337/api/product-categories');
+            const response = await fetch('https://admin.jacobs-electronics.com/api/product-categories');
             const data = await response.json();
             if (data && data.data) {
                 const transformedCategories = data.data.map((category) => ({

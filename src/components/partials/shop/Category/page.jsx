@@ -13,7 +13,7 @@ const ShopCategoryPage = () => {
     // Fetch categories from Strapi
     const fetchCategories = async () => {
         try {
-            const response = await fetch('http://157.230.29.110:1337/api/product-categories');
+            const response = await fetch('https://admin.jacobs-electronics.com/api/product-categories');
             const data = await response.json();
             setCategories(data.data || []);
         } catch (error) {
@@ -26,7 +26,7 @@ const ShopCategoryPage = () => {
         setLoading(true);
         try {
             const response = await fetch(
-                `http://157.230.29.110:1337/api/products?filters[category][slug]=${categorySlug}`
+                `https://admin.jacobs-electronics.com/api/products?filters[category][slug]=${categorySlug}`
             );
             const data = await response.json();
             setProducts(data.data || []);

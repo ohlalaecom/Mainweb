@@ -13,7 +13,7 @@ const CategoryPage = ({ params }) => {
         if (!slug) return;  // Wait for slug to be available
 
         try {
-            const categoryResponse = await fetch(`http://157.230.29.110:1337/api/product-categories?filters[slug][$eq]=${slug}`);
+            const categoryResponse = await fetch(`https://admin.jacobs-electronics.com/api/product-categories?filters[slug][$eq]=${slug}`);
             const categoryData = await categoryResponse.json();
 
             if (categoryData && categoryData.data && categoryData.data.length > 0) {
@@ -35,7 +35,7 @@ const CategoryPage = ({ params }) => {
 
         try {
             // alert(categorySlug);
-            const productResponse = await fetch(`http://157.230.29.110:1337/api/products?filters[product_categories][slug][$eq]=${categorySlug}`);
+            const productResponse = await fetch(`https://admin.jacobs-electronics.com/api/products?filters[product_categories][slug][$eq]=${categorySlug}`);
 
             const productData = await productResponse.json();
 

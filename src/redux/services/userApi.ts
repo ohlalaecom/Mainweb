@@ -11,7 +11,7 @@ export const userApi = createApi({
   refetchOnFocus: true,
   baseQuery: fetchBaseQuery({
     // baseUrl: "https://jsonplaceholder.typicode.com/",
-    baseUrl: "http://157.230.29.110:1337/api",
+    baseUrl: "https://admin.jacobs-electronics.com/api",
   }),
   endpoints: (builder) => ({
     getUsers: builder.query<User[], null>({

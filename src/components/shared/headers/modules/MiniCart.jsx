@@ -32,24 +32,28 @@ const MiniCart = () => {
     }, [cartItems]);
 
     // Map products with fallback image handling
-    const cartProducts = useMemo(() => {
-        if (!products || products.length === 0) return [];
-        return products.map((product) => {
+const cartProducts = useMemo(() => {
+    if (!products || products.length === 0) return [];
+    return products
+        .map((product) => {
             const thumbnail =
                 product.attributes.thumbnail &&
                 getStrapiImageURL(product.attributes.thumbnail);
+
+            const quantity =
+                cartItems.find((item) => item.id === product.id)?.quantity ?? 0;
 
             return {
                 id: product.id,
                 title: product.attributes.title || 'Untitled Product',
                 slug: product.attributes.slug || 'untitled-product',
-                thumbnailImage: thumbnail || 'https://via.placeholder.com/400', // Fallback image
+                thumbnailImage: thumbnail || 'https://via.placeholder.com/400',
                 price: product.attributes.price || 0,
-                quantity:
-                    cartItems.find((item) => item.id === product.id)?.quantity ?? 0,
+                quantity: quantity,
             };
-        });
-    }, [products, cartItems]);
+        })
+        .filter((item) => item.quantity > 0); // 👈 Remove items with 0 quantity
+}, [products, cartItems]);
 
     // Calculate total amount
     const cartAmount = useMemo(() => calculateAmount(cartProducts), [cartProducts]);
@@ -85,7 +89,8 @@ const MiniCart = () => {
                                     <p>Price: ${product.price}</p>
                                     <p>Quantity: {product.quantity}</p>
                                     <button
-                                        className="remove-item"
+                                        className="remove-item btn btn-danger"
+                                        style={{padding: "10px", fontSize:"18px", width:"100px"}}
                                         onClick={(e) => handleRemoveItem(e, product.id)}>
                                         Remove
                                     </button>
@@ -97,10 +102,10 @@ const MiniCart = () => {
                                 Sub Total: <strong>${cartAmount}</strong>
                             </h3>
                             <figure>
-                                <Link href="/account/shopping-cart" className="ps-btn">
+                                <Link href="/account/shopping-cart" className="ps-btn" style={{color: "white"}}>
                                     View Cart
                                 </Link>
-                                <Link href="/account/checkout" className="ps-btn">
+                                <Link href="/account/checkout" className="ps-btn" style={{color: "white"}}>
                                     Checkout
                                 </Link>
                             </figure>

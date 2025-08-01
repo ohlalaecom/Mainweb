@@ -20,7 +20,7 @@ const ShopCategories = () => {
     // Fetch categories from Strapi
     const fetchCategories = async () => {
         try {
-            const response = await fetch(`http://157.230.29.110:1337/api/product-categories`);
+            const response = await fetch(`https://admin.jacobs-electronics.com/api/product-categories`);
             const data = await response.json();
 
             // Transform response if needed
@@ -36,7 +36,7 @@ const ShopCategories = () => {
         try {
             //const formattedTitle = encodeURIComponent(categoryTitle); // Remove spaces
             const response = await fetch(
-                `http://157.230.29.110:1337/api/products`
+                `https://admin.jacobs-electronics.com/api/products`
             );
             const data = await response.json();
             // alert(data.data.length);
@@ -66,7 +66,7 @@ const ShopCategories = () => {
     return (
         <div className="ps-shop-categories">
             <h2>Shop Categories</h2>
-            <div className="row align-content-lg-stretch">
+            {/* <div className="row align-content-lg-stretch">
                 {categories.map((category) => (
                     <div
                         className="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-12"
@@ -86,7 +86,7 @@ const ShopCategories = () => {
                         </div>
                     </div>
                 ))}
-            </div>
+            </div> */}
 
             {loading && <div>Loading products...</div>} {/* Show loading state */}
             {selectedCategory && !loading && (

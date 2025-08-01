@@ -42,13 +42,20 @@ export const ecommerce = createSlice({
                 cartItem.quantity += 1;
             }
         },
-        decreaseItemQty: (state, action) => {
-            const itemId = action.payload;
-            const cartItem = state.cartItems.find((item) => item.id === itemId);
-            if (cartItem && cartItem.quantity > 1) {
-                cartItem.quantity -= 1;
-            }
-        },
+       decreaseItemQty: (state, action) => {
+    const itemId = action.payload;
+    const cartItemIndex = state.cartItems.findIndex((item) => item.id === itemId);
+
+    if (cartItemIndex !== -1) {
+        if (state.cartItems[cartItemIndex].quantity > 1) {
+            state.cartItems[cartItemIndex].quantity -= 1;
+        } else {
+            // Remove item from cartItems if quantity is 1
+            state.cartItems.splice(cartItemIndex, 1);
+        }
+    }
+},
+
     },
 });
 

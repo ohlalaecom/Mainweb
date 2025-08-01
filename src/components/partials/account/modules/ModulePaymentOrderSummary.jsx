@@ -16,25 +16,12 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
     const [isChecked, setIsChecked] = useState(false); // State for checkbox
     const [isSubmitting, setIsSubmitting] = useState(false); // To track submission state
     const [userId, setUserId] = useState(null); // State to store userId
-
-
-
-
-
-
     // Effect hook to watch for the triggerAction state change
     useEffect(() => {
         if (triggerAction) {
             handleCheckboxChange(); // Call the function when triggered
         }
     }, [triggerAction]);
-
-
-
-
-
-
-
     // Get cart products
     function getCartProducts() {
         if (cartItems.length > 0) {
@@ -144,7 +131,7 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
             data: {
                 Invoice_No: invoiceNo,
                 OrderDate: new Date().toISOString(),
-                customer: userId,
+                users_permissions_user: userId,
                 description: 'Order Description', // Customize the description
             },
         };
@@ -152,7 +139,7 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
         try {
             // POST Request to create order
             const orderResponse = await axios.post(
-                'http://157.230.29.110:1337/api/orders',
+                'https://admin.jacobs-electronics.com/api/orders',
                 orderPayload,
                 {
                     headers: {
@@ -181,7 +168,7 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
 
                     // POST Request to create order detail
                     await axios.post(
-                        'http://157.230.29.110:1337/api/order-details',
+                        'https://admin.jacobs-electronics.com/api/order-details',
                         orderDetailPayload,
                         {
                             headers: {

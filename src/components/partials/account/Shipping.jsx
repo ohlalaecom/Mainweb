@@ -34,64 +34,59 @@ const Shipping = () => {
     const shippingCost = userData?.shippingCost || defaultData.shippingCost;
 
     return (
-        <div className="ps-checkout ps-section--shopping">
-            <div className="container">
-                <div className="ps-section__header">
-                    <h2 style={{ fontSize: '36px' }}>Shipping Information</h2>
+  <div className="ps-checkout ps-section--shopping checkout-green-theme">
+    <div className="container">
+        <div className="ps-section__header">
+            <h2 style={{ fontSize: '33px' }}>Shipping Information</h2>
+        </div>
+        <div className="ps-section__content">
+            <div className="row">
+                <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+                    <div className="ps-block--shipping shipping-box">
+                        <div className="ps-block__panel section-box">
+                            <figure>
+                                <small>Contact</small>
+                                <p>{contact}</p>
+                                <Link href="/account/checkout">Change</Link>
+                            </figure>
+                            <figure>
+                                <small>Ship to</small>
+                                <p>
+                                    {selectedAddress
+                                        ? `${selectedAddress.attributes.Address}, ${selectedAddress.attributes.Area}, ${selectedAddress.attributes.City}, ${selectedAddress.attributes.Country}, Postal Code: ${selectedAddress.attributes.Postal_Code}`
+                                        : 'No address selected'}
+                                </p>
+                                <Link href="/account/checkout">Change</Link>
+                            </figure>
+                        </div>
+                        <h4>Shipping Method</h4>
+                        <div className="ps-block__panel section-box">
+                            <figure>
+                                <small>{shippingMethod}</small>
+                                <strong>{shippingCost}</strong>
+                            </figure>
+                        </div>
+                        <div className="ps-block__footer">
+                            <Link href="/account/checkout">
+                                <i className="icon-arrow-left mr-2" />
+                                Return to information
+                            </Link>
+                            <Link href="/account/payment" className="ps-btn ps-btn--green">
+                                Continue to payment
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-                <div className="ps-section__content">
-                    <div className="row">
-                        <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12">
-                            <div className="ps-block--shipping">
-                                <div className="ps-block__panel">
-                                    <figure>
-                                        <small>Contact</small>
-                                        <p>{contact}</p>
-                                        <Link href="/account/checkout">
-                                            Change
-                                        </Link>
-                                    </figure>
-                                    <figure>
-                                        <small>Ship to</small>
-                                        <p>
-                                            {selectedAddress
-                                                ? `${selectedAddress.attributes.Address}, ${selectedAddress.attributes.Area}, ${selectedAddress.attributes.City}, ${selectedAddress.attributes.Country}, Postal Code: ${selectedAddress.attributes.Postal_Code}`
-                                                : 'No address selected'}
-                                        </p>
-                                        <Link href="/account/checkout">
-                                            Change
-                                        </Link>
-                                    </figure>
-                                </div>
-                                <h4>Shipping Method</h4>
-                                <div className="ps-block__panel">
-                                    <figure>
-                                        <small>{shippingMethod}</small>
-                                        <strong>{shippingCost}</strong>
-                                    </figure>
-                                </div>
-                                <div className="ps-block__footer">
-                                    <Link href="/account/checkout">
-                                        <i className="icon-arrow-left mr-2" />
-                                        Return to information
-                                    </Link>
-                                    <Link
-                                        href="/account/payment"
-                                        className="ps-btn">
-                                        Continue to payment
-                                    </Link>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12  ps-block--checkout-order">
-                            <div className="ps-form__orders">
-                                <ModulePaymentOrderSummary shipping={true} />
-                            </div>
-                        </div>
+                <div className="col-xl-4 col-lg-4 col-md-12 col-sm-12 ps-block--checkout-order">
+                    <div className="ps-form__orders order-summary-box">
+                        <ModulePaymentOrderSummary shipping={true} />
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
     );
 };
 

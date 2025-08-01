@@ -23,7 +23,7 @@ export default function Login() {
     const fetchLatestUserData = async (token) => {
         try {
             const response = await axios.get(
-                'http://157.230.29.110:1337/api/users/me?populate=address,contact_1,contact_2,dob',
+                'https://admin.jacobs-electronics.com/api/users/me?populate=address,contact_1,contact_2,dob',
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }
@@ -58,7 +58,7 @@ export default function Login() {
         try {
             const { username, password } = values;
             const response = await axios.post(
-                'http://157.230.29.110:1337/api/auth/local',
+                'https://admin.jacobs-electronics.com/api/auth/local',
                 { identifier: username, password }
             );
 

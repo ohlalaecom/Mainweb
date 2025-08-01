@@ -26,7 +26,7 @@ class PanelMenu extends Component {
     // Fetch categories from the API
     fetchCategories = async () => {
         try {
-            const response = await fetch('http://157.230.29.110:1337/api/product-categories');
+            const response = await fetch('https://admin.jacobs-electronics.com/api/product-categories');
             const data = await response.json();
             if (data?.data) {
                 const transformedCategories = data.data.map((category) => ({
@@ -52,7 +52,7 @@ class PanelMenu extends Component {
         this.setState({ fetchingProducts: categoryId });
 
         try {
-            const url = `http://157.230.29.110:1337/api/products?filters[category][id]=${categoryId}`;
+            const url = `https://admin.jacobs-electronics.com/api/products?filters[category][id]=${categoryId}`;
             const response = await fetch(url);
             const data = await response.json();
 

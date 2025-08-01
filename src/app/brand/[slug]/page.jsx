@@ -24,7 +24,7 @@ export default function BrandPage() {
 
                 // Fetch brand details
                 const brandResponse = await fetch(
-                    `http://157.230.29.110:1337/api/product-brands?filters[slug][$eq]=${slug}`
+                    `https://admin.jacobs-electronics.com/api/product-brands?filters[slug][$eq]=${slug}`
                 );
                 const brandData = await brandResponse.json();
                 const brand = brandData?.data?.[0]?.attributes || null;
@@ -33,7 +33,7 @@ export default function BrandPage() {
                 // Fetch products associated with the brand
                 if (brand) {
                     const productsResponse = await fetch(
-                        `http://157.230.29.110:1337/api/products?filters[product_brand][slug][$eq]=${slug}&populate[thumbnail]=true&populate[images]=true&populate[attributes]=true`
+                        `https://admin.jacobs-electronics.com/api/products?filters[product_brand][slug][$eq]=${slug}&populate[thumbnail]=true&populate[images]=true&populate[attributes]=true`
                     );
                     const productsData = await productsResponse.json();
                     setProducts(productsData?.data || []);
