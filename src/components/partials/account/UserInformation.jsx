@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import FormChangeUserInformation from '~/components/shared/FormChangeUserInformation';
 
 const UserInformation = () => {
-    const { isLoggedIn } = useSelector((state) => state.user); // You can remove user if not using Redux for user
     const [userData, setUserData] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const fetchStrapiUser = async () => {
-            const token = typeof window !== 'undefined' && localStorage.getItem('token');
-
+        const fetchUser = async () => {
+            const token = localStorage.getItem('authToken');
             if (!token) return;
 
             try {
@@ -21,12 +19,14 @@ const UserInformation = () => {
                     },
                 });
                 setUserData(response.data);
+                setIsLoading(false);
             } catch (error) {
                 console.error('Error fetching user data:', error);
+                setIsLoading(false);
             }
         };
 
-        fetchStrapiUser();
+        fetchUser();
     }, []);
 
     const accountLinks = [
@@ -51,6 +51,7 @@ const UserInformation = () => {
         <section className="ps-my-account ps-page--account">
             <div className="container">
                 <div className="row">
+                    {/* Sidebar */}
                     <div className="col-lg-3">
                         <div className="ps-section__left">
                             <aside className="ps-widget--account-dashboard">
@@ -58,9 +59,9 @@ const UserInformation = () => {
                                     <img src="/static/img/users/3.jpg" alt="User" />
                                     <figure>
                                         <figcaption>
-                                            {isLoggedIn && userData ? `Hello, ${userData.username}` : 'Hello, Guest'}
+                                            {isLoading ? 'Loading...' : userData ? `Hello, ${userData.username}` : 'Guest'}
                                         </figcaption>
-                                        <p>{isLoggedIn && userData ? userData.email : 'Not logged in'}</p>
+                                        <p>{userData ? userData.email : 'Not logged in'}</p>
                                     </figure>
                                 </div>
                                 <div className="ps-widget__content">
@@ -78,9 +79,14 @@ const UserInformation = () => {
                         </div>
                     </div>
 
+                    {/* Main content */}
                     <div className="col-lg-9">
                         <div className="ps-page__content">
-                            <FormChangeUserInformation user={userData} />
+                            {userData ? (
+                                <FormChangeUserInformation user={userData} />
+                            ) : (
+                                <p>Please log in to view your account information.</p>
+                            )}
                         </div>
                     </div>
                 </div>

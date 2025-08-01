@@ -1,10 +1,10 @@
 {
   "pages": {
-    "/account/user-information/page": [
+    "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/account/user-information/page.css",
-      "static/chunks/app/account/user-information/page.js"
+      "static/css/app/page.css",
+      "static/chunks/app/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -17,11 +17,29 @@
       "static/chunks/main-app.js",
       "static/chunks/app/template.js"
     ],
+    "/account/user-information/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/account/user-information/page.css",
+      "static/chunks/app/account/user-information/page.js"
+    ],
+    "/account/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/account/login/page.css",
+      "static/chunks/app/account/login/page.js"
+    ],
     "/account/notifications/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/account/notifications/page.css",
       "static/chunks/app/account/notifications/page.js"
+    ],
+    "/account/addresses/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/account/addresses/page.css",
+      "static/chunks/app/account/addresses/page.js"
     ],
     "/product/[pid]/page": [
       "static/chunks/webpack.js",
@@ -29,11 +47,23 @@
       "static/css/app/product/[pid]/page.css",
       "static/chunks/app/product/[pid]/page.js"
     ],
-    "/page": [
+    "/account/checkout/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/page.css",
-      "static/chunks/app/page.js"
+      "static/css/app/account/checkout/page.css",
+      "static/chunks/app/account/checkout/page.js"
+    ],
+    "/shop/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/shop/page.css",
+      "static/chunks/app/shop/page.js"
+    ],
+    "/category/[slug]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/category/[slug]/page.css",
+      "static/chunks/app/category/[slug]/page.js"
     ]
   }
 }

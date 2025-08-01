@@ -1,7 +1,14 @@
-import React from 'react';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import axios from 'axios';
 
 export default function Addresses() {
+    const [addresses, setAddresses] = useState([]);
+    const [userId, setUserId] = useState(null);
+    const [userEmail, setUserEmail] = useState(null);
+
     const accountLinks = [
         {
             text: 'Account Information',
@@ -14,31 +21,81 @@ export default function Addresses() {
             url: '/account/notifications',
             icon: 'icon-alarm-ringing',
         },
-        {
-            text: 'Invoices',
-            url: '/account/invoices',
-            icon: 'icon-papers',
-        },
-        {
-            text: 'Address',
-            url: '/account/addresses',
-            icon: 'icon-map-marker',
-        },
+        { text: 'Invoices', url: '/account/invoices', icon: 'icon-papers' },
+        { text: 'Address', url: '/account/addresses', icon: 'icon-map-marker' },
         {
             text: 'Recent Viewed Product',
             url: '/account/recent-viewed-product',
             icon: 'icon-store',
         },
-        {
-            text: 'Wishlist',
-            url: '/account/wishlist',
-            icon: 'icon-heart',
-        },
+        { text: 'Wishlist', url: '/account/wishlist', icon: 'icon-heart' },
     ];
+
+    // Get user ID from localStorage
+    useEffect(() => {
+        const userData = localStorage.getItem('userData');
+        if (userData) {
+            try {
+                const parsed = JSON.parse(userData);
+                if (parsed?.id) {
+                    console.log("User ID from localStorage:", parsed.id);
+                    setUserId(parsed.id);
+                    setUserEmail(parsed.email);
+                }
+            } catch (err) {
+                console.error('Error parsing userData:', err);
+            }
+        }
+    }, []);
+
+    // Fetch addresses for this user
+    useEffect(() => {
+        if (!userId) return;
+
+        async function fetchAddresses() {
+            try {
+                const response = await axios.get(
+                    `https://admin.jacobs-electronics.com/api/cust-addresses?filters[users_permissions_user][id][$eq]=${userId}`,
+                    { withCredentials: true }
+                );
+
+                console.log('Fetched address data:', response.data);
+
+                const fetchedData = response.data?.data || [];
+
+                const normalizedAddresses = fetchedData.map((item) => ({
+                    id: item.id,
+                    ...item.attributes,
+                }));
+
+                setAddresses(normalizedAddresses);
+            } catch (error) {
+                console.error('Error fetching addresses:', error);
+            }
+        }
+
+        fetchAddresses();
+    }, [userId]);
+
+    // Renders a single address block
+    const renderAddress = (address, index) => (
+        <figure key={index} className="ps-block--address mb-4">
+            <figcaption>Address {index + 1}</figcaption>
+            <div className="ps-block__content">
+                <p>{address?.Address}</p>
+                <p>{address?.Area}</p>
+                <p>{address?.City}, {address?.Postal_Code}</p>
+                <p>{address?.Country}</p>
+                <Link href={`/account/edit-address/${address.id}`}>Edit</Link>
+            </div>
+        </figure>
+    );
+
     return (
         <section className="ps-my-account ps-page--account">
             <div className="container">
                 <div className="row">
+                    {/* Sidebar */}
                     <div className="col-lg-4">
                         <div className="ps-section__left">
                             <aside className="ps-widget--account-dashboard">
@@ -46,17 +103,13 @@ export default function Addresses() {
                                     <img src="/static/img/users/3.jpg" />
                                     <figure>
                                         <figcaption>Hello</figcaption>
-                                        <p>username@gmail.com</p>
+                                        <p>{userEmail}</p>
                                     </figure>
                                 </div>
                                 <div className="ps-widget__content">
                                     <ul>
                                         {accountLinks.map((link) => (
-                                            <li
-                                                key={link.text}
-                                                className={
-                                                    link.active ? 'active' : ''
-                                                }>
+                                            <li key={link.text} className={link.active ? 'active' : ''}>
                                                 <Link href={link.url}>
                                                     <i className={link.icon} />
                                                     {link.text}
@@ -74,43 +127,22 @@ export default function Addresses() {
                             </aside>
                         </div>
                     </div>
+
+                    {/* Address Content */}
                     <div className="col-lg-8">
                         <div className="ps-section--account-setting">
                             <div className="ps-section__content">
-                                <div className="row">
-                                    <div className="col-md-6 col-12">
-                                        <figure className="ps-block--address">
-                                            <figcaption>
-                                                Billing address
-                                            </figcaption>
-                                            <div className="ps-block__content">
-                                                <p>
-                                                    You Have Not Set Up This
-                                                    Type Of Address Yet.
-                                                </p>
-                                                <Link href="/account/edit-address">
-                                                    Edit
-                                                </Link>
+                                {addresses.length > 0 ? (
+                                    <div className="row">
+                                        {addresses.map((address, idx) => (
+                                            <div className="col-md-6 col-12" key={idx}>
+                                                {renderAddress(address, idx)}
                                             </div>
-                                        </figure>
+                                        ))}
                                     </div>
-                                    <div className="col-md-6 col-12">
-                                        <figure className="ps-block--address">
-                                            <figcaption>
-                                                Shipping address
-                                            </figcaption>
-                                            <div className="ps-block__content">
-                                                <p>
-                                                    You Have Not Set Up This
-                                                    Type Of Address Yet.
-                                                </p>
-                                                <Link href="/account/edit-address">
-                                                    Edit
-                                                </Link>
-                                            </div>
-                                        </figure>
-                                    </div>
-                                </div>
+                                ) : (
+                                    <p>You have not added any addresses yet.</p>
+                                )}
                             </div>
                         </div>
                     </div>
