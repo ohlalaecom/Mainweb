@@ -5,37 +5,12 @@ import CartProduct from '../../elements/products/CartProduct';
 
 export default function InvoiceDetail() {
     const accountLinks = [
-        {
-            text: 'Account Information',
-            url: '/account/user-information',
-            icon: 'icon-user',
-        },
-        {
-            text: 'Notifications',
-            url: '/account/notifications',
-            icon: 'icon-alarm-ringing',
-        },
-        {
-            text: 'Invoices',
-            url: '/account/invoices',
-            icon: 'icon-papers',
-            active: true,
-        },
-        {
-            text: 'Address',
-            url: '/account/addresses',
-            icon: 'icon-papers',
-        },
-        {
-            text: 'Recent Viewed Product',
-            url: '/account/recent-viewed-product',
-            icon: 'icon-papers',
-        },
-        {
-            text: 'Wishlist',
-            url: '/account/wishlist',
-            icon: 'icon-papers',
-        },
+        { text: 'Account Information', url: '/account/user-information', icon: 'icon-user', active: true },
+        // { text: 'Notifications', url: '/account/notifications', icon: 'icon-alarm-ringing' },
+        // { text: 'Invoices', url: '/account/invoices', icon: 'icon-papers' },
+        { text: 'Address', url: '/account/addresses', icon: 'icon-map-marker' },
+        // { text: 'Recent Viewed Product', url: '/account/recent-viewed-product', icon: 'icon-store' },
+        // { text: 'Wishlist', url: '/account/wishlist', icon: 'icon-heart' },
     ];
     const invoiceProducts = [
         {

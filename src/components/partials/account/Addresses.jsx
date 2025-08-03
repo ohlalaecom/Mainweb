@@ -10,25 +10,12 @@ export default function Addresses() {
     const [userEmail, setUserEmail] = useState(null);
 
     const accountLinks = [
-        {
-            text: 'Account Information',
-            url: '/account/user-information',
-            icon: 'icon-user',
-            active: true,
-        },
-        {
-            text: 'Notifications',
-            url: '/account/notifications',
-            icon: 'icon-alarm-ringing',
-        },
-        { text: 'Invoices', url: '/account/invoices', icon: 'icon-papers' },
+        { text: 'Account Information', url: '/account/user-information', icon: 'icon-user', active: true },
+        // { text: 'Notifications', url: '/account/notifications', icon: 'icon-alarm-ringing' },
+        // { text: 'Invoices', url: '/account/invoices', icon: 'icon-papers' },
         { text: 'Address', url: '/account/addresses', icon: 'icon-map-marker' },
-        {
-            text: 'Recent Viewed Product',
-            url: '/account/recent-viewed-product',
-            icon: 'icon-store',
-        },
-        { text: 'Wishlist', url: '/account/wishlist', icon: 'icon-heart' },
+        // { text: 'Recent Viewed Product', url: '/account/recent-viewed-product', icon: 'icon-store' },
+        // { text: 'Wishlist', url: '/account/wishlist', icon: 'icon-heart' },
     ];
 
     // Get user ID from localStorage
@@ -117,10 +104,10 @@ export default function Addresses() {
                                             </li>
                                         ))}
                                         <li>
-                                            <Link href="/account/my-account">
+                                            {/* <Link href="/account/my-account">
                                                 <i className="icon-power-switch" />
                                                 Logout
-                                            </Link>
+                                            </Link> */}
                                         </li>
                                     </ul>
                                 </div>

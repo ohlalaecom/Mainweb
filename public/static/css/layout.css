@@ -6182,7 +6182,7 @@
   
   .ps-badge {
     position: absolute;
-    padding: 5px 15px;
+    padding: 5px 10px;
     top: 1rem;
     left: 1rem;
     border-radius: 3px;
@@ -6200,7 +6200,7 @@
   
   .ps-product {
     position: relative;
-    padding: 20px 20px 0;
+    padding: 30px 20px 0;
     border: 1px solid transparent;
     border-bottom: none;
   }
@@ -6249,6 +6249,7 @@
   .ps-product .ps-product__actions li a:hover {
     background-color: #008b3e;
     color: #ffffff;
+
   }
   .ps-product .ps-product__actions li:last-child {
     margin-right: 0;
@@ -7550,11 +7551,12 @@
   .ps-product--detail .ps-product__thumbnail figure {
     position: relative;
     display: block;
-    max-width: calc(100% - 60px);
+    max-width: calc(100% - 40px);
     padding-left: 10px;
   }
   .ps-product--detail .ps-product__thumbnail .product__thumbnailImages {
-    max-width: 60px;
+    max-width: 80px !important;
+    width: 80px !important;
   }
   .ps-product--detail .ps-product__thumbnail .ps-product__variants {
     width: 100%;
@@ -23013,7 +23015,8 @@
       padding-left: 10px;
     }
     .ps-product--detail .ps-product__thumbnail .product__thumbnailImages {
-      max-width: 60px;
+      max-width: 80px !important;
+      width: 80px !important;
     }
     .ps-product--detail .ps-product__thumbnail .ps-product__variants {
       width: 100%;

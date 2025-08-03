@@ -1,0 +1,93 @@
+.checkout-green-theme {
+    background-color: #f5fdf6; /* light green background */
+    padding: 40px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ps-section__header h2 {
+    color: #2e7d32; /* dark green */
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.shipping-box {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(46, 125, 50, 0.1);
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.section-box.card {
+    background: #f8fffa;
+    border: 1px solid #c8e6c9;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(76, 175, 80, 0.08);
+}
+
+.section-box.card figure {
+    margin: 0;
+}
+
+.section-box.card small {
+    display: block;
+    color: #388e3c;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.section-box.card p {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.section-box.card a {
+    color: #2e7d32;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.ps-block__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.ps-block__footer a {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.ps-btn.ps-btn--green {
+    background-color: #43a047;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.ps-btn.ps-btn--green:hover {
+    background-color: #388e3c;
+}
+
+.order-summary-box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(46, 125, 50, 0.1);
+}
+.ps-btn.ps-btn--green {
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.ps-btn.ps-btn--green:hover {
+    transform: scale(1.03);
+}

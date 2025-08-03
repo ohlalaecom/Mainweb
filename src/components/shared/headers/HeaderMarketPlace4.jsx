@@ -67,7 +67,7 @@ const HeaderMarketPlace4 = () => {
                         </div>
                     </div>
                     <div className="header__content-center">
-                        <SearchHeader />
+                        {/* <SearchHeader /> */}
                         <p>
                             <Link href={'/shop'}>iphone x</Link>
                             <Link href={'/shop'}>virtual</Link>

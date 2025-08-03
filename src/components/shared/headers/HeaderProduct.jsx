@@ -34,7 +34,7 @@ const HeaderProduct = ({ product }) => {
                         </div>
                     </div>
                     <div className="header__center">
-                        <SearchHeader />
+                        {/* <SearchHeader /> */}
                     </div>
                     <div className="header__right">
                         <HeaderActions />

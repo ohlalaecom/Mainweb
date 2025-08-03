@@ -131,21 +131,21 @@ const AccountQuickLinks = () => {
                         <li style={{ marginBottom: '8px' }}>
                             <Link href="/account/user-information">Account Information</Link>
                         </li>
-                        <li style={{ marginBottom: '8px' }}>
+                        {/* <li style={{ marginBottom: '8px' }}>
                             <Link href="/account/notifications">Notifications</Link>
                         </li>
                         <li style={{ marginBottom: '8px' }}>
                             <Link href="/account/invoices">Invoices</Link>
-                        </li>
+                        </li> */}
                         <li style={{ marginBottom: '8px' }}>
                             <Link href="/account/addresses">Address</Link>
                         </li>
-                        <li style={{ marginBottom: '8px' }}>
+                        {/* <li style={{ marginBottom: '8px' }}>
                             <Link href="/account/recent-viewed-product">Recent Viewed Product</Link>
-                        </li>
-                        <li style={{ marginBottom: '8px' }}>
+                        </li> */}
+                        {/* <li style={{ marginBottom: '8px' }}>
                             <Link href="/account/wishlist">Wishlist</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <a href="#" onClick={handleLogout}>
                                 Logout

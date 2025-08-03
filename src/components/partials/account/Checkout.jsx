@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import FormCheckoutInformation from './modules/FormCheckoutInformation';
 import ModulePaymentOrderSummary from '~/components/partials/account/modules/ModulePaymentOrderSummary';
 import axios from 'axios';
+import './checkout.css';
+
 
 const Checkout = () => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);

@@ -95,6 +95,8 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import ModulePaymentOrderSummary from '~/components/partials/account/modules/ModulePaymentOrderSummary';
+import './shipping.css';
+
 
 const Shipping = () => {
     const [userData, setUserData] = useState(null);
@@ -131,17 +133,20 @@ const Shipping = () => {
                 <div className="ps-section__header">
                     <h2 style={{ fontSize: '33px' }}>Shipping Information</h2>
                 </div>
-                <div className="ps-section__content">
+                <div className="ps-section__content" style={{ width:"90%", marginLeft:"auto", marginRight:"auto"}}>
                     <div className="row">
-                        <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12">
-                            <div className="ps-block--shipping shipping-box">
-                                <div className="ps-block__panel section-box">
+                        <div className="col-xl-8 col-lg-8 col-md-12 col-sm-12"  >
+                            <div className="ps-block--shipping shipping-box" >
+                                <div className="ps-block__panel section-box card" >
                                     <figure>
                                         <small>Contact</small>
                                         <p>{contact}</p>
                                         <Link href="/account/checkout">Change</Link>
                                     </figure>
-                                    <figure>
+                                    
+                                </div>
+                                 <div className="ps-block__panel section-box card" >
+<figure>
                                         <small>Ship to</small>
                                         <p>
                                             {addressDetails
@@ -150,9 +155,9 @@ const Shipping = () => {
                                         </p>
                                         <Link href="/account/checkout">Change</Link>
                                     </figure>
-                                </div>
+                                 </div>
                                 <h4>Shipping Method</h4>
-                                <div className="ps-block__panel section-box">
+                                <div className="ps-block__panel section-box" >
                                     <figure>
                                         <small>{shippingMethod}</small>
                                         <strong>{shippingCost}</strong>

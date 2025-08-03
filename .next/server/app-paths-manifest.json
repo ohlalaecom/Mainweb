@@ -1,9 +1,7 @@
 {
-  "/account/addresses/page": "app/account/addresses/page.js",
-  "/page": "app/page.js",
-  "/product/[pid]/page": "app/product/[pid]/page.js",
-  "/account/user-information/page": "app/account/user-information/page.js",
-  "/category/[slug]/page": "app/category/[slug]/page.js",
+  "/account/shipping/page": "app/account/shipping/page.js",
   "/account/checkout/page": "app/account/checkout/page.js",
-  "/shop/page": "app/shop/page.js"
+  "/account/payment/page": "app/account/payment/page.js",
+  "/page": "app/page.js",
+  "/product/[pid]/page": "app/product/[pid]/page.js"
 }

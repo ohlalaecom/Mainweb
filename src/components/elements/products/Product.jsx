@@ -15,7 +15,7 @@ const Product = ({ product }) => {
     });
 
     return (
-        <div className="ps-product">
+        <div className="ps-product"  style={{ width: "200px", marginLeft: "-20px" }}>
             <div className="ps-product__thumbnail">
                 <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
                     {thumbnailImage || (
@@ -26,7 +26,7 @@ const Product = ({ product }) => {
                     )}
                 </Link>
                 {badge && badge(product)}
-                <ProductActions product={product} />
+                <ProductActions product={product}  />
             </div>
             <div className="ps-product__container">
                 {/* <Link href={'/shop'} className="ps-product__vendor">

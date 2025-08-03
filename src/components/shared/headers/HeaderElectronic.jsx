@@ -95,7 +95,7 @@ const HeaderElectronic = () => {
                         </div>
                     </div>
                     <div className="header__content-center">
-                        <SearchHeader />
+                        {/* <SearchHeader /> */}
                     </div>
                     <div className="header__content-right">
                         <ElectronicHeaderActions />

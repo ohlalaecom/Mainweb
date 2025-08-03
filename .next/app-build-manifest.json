@@ -17,23 +17,35 @@
       "static/chunks/main-app.js",
       "static/chunks/app/template.js"
     ],
+    "/product/[pid]/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/product/[pid]/page.css",
+      "static/chunks/app/product/[pid]/page.js"
+    ],
     "/account/user-information/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/account/user-information/page.css",
       "static/chunks/app/account/user-information/page.js"
     ],
-    "/account/login/page": [
+    "/account/wishlist/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/account/login/page.css",
-      "static/chunks/app/account/login/page.js"
+      "static/css/app/account/wishlist/page.css",
+      "static/chunks/app/account/wishlist/page.js"
     ],
-    "/account/notifications/page": [
+    "/category/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/account/notifications/page.css",
-      "static/chunks/app/account/notifications/page.js"
+      "static/css/app/category/[slug]/page.css",
+      "static/chunks/app/category/[slug]/page.js"
+    ],
+    "/search/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/search/page.css",
+      "static/chunks/app/search/page.js"
     ],
     "/account/addresses/page": [
       "static/chunks/webpack.js",
@@ -41,11 +53,11 @@
       "static/css/app/account/addresses/page.css",
       "static/chunks/app/account/addresses/page.js"
     ],
-    "/product/[pid]/page": [
+    "/account/notifications/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/product/[pid]/page.css",
-      "static/chunks/app/product/[pid]/page.js"
+      "static/css/app/account/notifications/page.css",
+      "static/chunks/app/account/notifications/page.js"
     ],
     "/account/checkout/page": [
       "static/chunks/webpack.js",
@@ -53,17 +65,17 @@
       "static/css/app/account/checkout/page.css",
       "static/chunks/app/account/checkout/page.js"
     ],
-    "/shop/page": [
+    "/account/shipping/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/shop/page.css",
-      "static/chunks/app/shop/page.js"
+      "static/css/app/account/shipping/page.css",
+      "static/chunks/app/account/shipping/page.js"
     ],
-    "/category/[slug]/page": [
+    "/account/payment/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/category/[slug]/page.css",
-      "static/chunks/app/category/[slug]/page.js"
+      "static/css/app/account/payment/page.css",
+      "static/chunks/app/account/payment/page.js"
     ]
   }
 }

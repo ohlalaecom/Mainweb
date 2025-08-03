@@ -31,11 +31,11 @@ const UserInformation = () => {
 
     const accountLinks = [
         { text: 'Account Information', url: '/account/user-information', icon: 'icon-user', active: true },
-        { text: 'Notifications', url: '/account/notifications', icon: 'icon-alarm-ringing' },
-        { text: 'Invoices', url: '/account/invoices', icon: 'icon-papers' },
+        // { text: 'Notifications', url: '/account/notifications', icon: 'icon-alarm-ringing' },
+        // { text: 'Invoices', url: '/account/invoices', icon: 'icon-papers' },
         { text: 'Address', url: '/account/addresses', icon: 'icon-map-marker' },
-        { text: 'Recent Viewed Product', url: '/account/recent-viewed-product', icon: 'icon-store' },
-        { text: 'Wishlist', url: '/account/wishlist', icon: 'icon-heart' },
+        // { text: 'Recent Viewed Product', url: '/account/recent-viewed-product', icon: 'icon-store' },
+        // { text: 'Wishlist', url: '/account/wishlist', icon: 'icon-heart' },
     ];
 
     const accountLinkView = accountLinks.map((item) => (
@@ -68,10 +68,10 @@ const UserInformation = () => {
                                     <ul className="ps-list--user-links">
                                         {accountLinkView}
                                         <li>
-                                            <Link href="/account/logout">
+                                            {/* <Link href="/account/logout">
                                                 <i className="icon-power-switch" />
                                                 Logout
-                                            </Link>
+                                            </Link> */}
                                         </li>
                                     </ul>
                                 </div>

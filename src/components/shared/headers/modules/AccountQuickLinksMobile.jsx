@@ -4,32 +4,41 @@ import { Dropdown, Menu } from 'antd';
 import { userChangeIsLoggedIn } from '~/redux/features/userSlide';
 import { useDispatch } from 'react-redux';
 
-const accountLinks = [
-    {
-        text: 'Account Information',
-        url: '/account/user-information',
-    },
-    {
-        text: 'Notifications',
-        url: '/account/notifications',
-    },
-    {
-        text: 'Invoices',
-        url: '/account/invoices',
-    },
-    {
-        text: 'Address',
-        url: '/account/addresses',
-    },
-    {
-        text: 'Recent Viewed Product',
-        url: '/account/recent-viewed-product',
-    },
-    {
-        text: 'Wishlist',
-        url: '/account/wishlist',
-    },
-];
+// const accountLinks = [
+//     {
+//         text: 'Account Information',
+//         url: '/account/user-information',
+//     },
+//     {
+//         text: 'Notifications',
+//         url: '/account/notifications',
+//     },
+//     {
+//         text: 'Invoices',
+//         url: '/account/invoices',
+//     },
+//     {
+//         text: 'Address',
+//         url: '/account/addresses',
+//     },
+//     {
+//         text: 'Recent Viewed Product',
+//         url: '/account/recent-viewed-product',
+//     },
+//     {
+//         text: 'Wishlist',
+//         url: '/account/wishlist',
+//     },
+// ];
+
+ const accountLinks = [
+        { text: 'Account Information', url: '/account/user-information', icon: 'icon-user', active: true },
+        // { text: 'Notifications', url: '/account/notifications', icon: 'icon-alarm-ringing' },
+        // { text: 'Invoices', url: '/account/invoices', icon: 'icon-papers' },
+        { text: 'Address', url: '/account/addresses', icon: 'icon-map-marker' },
+        // { text: 'Recent Viewed Product', url: '/account/recent-viewed-product', icon: 'icon-store' },
+        // { text: 'Wishlist', url: '/account/wishlist', icon: 'icon-heart' },
+    ];
 
 export default function AccountQuickLinks() {
     const dispatch = useDispatch();
@@ -45,11 +54,11 @@ export default function AccountQuickLinks() {
                 </Menu.Item>
             ))}
 
-            <Menu.Item>
+            {/* <Menu.Item>
                 <a href="#" onClick={handleLogout}>
                     Logout
                 </a>
-            </Menu.Item>
+            </Menu.Item> */}
         </Menu>
     );
 

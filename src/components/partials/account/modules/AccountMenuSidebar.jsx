@@ -20,9 +20,9 @@ const AccountMenuSidebar = ({ data }) => (
                         </Link>
                     </li>
                 ))}
-                <li>
+                {/* <li>
                     <Link href="/account/my-account">Logout</Link>
-                </li>
+                </li> */}
             </ul>
         </div>
     </aside>

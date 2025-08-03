@@ -1,4 +1,5 @@
 import React from 'react';
+import './footer1.css';
 
 const FooterCopyright = () => (
     <div className="ps-footer__copyright">

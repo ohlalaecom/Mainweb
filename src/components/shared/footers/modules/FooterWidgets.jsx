@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import './footer1.css';
 
 const FooterWidgets = () => (
     <div className="ps-footer__widgets">

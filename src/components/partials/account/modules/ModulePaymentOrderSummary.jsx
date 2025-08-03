@@ -6,6 +6,8 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { calculateAmount } from '~/utilities/ecomerce-helpers';
 import useGetProducts from '~/hooks/useGetProducts';
+import './modulepayment.css';
+
 
 const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
     const cartItems = useSelector(({ ecomerce }) => ecomerce.cartItems);
