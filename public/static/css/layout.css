@@ -11710,11 +11710,11 @@
     position: absolute;
     top: 5px;
     right: 0;
-    font-size: 9px;
+    font-size: 10px;
     color: #ffffff;
     padding: 0px 8px;
     line-height: 2em;
-    border-radius: 10px;
+    border-radius: 9px;
     background-color: #008b3e;
   }
   .mega-menu .mega-menu__list li a.has-badge.sale {

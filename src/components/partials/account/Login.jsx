@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { Form, Input, notification, Button } from 'antd';
-import { useRouter, useSearchParams } from 'next/navigation'; // Next.js hooks
+import { useRouter, useSearchParams } from 'next/navigation';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { setUser, userChangeIsLoggedIn } from '~/redux/features/userSlide';
@@ -17,18 +17,15 @@ export default function Login() {
 
     useEffect(() => {
         const user = localStorage.getItem('userData');
-        setAuthenticated(!!user); // If user data exists, authenticated = true
+        setAuthenticated(!!user);
     }, []);
 
     const fetchLatestUserData = async (token) => {
         try {
             const response = await axios.get(
                 'https://admin.jacobs-electronics.com/api/users/me?populate=address,contact_1,contact_2,dob',
-                {
-                    headers: { Authorization: `Bearer ${token}` },
-                }
+                { headers: { Authorization: `Bearer ${token}` } }
             );
-
             if (response.status === 200) {
                 const userData = response.data;
                 const enrichedUserData = {
@@ -38,7 +35,6 @@ export default function Login() {
                     contact_2: userData.contact_2 || null,
                     dob: userData.dob || null,
                 };
-
                 dispatch(setUser(enrichedUserData));
                 localStorage.setItem('userData', JSON.stringify(enrichedUserData));
                 return enrichedUserData;
@@ -94,51 +90,55 @@ export default function Login() {
     };
 
     return (
-        <div className="ps-my-account">
-            <div className="container">
+        <div className="login-container">
+            <div className="login-card">
                 {!authenticated ? (
-                    <Form className="ps-form--account" onFinish={handleLogin}>
-                        <ul className="ps-tab-list">
-                            <li className="active">
-                                <span>Login</span>
-                            </li>
-                            <li>
-                                <span className="ps-tab-link" onClick={() => router.push('/account/register')}>
-                                    Register
-                                </span>
-                            </li>
-                        </ul>
-                        <div className="ps-form__content">
-                            <h5 className="ps-form-title">Log In to Your Account</h5>
+                    <>
+                        <div className="login-tabs">
+                            <span className="active-tab">Login</span>
+                            <span className="inactive-tab" onClick={() => router.push('/account/register')}>
+                                Register
+                            </span>
+                        </div>
+
+                        <h2 className="login-title">Log In to Your Account</h2>
+
+                        <Form layout="vertical" onFinish={handleLogin}>
                             <Form.Item
                                 name="username"
+                                label="Username or Email"
                                 rules={[{ required: true, message: 'Please input your email or username!' }]}
                             >
-                                <Input className="form-control" placeholder="Username or email address" />
+                                <Input placeholder="Enter username or email" size="large" />
                             </Form.Item>
+
                             <Form.Item
                                 name="password"
+                                label="Password"
                                 rules={[{ required: true, message: 'Please input your password!' }]}
                             >
-                                <Input type="password" className="form-control" placeholder="Password" />
+                                <Input.Password placeholder="Enter password" size="large" />
                             </Form.Item>
+
                             <Button
                                 type="primary"
                                 htmlType="submit"
-                                className="ps-btn ps-btn--fullwidth"
-                                style={{ height: "55px" }}
+                                block
+                                size="large"
                                 loading={loading}
+                                className="login-btn"
                             >
                                 {loading ? 'Logging In...' : 'Login'}
                             </Button>
-                            <div className="ps-login-links">
+
+                            <div className="login-footer">
                                 <a href="/forgot-password">Forgot Password?</a>
                             </div>
-                        </div>
-                    </Form>
+                        </Form>
+                    </>
                 ) : (
-                    <div>
-                        <h4>You are already logged in.</h4>
+                    <div className="already-logged-in">
+                        <h3>You are already logged in.</h3>
                         <Button type="link" onClick={() => router.push('/')}>
                             Go to Homepage
                         </Button>

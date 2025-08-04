@@ -1,0 +1,89 @@
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #f4f6f8;
+    min-height: 100vh;
+}
+
+.register-card {
+    background: #fff;
+    padding: 40px 30px;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+.register-tabs {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.active-tab {
+    font-weight: bold;
+    color: #1890ff !important;
+    border-bottom: 2px solid #1890ff;
+    padding-bottom: 4px;
+    cursor: default;
+}
+
+.inactive-tab {
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.inactive-tab:hover {
+    color: #1890ff;
+}
+
+.register-title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.register-btn {
+    width: 100%;
+    margin-top: 10px;
+    height: 50px;
+    font-size: 16px;
+    background-color: forestgreen;
+    color: #fff !important;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+    background-color: #1476d6;
+}
+
+/* Force override input size, placeholder, and padding */
+.register-card .ant-input,
+.register-card .ant-input::placeholder,
+.register-card .ant-input-password input,
+.register-card input[type="email"],
+.register-card input[type="password"] {
+    font-size: 16px !important;
+    padding: 10px 12px !important;
+    line-height: 1.5 !important;
+    height: auto !important;
+    box-sizing: border-box !important;
+}
+
+/* Remove Bootstrap-style 'form-control' class interference */
+.register-card .form-control {
+    all: unset !important;
+    font-size: 16px !important;
+    padding: 10px 12px !important;
+    line-height: 1.5 !important;
+}
+

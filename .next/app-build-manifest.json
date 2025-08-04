@@ -76,6 +76,18 @@
       "static/chunks/main-app.js",
       "static/css/app/account/payment/page.css",
       "static/chunks/app/account/payment/page.js"
+    ],
+    "/account/login/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/account/login/page.css",
+      "static/chunks/app/account/login/page.js"
+    ],
+    "/account/register/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/account/register/page.css",
+      "static/chunks/app/account/register/page.js"
     ]
   }
 }

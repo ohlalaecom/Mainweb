@@ -1,124 +1,82 @@
-.ps-my-account {
+.login-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
     min-height: 100vh;
-    background-color: #f7f7f7;
-    padding: 20px;
 }
 
-.ps-form--account {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 480px;
+.login-card {
+    background: #fff;
+    padding: 40px 30px;
+    max-width: 500px;
     width: 100%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-radius: 12px;
 }
 
-.ps-form-title {
-    font-size: 22px !important;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.ps-tab-list {
+.login-tabs {
     display: flex;
-    font-size: 30px;
-    justify-content: center;
-    margin-bottom: 20px;
-    list-style: none;
-    padding: 0;
-    font-size: 25px;
-   
+    justify-content: space-between;
+    margin-bottom: 25px;
+    font-size: 16px;
 }
 
-a{
-    text-decoration: none !important;
-}
-
-.ps-tab-list li {
-    margin: 0 10px;
-    font-size: 20px;
-}
-
-.successmessage{
-    z-index: 999999999; 
-    color: royalblue;
-}
-
-
-
-.ps-tab-list li span {
-    cursor: pointer;
-    color: #007bff;
-    font-size: 30px;
-}
-
-.ps-tab-list li.active span {
+.active-tab {
     font-weight: bold;
-    color: #000;
+    border-bottom: 2px solid #1890ff;
+    padding-bottom: 5px;
+    cursor: default;
+    color: #1890ff;
 }
 
-.ps-form__content .ps-login-links {
-    margin-top: 15px;
+.inactive-tab {
+    color: #888;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.inactive-tab:hover {
+    color: #1890ff;
+}
+
+.login-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333;
     text-align: center;
 }
 
-.ps-login-links a {
-    color: #007bff;
+.login-btn {
+    background-color: forestgreen;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.login-footer {
+    text-align: right;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.login-footer a {
+    color: #1890ff;
     text-decoration: underline;
 }
 
-
-
-/* Main success message notification styles */
-.successmessage {
-    position: relative; /* Ensures z-index works */
-    z-index: 999999; /* High z-index to bring the notification to the top */
+.already-logged-in {
+    text-align: center;
 }
 
-/* Close button styling */
-.successmessage .ant-notification-notice-close {
-    position: absolute; /* Allows proper placement */
-    top: 8px; /* Adjust for vertical placement */
-    right: 8px; /* Adjust for horizontal placement */
-    font-size: 16px; /* Make it prominent */
-    color: red !important; /* Red color for visibility */
-    font-weight: bold !important; /* Make it stand out */
-    z-index: 999999; /* Ensure it is above any overlapping elements */
+.login-card .ant-input,
+.login-card input[type="email"],
+.login-card input[type="password"],
+.login-card .ant-input-password input {
+    font-size: 16px !important;
+    padding: 10px 12px !important;
 }
-
-/* Hover effect for the close button */
-.successmessage .ant-notification-notice-close:hover {
-    color: darkred !important; /* Slightly darker red for hover */
-}
-
-/* Ensure the notification container has a high z-index */
-.ant-notification {
-    z-index: 999999; /* Set high stacking context */
-    position: fixed; /* Keeps the notification at the top level */
-    top: 0; /* Ensures placement at the top */
-    left: 0;
-    right: 0;
-}
-
-/* Prevent overlapping elements from intercepting clicks */
-.overlapping-element-class {
-    pointer-events: none; /* Disable clicks on the overlapping element */
-}
-
-/* Optional: Add styles to the notification itself for better visibility */
-.ant-notification-notice {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
-    border: 1px solid #ccc; /* Light border for better separation */
-    border-radius: 8px; /* Rounded corners for a clean look */
-    background-color: #fff; /* Ensure a white background */
-    padding: 16px; /* Add some spacing inside the notification */
-}
-
-
-
-
 
