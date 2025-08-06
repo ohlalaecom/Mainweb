@@ -15,7 +15,7 @@ export default function HeaderMobileOrganic() {
                     <ul className="navigation__extra">
                         <li>
                             <Link href={'/vendor/become-a-vendor'}>
-                                sell on Oh-lala
+                                sell on Jacobs Electronics
                             </Link>
                         </li>
                         <li>

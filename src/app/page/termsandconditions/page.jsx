@@ -18,7 +18,7 @@ export default function TermsAndConditions() {
                 <div className="container mt-5">
                     <h2 className="text-center mb-4">Terms and Conditions</h2>
                     <h3 className="text-success mt-4">1. Introduction</h3>
-                    <p>Welcome to <strong>Oh-lala.co</strong>. These Terms and Conditions govern your use of our website and services. By accessing and using this website, you agree to be bound by these terms.</p>
+                    <p>Welcome to <strong>jacobs-electronics.com</strong>. These Terms and Conditions govern your use of our website and services. By accessing and using this website, you agree to be bound by these terms.</p>
 
                     <h3 className="text-success mt-4">2. Acceptance of Terms</h3>
                     <p>By using our website, you accept and agree to these Terms and Conditions. If you do not agree, please refrain from using the website.</p>
@@ -41,7 +41,7 @@ export default function TermsAndConditions() {
                     <p>Prices for products and services are listed on our website. We reserve the right to modify prices at any time. All payments are processed securely using third-party payment processors.</p>
 
                     <h3 className="text-success mt-4">7. Intellectual Property</h3>
-                    <p>All content on our website, including text, images, logos, and trademarks, is the property of <strong>Oh-lala.co</strong> or its licensors and is protected by intellectual property laws.</p>
+                    <p>All content on our website, including text, images, logos, and trademarks, is the property of <strong>jacobs-electronics.com</strong> or its licensors and is protected by intellectual property laws.</p>
 
                     <h3 className="text-success mt-4">8. Limitation of Liability</h3>
                     <p>We are not liable for any damages arising from the use of our website or the inability to use it, including indirect, incidental, or consequential damages.</p>
@@ -55,7 +55,7 @@ export default function TermsAndConditions() {
                     <h3 className="text-success mt-4">11. Contact Us</h3>
                     <p>If you have any questions about these Terms and Conditions, please contact us:</p>
                     <ul className="list-unstyled">
-                        <li><strong>Email:</strong> contact@oh-lala.co</li>
+                        <li><strong>Email:</strong> contact@jacobs-electronics.com</li>
                         <li><strong>Phone:</strong> +357 26 272134</li>
                         <li><strong>Address:</strong> Makariou III Ave 160, Emba 8221, Cyprus</li>
                     </ul>

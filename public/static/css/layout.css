@@ -12410,9 +12410,9 @@
     border-bottom: none;
     padding: 10px 0;
   }
-  .header.header--sticky .header__left .ps-logo {
+  /* .header.header--sticky .header__left .ps-logo {
     display: none;
-  }
+  } */
   .header.header--sticky .header__left .menu--product-categories {
     display: block;
     background-color: transparent;

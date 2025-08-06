@@ -26,12 +26,12 @@ export default function Page() {
                 <div className="container mt-5">
                     <h2 className="text-center mb-4">About Us</h2>
                     <p className="text-muted text-justify">
-                        Oh-lala.co is the online division of <strong>Computer SOS</strong>, a trusted computer store in Cyprus.
-                        Specializing in new and refurbished computers, laptops, and printers, Oh-lala.co offers a seamless shopping
+                        jacobs-electronics.com is the online division of <strong>Computer SOS</strong>, a trusted computer store in Cyprus.
+                        Specializing in new and refurbished computers, laptops, and printers, jacobs-electronics.com offers a seamless shopping
                         experience both online and offline. In addition to sales, we provide expert computer maintenance, repairs,
-                        upgrades, and virus protection services. 
+                        upgrades, and virus protection services.
                     </p>
-<hr/>
+                    <hr />
                     <div className="row mt-4">
                         <div className="col-md-6">
                             <h3 className="text-primary">Our Locations</h3>

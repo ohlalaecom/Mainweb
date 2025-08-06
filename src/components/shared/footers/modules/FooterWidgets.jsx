@@ -11,7 +11,7 @@ const FooterWidgets = () => (
                 <h3>1800 97 97 69</h3>
                 <p>
                     Address xxxxx <br />
-                    <a href="mailto:contact@oh-lala.co">contact@oh-lala.co</a>
+                    <a href="mailto:contact@jacobs-electronics.com">contact@jacobs-electronics.com</a>
                 </p>
                 <ul className="ps-list--social">
                     <li>

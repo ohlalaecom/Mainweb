@@ -58,7 +58,7 @@ const HeaderFurniture = () => {
                     <div className="navigation__right">
                         <ul className="navigation__extra">
                             <li>
-                                <Link href="/page/blank">sell on Oh-lala</Link>
+                                <Link href="/page/blank">sell on Jacobs Electronics</Link>
                             </li>
                             <li>
                                 <Link href="/page/blank">Tract your order</Link>

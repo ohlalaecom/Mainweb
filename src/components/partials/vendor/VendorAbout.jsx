@@ -4,7 +4,7 @@ const VendorAbout = () => (
     <div className="ps-section--vendor ps-vendor-about">
         <div className="container">
             <div className="ps-section__header">
-                <p>WHY sell on Oh-lala</p>
+                <p>WHY sell on Jacobs Electronics</p>
                 <h4>
                     Join a marketplace where nearly 50 million buyers around{' '}
                     <br /> the world shop for unique items

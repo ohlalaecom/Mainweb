@@ -48,7 +48,7 @@ export default function FAQs() {
                     <p>If you need to change the shipping address, please contact our customer support team as soon as possible. We can make changes if the order has not yet been shipped.</p>
 
                     <h3 className="text-success mt-4">9. How do I contact customer support?</h3>
-                    <p>You can reach our customer support team by email at <strong>support@oh-lala.co</strong> or by phone at <strong>+357 26 272134</strong>. We’re here to help!</p>
+                    <p>You can reach our customer support team by email at <strong>support@jacobs-electronics.com</strong> or by phone at <strong>+357 26 272134</strong>. We’re here to help!</p>
 
                     <h3 className="text-success mt-4">10. Do you offer gift cards?</h3>
                     <p>Yes, we offer gift cards that can be purchased directly from our website. They can be redeemed for any product in our store.</p>

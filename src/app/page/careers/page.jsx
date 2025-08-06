@@ -26,7 +26,7 @@ export default function Page() {
                 <div className="container mt-5">
                     <h2 className="text-center mb-4">Join Our Team</h2>
                     <p className="text-muted text-justify">
-                        At <strong>Oh-lala.co</strong>, we believe in innovation, teamwork, and growth. We're always looking for
+                        At <strong>jacobs-electronics.com</strong>, we believe in innovation, teamwork, and growth. We're always looking for
                         passionate individuals to join our team and contribute to our mission of delivering top-quality
                         technology solutions.
                     </p>
@@ -90,7 +90,7 @@ export default function Page() {
                                 <small className="text-muted">Accepted formats: .pdf, .doc, .docx (Max: 5MB)</small>
                             </div>
                             <div className="text-center mb-5">
-                                <button type="submit" className="btn btn-success btn-lg" style={{fontSize:"18px"}}>Submit Application</button>
+                                <button type="submit" className="btn btn-success btn-lg" style={{ fontSize: "18px" }}>Submit Application</button>
                             </div>
                         </form>
                     </div>

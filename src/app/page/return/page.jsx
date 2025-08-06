@@ -18,7 +18,7 @@ export default function Return() {
                 <div className="container mt-5">
                     <h2 className="text-center mb-4">Return & Exchange Policy</h2>
                     <h3 className="text-success mt-4">1. Introduction</h3>
-                    <p>At <strong>Oh-lala.co</strong>, we want you to be completely satisfied with your purchase. If you're not happy with your order, we're here to help. This Return & Exchange Policy outlines the steps to return or exchange your items.</p>
+                    <p>At <strong>jacobs-electronics.com</strong>, we want you to be completely satisfied with your purchase. If you're not happy with your order, we're here to help. This Return & Exchange Policy outlines the steps to return or exchange your items.</p>
 
                     <h3 className="text-success mt-4">2. Eligibility for Returns</h3>
                     <p>You can return your item within <strong>30 days</strong> from the date of receipt, under the following conditions:</p>
@@ -64,7 +64,7 @@ export default function Return() {
                     <h3 className="text-success mt-4">10. Contact Us</h3>
                     <p>If you have any questions or need assistance with your return or exchange, please reach out to our customer support team:</p>
                     <ul className="list-unstyled">
-                        <li><strong>Email:</strong> support@oh-lala.co</li>
+                        <li><strong>Email:</strong> support@jacobs-electronics.com</li>
                         <li><strong>Phone:</strong> +357 26 272134</li>
                     </ul>
                 </div>

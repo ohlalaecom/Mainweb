@@ -5,8 +5,8 @@ export const CREATOR_ID = 'Nouthemes';
 
 const mainHeadData = {
     '/': {
-        title: 'Ohlala - Elevate Everyday',
-        desc: "Elevate your everyday with Shopping with Ohlala",
+        title: 'jacobs-electronics - Elevate Everyday',
+        desc: "Elevate your everyday with Shopping with jacobs-electronics",
         canonical: SITE_URL,
         isIndexed: true,
         followLinks: true,

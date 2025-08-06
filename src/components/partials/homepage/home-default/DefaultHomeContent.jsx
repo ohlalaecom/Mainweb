@@ -15,20 +15,20 @@ export default function DefaultHomeContent() {
     return (
         <main id="homepage-1">
             <HomeDefaultBanner />
-            <SiteFeatures />
+            {/* <SiteFeatures /> */}
             <HomeDefaultDealOfDay collectionSlug="deals-of-the-day" />
             {/* <HomeAdsColumns /> */}
-            <HomeDefaultTopCategories />
+            {/* <HomeDefaultTopCategories /> */}
             <HomeDefaultProductListing
-                categorySlug="consumer-electronics"
-                title="Consumer Electronics"
+                categorySlug="computers-and-electronics"
+                title="Computers and Electronics"
             />
            
       
             {/* <HomeAds /> */}
             {/* <DownLoadApp /> */}
             <NewArrivals collectionSlug="hot-new-arrivals" />
-            <Newletters />
+            {/* <Newletters /> */}
         </main>
     );
 }

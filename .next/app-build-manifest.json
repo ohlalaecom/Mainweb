@@ -17,77 +17,17 @@
       "static/chunks/main-app.js",
       "static/chunks/app/template.js"
     ],
-    "/product/[pid]/page": [
+    "/page/about-us/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/css/app/product/[pid]/page.css",
-      "static/chunks/app/product/[pid]/page.js"
-    ],
-    "/account/user-information/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/account/user-information/page.css",
-      "static/chunks/app/account/user-information/page.js"
-    ],
-    "/account/wishlist/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/account/wishlist/page.css",
-      "static/chunks/app/account/wishlist/page.js"
+      "static/css/app/page/about-us/page.css",
+      "static/chunks/app/page/about-us/page.js"
     ],
     "/category/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/css/app/category/[slug]/page.css",
       "static/chunks/app/category/[slug]/page.js"
-    ],
-    "/search/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/search/page.css",
-      "static/chunks/app/search/page.js"
-    ],
-    "/account/addresses/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/account/addresses/page.css",
-      "static/chunks/app/account/addresses/page.js"
-    ],
-    "/account/notifications/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/account/notifications/page.css",
-      "static/chunks/app/account/notifications/page.js"
-    ],
-    "/account/checkout/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/account/checkout/page.css",
-      "static/chunks/app/account/checkout/page.js"
-    ],
-    "/account/shipping/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/account/shipping/page.css",
-      "static/chunks/app/account/shipping/page.js"
-    ],
-    "/account/payment/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/account/payment/page.css",
-      "static/chunks/app/account/payment/page.js"
-    ],
-    "/account/login/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/account/login/page.css",
-      "static/chunks/app/account/login/page.js"
-    ],
-    "/account/register/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/css/app/account/register/page.css",
-      "static/chunks/app/account/register/page.js"
     ]
   }
 }

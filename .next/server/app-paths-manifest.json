@@ -1,7 +1,5 @@
 {
-  "/account/addresses/page": "app/account/addresses/page.js",
   "/category/[slug]/page": "app/category/[slug]/page.js",
-  "/account/register/page": "app/account/register/page.js",
-  "/account/login/page": "app/account/login/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/page/about-us/page": "app/page/about-us/page.js"
 }

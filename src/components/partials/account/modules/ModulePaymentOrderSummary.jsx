@@ -126,7 +126,7 @@
 //         setIsSubmitting(true); // Set submitting state to true to prevent re-triggering
 
 //         // Generate a unique invoice number for each order
-//         const invoiceNo = `OH-LALA-${userId}-${new Date().getDate()}${new Date().getMonth() + 1}${new Date().getFullYear().toString().slice(-2)}-${Math.floor(Math.random() * 10000)}`;
+//         const invoiceNo = `Jacobs Electronics-${userId}-${new Date().getDate()}${new Date().getMonth() + 1}${new Date().getFullYear().toString().slice(-2)}-${Math.floor(Math.random() * 10000)}`;
 
 //         // Create Order
 //         const orderPayload = {
@@ -369,7 +369,7 @@ const ModulePaymentOrderSummary = ({ ecomerce, shipping, triggerAction }) => {
         setIsSubmitting(true); // Set submitting state to true to prevent re-triggering
 
         // Generate a unique invoice number for each order
-        const invoiceNo = `OH-LALA-${userId}-${new Date().getDate()}${new Date().getMonth() + 1}${new Date().getFullYear().toString().slice(-2)}-${Math.floor(Math.random() * 10000)}`;
+        const invoiceNo = `Jacobs Electronics-${userId}-${new Date().getDate()}${new Date().getMonth() + 1}${new Date().getFullYear().toString().slice(-2)}-${Math.floor(Math.random() * 10000)}`;
 
         // Create Order
         const orderPayload = {

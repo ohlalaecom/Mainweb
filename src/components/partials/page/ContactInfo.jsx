@@ -13,7 +13,7 @@ const ContactInfo = () => (
                             <h4>Contact Directly</h4>
                             <p>
                                 <a href="mailto:contact@martfury.com">
-                                    contact@oh-lala.co
+                                    contact@jacobs-electronics.com
                                 </a>
                                 <span>+357 26 272134</span>
                             </p>
@@ -24,7 +24,7 @@ const ContactInfo = () => (
                             <h4>Store Address</h4>
                             <p>
                                 <span>
-                                Makariou III Ave 160, Emba 8221, Cyprus.
+                                    Makariou III Ave 160, Emba 8221, Cyprus.
                                 </span>
                             </p>
                         </div>
@@ -34,7 +34,7 @@ const ContactInfo = () => (
                             <h4>Work With Us</h4>
                             <p>
                                 <span>Send your CV to our email:</span>
-                                <a href="#">career@oh-lala.co</a>
+                                <a href="#">career@jacobs-electronics.com</a>
                             </p>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ const ContactInfo = () => (
                         <div className="ps-block--contact-info">
                             <h4>Customer Service</h4>
                             <p>
-                                <a href="#">customercare@oh-lala.co</a>
+                                <a href="#">customercare@jacobs-electronics.com</a>
                                 {/* <span>(800) 843-2446</span> */}
                             </p>
                         </div>
@@ -60,7 +60,7 @@ const ContactInfo = () => (
                         <div className="ps-block--contact-info">
                             <h4>Vendor Support</h4>
                             <p>
-                                <a href="#">vendorsupport@oh-lala.co</a>
+                                <a href="#">vendorsupport@jacobs-electronics.com</a>
                                 {/* <span>(801) 947-3100</span> */}
                             </p>
                         </div>

@@ -10,6 +10,7 @@ import { generateTempArray } from '~/utilities/common-helpers';
 import useGetProducCollection from '~/hooks/useGetProducCollection';
 import cx from 'classnames';
 import Image from 'next/image';
+import './dealoftheday.css';
 
 const HomeDefaultDealOfDay = ({ collectionSlug, fullWidth = true }) => {
     const { collectionLoading, collectionDetail } = useGetProducCollection(collectionSlug);
@@ -23,7 +24,7 @@ const HomeDefaultDealOfDay = ({ collectionSlug, fullWidth = true }) => {
     const productContent = useMemo(() => {
         if (collectionLoading) {
             const skeletons = generateTempArray(6).map((item) => (
-                <div className="col-xl-2 col-lg-3 col-sm-3 col-6" key={item}>
+                <div className="col-xl-12 col-lg-10 col-sm-3 col-12" key={item}>
                     <SkeletonProduct />
                 </div>
             ));

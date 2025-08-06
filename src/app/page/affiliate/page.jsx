@@ -26,7 +26,7 @@ export default function Page() {
                 <div className="container mt-5">
                     <h2 className="text-center mb-4">Affiliate Program</h2>
                     <p className="text-muted text-justify">
-                        Join the <strong>Oh-lala.co Affiliate Program</strong> and earn commissions by promoting high-quality
+                        Join the <strong>jacobs-electronics.com Affiliate Program</strong> and earn commissions by promoting high-quality
                         computers, laptops, and accessories. Whether you're a blogger, influencer, or tech enthusiast,
                         you can monetize your audience with ease.
                     </p>

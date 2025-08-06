@@ -18,7 +18,7 @@ export default function Shipping() {
                 <div className="container mt-5">
                     <h2 className="text-center mb-4">Shipping Information</h2>
                     <h3 className="text-success mt-4">1. Shipping Policy Overview</h3>
-                    <p>At <strong>Oh-lala.co</strong>, we are committed to delivering your products safely and in a timely manner. Our shipping policy outlines the details on how we handle orders, shipping methods, and delivery times.</p>
+                    <p>At <strong>jacobs-electronics.com</strong>, we are committed to delivering your products safely and in a timely manner. Our shipping policy outlines the details on how we handle orders, shipping methods, and delivery times.</p>
 
                     <h3 className="text-success mt-4">2. Shipping Methods</h3>
                     <p>We offer various shipping methods to cater to your needs. Available shipping options will be presented at checkout. The methods include:</p>
@@ -55,12 +55,12 @@ export default function Shipping() {
                     <p>Unfortunately, we are unable to ship to certain locations at this time. For international shipping inquiries, please contact our support team.</p>
 
                     <h3 className="text-success mt-4">7. Tracking Your Order</h3>
-                    <p>Once your order is shipped, you will receive an email with tracking information. You can track your order on the carrier's website or by visiting your account page on <strong>Oh-lala.co</strong>.</p>
+                    <p>Once your order is shipped, you will receive an email with tracking information. You can track your order on the carrier's website or by visiting your account page on <strong>jacobs-electronics.com</strong>.</p>
 
                     <h3 className="text-success mt-4">8. Shipping Issues</h3>
                     <p>If you encounter any issues with your shipment, including delays, lost packages, or damaged goods, please contact our customer service team at:</p>
                     <ul className="list-unstyled">
-                        <li><strong>Email:</strong> support@oh-lala.co</li>
+                        <li><strong>Email:</strong> support@jacobs-electronics.com</li>
                         <li><strong>Phone:</strong> +357 26 272134</li>
                     </ul>
 
@@ -73,7 +73,7 @@ export default function Shipping() {
                     <h3 className="text-success mt-4">11. Contact Us</h3>
                     <p>If you have any questions regarding shipping, please contact us:</p>
                     <ul className="list-unstyled">
-                        <li><strong>Email:</strong> support@oh-lala.co</li>
+                        <li><strong>Email:</strong> support@jacobs-electronics.com</li>
                         <li><strong>Phone:</strong> +357 26 272134</li>
                     </ul>
                 </div>

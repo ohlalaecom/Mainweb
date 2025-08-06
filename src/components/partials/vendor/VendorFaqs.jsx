@@ -98,7 +98,7 @@ const VendorFaqs = () => (
                         </figure>
                         <figure>
                             <figcaption>
-                                What can I sell on Oh-lala?
+                                What can I sell on Jacobs Electronics?
                             </figcaption>
                         </figure>
                         <p>
