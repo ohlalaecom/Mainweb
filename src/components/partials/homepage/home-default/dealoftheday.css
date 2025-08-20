@@ -33,22 +33,33 @@
     margin: 0 !important;
 }
 
+/* Core slick layout fix — equal height slides */
 .ps-deal-of-day .slick-slider,
 .ps-deal-of-day .slick-list,
 .ps-deal-of-day .slick-track {
     width: 100% !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    display: flex !important;
 }
 
-/* 5. Adjust each slide’s padding */
+.ps-deal-of-day .slick-track {
+    display: flex !important;
+    align-items: stretch !important; /* All slides same height */
+}
+
 .ps-deal-of-day .slick-slide {
+    height: auto !important;
     padding: 10px;
     box-sizing: border-box;
 }
 
-/* 6. Fix header and spacing */
+.ps-deal-of-day .slick-slide > div {
+    height: 100%;
+    display: flex !important;
+    flex-direction: column;
+}
+
+/* 5. Header and spacing */
 .ps-deal-of-day .ps-section__header {
     display: flex;
     justify-content: space-between;
@@ -57,7 +68,6 @@
     padding: 0 20px;
 }
 
-/* 7. Deal title + countdown */
 .ps-deal-of-day .ps-block--countdown-deal {
     display: flex;
     align-items: center;
@@ -70,20 +80,14 @@
     margin: 0;
 }
 
-/* 8. Fix image behavior */
+/* 6. Deal image behavior */
 .ps-deal-of-day img {
     max-width: 100%;
     height: auto;
     object-fit: cover;
 }
-/* Uniform height fix — core slide container */
-.ps-deal-of-day .slick-slide > div {
-    display: flex !important;
-    flex-direction: column;
-    height: 100%;
-}
 
-/* Product card */
+/* 7. Product card uniform height */
 .ps-deal-of-day .ps-product {
     display: flex;
     flex-direction: column;
@@ -91,11 +95,14 @@
     height: 100%;
     padding: 10px;
     box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 5px;
 }
 
-/* Thumbnail fix: REMOVE fixed height */
+/* 8. Fixed thumbnail height for alignment */
 .ps-deal-of-day .ps-product__thumbnail {
-    height: auto;
+    height: 200px; /* Adjust for design */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -103,15 +110,15 @@
     padding: 0;
 }
 
-/* Image fit: scale naturally */
+/* 9. Image fit */
 .ps-deal-of-day .ps-product__thumbnail img {
-    max-height: 180px;
+    max-height: 100%;
     width: auto;
     height: auto;
     object-fit: contain;
 }
 
-/* Product content fits neatly */
+/* 10. Product content section */
 .ps-deal-of-day .ps-product__content {
     padding: 10px 0 0 0;
     margin: 0;
@@ -121,8 +128,49 @@
     justify-content: space-between;
 }
 
-/* Remove excessive internal spacing */
+/* Remove extra spacing inside product content */
 .ps-deal-of-day .ps-product__content * {
     margin: 0 !important;
     padding: 2px 0 !important;
+}
+
+/* Force 6 products per slide in Deal of the Day carousel */
+.ps-deal-of-day .ps-carousel .slick-slide {
+    width: 16.66% !important; /* 100 / 6 */
+    flex: 0 0 16.66% !important;
+    max-width: 16.66% !important;
+}
+
+/* Adjust for tablets */
+@media (max-width: 1200px) {
+    .ps-deal-of-day .ps-carousel .slick-slide {
+        width: 25% !important; /* 4 per row */
+        flex: 0 0 25% !important;
+        max-width: 25% !important;
+    }
+}
+
+/* Adjust for smaller screens */
+@media (max-width: 1024px) {
+    .ps-deal-of-day .ps-carousel .slick-slide {
+        width: 33.33% !important; /* 3 per row */
+        flex: 0 0 33.33% !important;
+        max-width: 33.33% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .ps-deal-of-day .ps-carousel .slick-slide {
+        width: 50% !important; /* 2 per row */
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .ps-deal-of-day .ps-carousel .slick-slide {
+        width: 100% !important; /* 1 per row */
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
 }

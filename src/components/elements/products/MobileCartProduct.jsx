@@ -24,7 +24,7 @@ const MobileCartProduct = ({ product }) => {
                     {title}
                 </Link>
                 <p>
-                    <strong>Sold by:</strong> Young Shop
+                    <strong>Sold by:</strong> Jacobs Electronics
                 </p>
                 <small>
                     {product.attributes.quantity

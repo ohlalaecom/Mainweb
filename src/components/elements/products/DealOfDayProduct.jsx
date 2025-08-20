@@ -40,7 +40,7 @@ const DealOfDayProduct = ({ product }) => {
             </div>
             <div className="ps-product__container">
                 <Link href={'/shop'} className="ps-product__vendor">
-                    Young Shop
+                    Jacobs Electronics
                 </Link>
                 <div className="ps-product__content">
                     {extendedPrice}

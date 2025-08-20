@@ -70,7 +70,7 @@ const StoreList2 = () => (
                                     background: `url('/static/img/vendor/store/default-store-banner.png')`,
                                 }}>
                                 <figure>
-                                    <h4>Young Shop</h4>
+                                    <h4>Jacobs Electronics</h4>
                                     <div className="ps-block__rating">
                                         <Rating />
                                     </div>
