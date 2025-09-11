@@ -8,7 +8,7 @@ const FooterWidgets = () => (
             <h4 className="widget-title">Contact us</h4>
             <div className="widget_content">
                 <p>Call us 24/7</p>
-                <h3>1800 97 97 69</h3>
+                <h3> 00357- 992 00 991</h3>
                 <p>
                     Address xxxxx <br />
                     <a href="mailto:contact@jacobs-electronics.com">contact@jacobs-electronics.com</a>
