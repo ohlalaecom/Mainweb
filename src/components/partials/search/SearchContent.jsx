@@ -14,7 +14,7 @@ export default function SearchContent() {
             return {
                 filters: {
                     title: {
-                        $contains: keyword,
+                         $containsi: keyword,
                     },
                 },
                 fields: ['id', 'slug', 'title'],

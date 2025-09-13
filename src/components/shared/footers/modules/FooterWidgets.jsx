@@ -10,7 +10,10 @@ const FooterWidgets = () => (
                 <p>Call us 24/7</p>
                 <h3> 00357- 992 00 991</h3>
                 <p>
-                    Address xxxxx <br />
+                    Address: Lavriou 2/16, <br/>
+                    post code:8560, <br/>
+                    Area: Peyia, <br/>
+                    Cyprus <br/>
                     <a href="mailto:contact@jacobs-electronics.com">contact@jacobs-electronics.com</a>
                 </p>
                 <ul className="ps-list--social">

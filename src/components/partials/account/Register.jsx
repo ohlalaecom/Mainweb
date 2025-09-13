@@ -454,6 +454,8 @@ export default function Register() {
             );
 
             if (response.status === 200 || response.status === 201) {
+                console.log('Sending registration email with credentials to ' + values.email + ', username: ' + username + ', password: ' + values.password);
+                console.log('Email will be sent via Strapi when configured.');
                 message.success('Registration successful!');
                 setIsModalVisible(true);
             } else {

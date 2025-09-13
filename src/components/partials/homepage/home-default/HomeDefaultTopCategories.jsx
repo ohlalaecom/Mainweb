@@ -11,7 +11,7 @@ const HomeDefaultTopCategories = () => (
                         <Link href={`/category/consumer-electronics`} className="ps-block__overlay" />
                         <img
                             src="/static/img/categories/1.jpg"
-                            alt="Jacobs Electronics"
+                            alt="Jacobs-Electronics"
                         />
                         <p>Consumer Electronics</p>
                     </div>
@@ -22,7 +22,7 @@ const HomeDefaultTopCategories = () => (
                         <Link href={`/category/computers-and-technologies`} className="ps-block__overlay" />
                         <img
                             src="/static/img/categories/3.jpg"
-                            alt="Jacobs Electronics"
+                            alt="Jacobs-Electronics"
                         />
                         <p>Computers & Technologies</p>
                     </div>

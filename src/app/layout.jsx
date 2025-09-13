@@ -15,6 +15,7 @@ import '~/scss/furniture.scss';
 import '~/scss/organic.scss';
 import '~/scss/technology.scss';
 import '~/scss/autopart.scss';
+import '~/styles/layout.css';
 import getHeadData, {
     generatePageMetadata,
 } from '~/utilities/seo/RoutePathsSEO';

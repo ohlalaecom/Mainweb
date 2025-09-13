@@ -1,28 +1,29 @@
 {
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "~/*": ["./src/*"],
-            "~/public/*": ["./public/*"],
-            "~/redux/*": ["./src/redux/*"]
-        },
-        "jsx": "preserve",
-        "esModuleInterop": true,
-        "skipLibCheck": true,
-        "forceConsistentCasingInFileNames": true,
-        "module": "esnext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "noEmit": true
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+      "~/public/*": ["./public/*"],
+      "~/redux/*": ["./src/redux/*"],
+      "~/styles/*": ["./styles/*"]   // ✅ add this line
     },
-    "exclude": [
-        "node_modules",
-        ".nuxt",
-        "dist",
-        ".nextt",
-        ".idea",
-        ".vscode",
-        ".vs"
-    ]
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "exclude": [
+    "node_modules",
+    ".nuxt",
+    "dist",
+    ".nextt",
+    ".idea",
+    ".vscode",
+    ".vs"
+  ]
 }

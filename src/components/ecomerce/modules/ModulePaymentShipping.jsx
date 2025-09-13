@@ -103,13 +103,16 @@ const ModulePaymentShipping = () => {
                     <Link href="/account/checkout">Change</Link>
                 </figure>
             </div>
-            <h4>Shipping Method</h4>
-            <div className="ps-block__panel">
+            <div className="ps-block--payment-method"> <h4 className>Shipping Method</h4>
+             <div className="ps-block__panel">
                 <figure>
                     <small>International Shipping</small>
-                    <strong>$20.00</strong>
+                    {/* <strong>$20.00</strong> */}
                 </figure>
             </div>
+            </div>
+           
+           
         </>
     );
 };

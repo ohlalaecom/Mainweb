@@ -39,9 +39,9 @@ const DealOfDayProduct = ({ product }) => {
                 <ProductActions product={product} />
             </div>
             <div className="ps-product__container">
-                <Link href={'/shop'} className="ps-product__vendor">
-                    Jacobs Electronics
-                </Link>
+                {/* <Link href={'/shop'} className="ps-product__vendor">
+                   
+                </Link> */}
                 <div className="ps-product__content">
                     {extendedPrice}
                     {title}

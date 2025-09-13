@@ -8,7 +8,7 @@ import ModulePaymentMethods from '~/components/ecomerce/modules/ModulePaymentMet
 
 const Payment = () => {
     return (
-        <div className="ps-checkout ps-section--shopping">
+        <div className="ps-checkout ps-section--shopping" style={{marginTop:"-5%"}}>
             <div className="container">
                 <div className="ps-section__header">
                     <h2 style={{fontSize:"37px"}}>Payment</h2>

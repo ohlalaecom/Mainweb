@@ -83,7 +83,7 @@ const HeaderDefault = () => {
                         <MenuCategoriesDropdown />
                     </div>
                     <div className="header__center">
-                        {/* <SearchHeader /> */}
+                        <SearchHeader />
                     </div>
                     <div className="header__right">
                         <HeaderActions />
