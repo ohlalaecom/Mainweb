@@ -9,18 +9,33 @@ import ModuleProductDetailSharing from '~/components/elements/detail/modules/Mod
 import ModuleDetailActionsMobile from '~/components/elements/detail/modules/ModuleDetailActionsMobile';
 
 const ProductDetailFullContent = ({ product }) => {
+    // Always format in Euro (€)
+    const formatPrice = (amount) => {
+        return new Intl.NumberFormat('de-DE', {
+            style: 'currency',
+            currency: 'EUR',
+        }).format(amount);
+    };
+
     let priceView;
     if (product) {
         if (product.is_sale === true) {
             priceView = (
                 <h4 className="ps-product__price sale">
-                    <del className="mr-2">${product.sale_price}</del>$
-                    {product.price}
+                    <del className="mr-2">
+                        {formatPrice(product.sale_price)}
+                    </del>
+                    {formatPrice(product.price)}
                 </h4>
             );
         } else {
-            priceView = <h4 className="ps-product__price">${product.price}</h4>;
+            priceView = (
+                <h4 className="ps-product__price">
+                    {formatPrice(product.price)}
+                </h4>
+            );
         }
+
         return (
             <div className="ps-product--detail ps-product--full-content">
                 <div className="ps-product__top">
@@ -29,9 +44,7 @@ const ProductDetailFullContent = ({ product }) => {
                         <div className="ps-product__info">
                             <ModuleDetailTopInformation product={product} />
                             <ModuleProductDetailDescription product={product} />
-                            <ModuleProductDetailSpecification
-                                product={product}
-                            />
+                            <ModuleProductDetailSpecification product={product} />
                             <ModuleProductDetailSharing />
                             <ModuleDetailActionsMobile />
                         </div>
@@ -45,6 +58,7 @@ const ProductDetailFullContent = ({ product }) => {
             </div>
         );
     }
+    return null;
 };
 
 export default ProductDetailFullContent;

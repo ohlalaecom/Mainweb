@@ -13,21 +13,24 @@ const DealOfDayProduct = ({ product }) => {
     );
     const { price, sale_price, is_sale } = product.attributes;
 
-    const extendedPrice = useMemo(() => {
-        if (is_sale) {
-            return (
-                <p className="ps-product__price sale">
-                    ${formatCurrency(price)}
-                    <del className="ml-2">${formatCurrency(sale_price)}</del>
-                    <small>18% off</small>
-                </p>
-            );
-        } else {
-            return (
-                <p className="ps-product__price">${formatCurrency(price)}</p>
-            );
-        }
-    }, [price, sale_price, is_sale]);
+const extendedPrice = useMemo(() => {
+    if (is_sale) {
+        return (
+            <p className="ps-product__price sale">
+                {formatCurrency(price, 'EUR')}
+                <del className="ml-2">{formatCurrency(sale_price, 'EUR')}</del>
+                <small>18% off</small>
+            </p>
+        );
+    } else {
+        return (
+            <p className="ps-product__price">
+                {formatCurrency(price, 'EUR')}
+            </p>
+        );
+    }
+}, [price, sale_price, is_sale]);
+
 
     return (
         <div className="ps-product ps-product--inner">

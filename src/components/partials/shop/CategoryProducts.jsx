@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { formatCurrency } from '~/utilities/product-helper';
 
 const CategoryProducts = () => {
     const router = useRouter();
@@ -41,7 +42,7 @@ const CategoryProducts = () => {
                         <li key={product.id}>
                             <h3>{product.attributes.name}</h3>
                             <p>{product.attributes.description}</p>
-                            <p>Price: ${product.attributes.price}</p>
+                            <p>Price: {formatCurrency(product.attributes.price)}</p>
                         </li>
                     ))}
                 </ul>

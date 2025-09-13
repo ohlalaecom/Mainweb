@@ -1,9 +1,10 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 import Rating from '~/components/elements/Rating';
+import { formatCurrency } from '~/utilities/product-helper';
 
 const ModuleDetailTopInformation = ({ product }) => {
-    const { sale, sale_price, title, price, product_brand } =
+    const { sale, sale_price, title, price, product_brand, currency } =
         product.attributes;
 
     const productBrandName = useMemo(() => {
@@ -15,28 +16,19 @@ const ModuleDetailTopInformation = ({ product }) => {
             return (
                 <h4 className="ps-product__price sale">
                     <del className="mr-2">
-                        &
-                        {price.toLocaleString('en-US', {
-                            minimumFractionDigits: 2,
-                        })}
+                        {formatCurrency(price, currency || "EUR")}
                     </del>
-                    $
-                    {sale_price.toLocaleString('en-US', {
-                        minimumFractionDigits: 2,
-                    })}
+                    {formatCurrency(sale_price, currency || "EUR")}
                 </h4>
             );
         } else {
             return (
                 <h4 className="ps-product__price">
-                    $
-                    {price.toLocaleString('en-US', {
-                        minimumFractionDigits: 2,
-                    })}
+                    {formatCurrency(price, currency || "EUR")}
                 </h4>
             );
         }
-    }, [sale, price]);
+    }, [sale, price, sale_price, currency]);
 
     const productTitle = useMemo(() => {
         return title || 'Untitled Product';

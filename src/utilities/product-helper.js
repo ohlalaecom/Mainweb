@@ -1,10 +1,14 @@
 // Function to format numbers into currency style
-export function formatCurrency(num) {
-    if (num !== undefined) {
-        return parseFloat(num)
-            .toString()
-            .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+export function formatCurrency(num, currency = "EUR", locale = "en-EU") {
+    if (num === undefined || num === null || isNaN(num)) {
+        return "";
     }
+
+    return new Intl.NumberFormat(locale, {
+        style: "currency",
+        currency: currency,
+        minimumFractionDigits: 2,
+    }).format(num);
 }
 
 // Function to get a collection by its slug

@@ -5,24 +5,23 @@ import Image from 'next/image';
 import { getStrapiImageURL } from '~/services/strapiServices/image/getStrapiImageService';
 
 export default function useProduct(product, productID) {
+    // Default to EUR if no currency is provided
+    const currency = product?.currency?.toUpperCase() || 'EUR';
+
     const productPrice = product?.sale_price ? (
         <p className="ps-product__price sale">
-            <span>$</span>
-            {formatCurrency(product.sale_price)}
+            {formatCurrency(product.sale_price, currency)}
             <del className="ml-2">
-                <span>$</span>
-                {formatCurrency(product?.price)}
+                {formatCurrency(product?.price, currency)}
             </del>
         </p>
     ) : (
         <p className="ps-product__price">
-            <span>$</span>
-            {formatCurrency(product?.price)}
+            {formatCurrency(product?.price, currency)}
         </p>
     );
 
     const productThumbnailImage = product?.thumbnail ? (
-        
         <Image
             src={getStrapiImageURL(product.thumbnail)}
             alt=""
@@ -30,7 +29,6 @@ export default function useProduct(product, productID) {
             width={200}
             height={200}
         />
-        
     ) : (
         <img src="https://placehold.co/400x400" alt="" />
     );
@@ -39,7 +37,8 @@ export default function useProduct(product, productID) {
         <Link
             href={'/product/[pid]'}
             as={`/product/${productID}`}
-            className="ps-product__title">
+            className="ps-product__title"
+        >
             {product.title}
         </Link>
     ) : (
@@ -86,7 +85,6 @@ export default function useProduct(product, productID) {
     );
 
     return {
-        
         thumbnailImage: productThumbnailImage,
         price: productPrice,
         getHeadingPrice: productPrice,
@@ -94,7 +92,5 @@ export default function useProduct(product, productID) {
         brand: productBrand,
         title: productName,
         productName,
-        
     };
-    
 }

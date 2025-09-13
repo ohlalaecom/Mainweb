@@ -201,6 +201,7 @@ import Link from 'next/link';
 import { Rate } from 'antd';
 import useEcomerce from '~/hooks/useEcomerce';
 import useGetProducts from '~/hooks/useGetProducts';
+import { formatCurrency } from '~/utilities/product-helper';
 
 export default function Compare() {
     const ecomerce = useSelector(({ ecomerce }) => ecomerce);
@@ -333,19 +334,22 @@ export default function Compare() {
                                 const attr = product.attributes;
                                 if (attr.sale) {
                                     return (
-                                        <td key={product.id}>
-                                            <h4 className="price sale" style={{ color: 'red' }}>
-                                                ${attr.sale_price}
-                                                <del
-                                                    style={{
-                                                        color: '#999',
-                                                        marginLeft: '5px',
-                                                    }}
-                                                >
-                                                    ${attr.price}
-                                                </del>
-                                            </h4>
-                                        </td>
+                                     
+
+<td key={product.id}>
+    <h4 className="price sale" style={{ color: 'red' }}>
+        {formatCurrency(attr.sale_price, 'EUR')}
+        <del
+            style={{
+                color: '#999',
+                marginLeft: '5px',
+            }}
+        >
+            {formatCurrency(attr.price, 'EUR')}
+        </del>
+    </h4>
+</td>
+
                                     );
                                 } else {
                                     return (
