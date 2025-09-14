@@ -34389,3 +34389,24 @@ body {
     font-style: italic;
     color: #888;
 }
+
+
+.form-control{
+  width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+}
+.ps-form--newsletter .form-control {
+  height: 50px !important;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #ccc !important;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.ps-form--newsletter .form-control:hover {
+
+  border: 1px solid #008b3e !important;
+
+}
