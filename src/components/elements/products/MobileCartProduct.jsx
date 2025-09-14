@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import useProduct from '~/hooks/useProduct';
+import { formatCurrency } from '~/utilities/product-helper';
+
 
 const MobileCartProduct = ({ product }) => {
     const { thumbnailImage, price, title } = useProduct(product.attributes);
@@ -26,12 +28,10 @@ const MobileCartProduct = ({ product }) => {
                 <p>
                     <strong>Sold by:</strong> Jacobs Electronics
                 </p>
-                <small>
-                    {product.attributes.quantity
-                        ? product.attributes.quantity
-                        : 1}{' '}
-                    x ${product.attributes.price}
-                </small>
+               <small>
+    {product.attributes.quantity ? product.attributes.quantity : 1}{' '}
+    x {formatCurrency(product.attributes.price, product.attributes.currency || "EUR")}
+</small>
             </div>
         </div>
     );

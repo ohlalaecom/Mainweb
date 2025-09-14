@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import useEcomerce from '~/hooks/useEcomerce';
 import { Result } from 'antd';
 import CartProduct from '~/components/elements/products/CartProduct';
+import { formatCurrency } from '~/utilities/product-helper';
 
 const ModuleEcomerceCartItems = ({ products }) => {
     const ecomerce = useSelector(({ ecomerce }) => ecomerce);
@@ -46,9 +47,9 @@ const ModuleEcomerceCartItems = ({ products }) => {
                                 {' '}
                                 <CartProduct product={item} />
                             </td>
-                            <td data-label="price" className="price">
-                                ${item.price}
-                            </td>
+                          <td data-label="price" className="price">
+    {formatCurrency(item.price)}
+</td>
                             <td data-label="quantity">
                                 <div className="form-group--number">
                                     <button
@@ -77,11 +78,11 @@ const ModuleEcomerceCartItems = ({ products }) => {
                                     />
                                 </div>
                             </td>
-                            <td data-label="total">
-                                <strong>
-                                    ${(item.price * item.quantity).toFixed(2)}
-                                </strong>
-                            </td>
+                         <td data-label="total">
+    <strong>
+        {formatCurrency(item.price * item.quantity)}
+    </strong>
+</td>
                             <td>
                                 <a
                                     href="#"

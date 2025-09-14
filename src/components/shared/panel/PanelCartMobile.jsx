@@ -6,6 +6,7 @@ import useProduct from '~/hooks/useProduct';
 import { calculateAmount } from '~/utilities/ecomerce-helpers';
 import useGetProducts from '~/hooks/useGetProducts';
 import MobileCartProduct from '~/components/elements/products/MobileCartProduct';
+import { formatCurrency } from '~/utilities/product-helper';
 
 const PanelCartMobile = ({ ecomerce }) => {
     const cartItems = useSelector(({ ecomerce }) => ecomerce.cartItems);
@@ -85,10 +86,10 @@ const PanelCartMobile = ({ ecomerce }) => {
             return (
                 <div className="ps-cart__footer">
                     <h3>
-                        Sub Total:
-                        <strong>
-                            ${amount ? amount : Math.floor(Math.random() * 100)}
-                        </strong>
+                       Sub Total:
+<strong>
+    {amount ? formatCurrency(amount) : formatCurrency(Math.floor(Math.random() * 100))}
+</strong>
                     </h3>
                     <figure>
                         <Link href="/account/shopping-cart" className="ps-btn">

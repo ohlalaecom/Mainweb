@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { calculateAmount } from '~/utilities/ecomerce-helpers';
+import { formatCurrency } from '~/utilities/product-helper';
 
 const ModuleCartSummary = ({ source }) => {
     // View
@@ -24,21 +25,25 @@ const ModuleCartSummary = ({ source }) => {
 
     return (
         <>
-            <div className="ps-block--shopping-total">
-                <div className="ps-block__header">
-                    <p>
-                        Subtotal{' '}
-                        <span>${source ? calculateAmount(source) : 0}</span>
-                    </p>
-                </div>
-                <div className="ps-block__content">
-                    <ul className="ps-block__product">{productContent}</ul>
-                    <h3>
-                        Total{' '}
-                        <span>${source ? calculateAmount(source) : 0}</span>
-                    </h3>
-                </div>
-            </div>
+        <div className="ps-block--shopping-total">
+    <div className="ps-block__header">
+        <p>
+            Subtotal{' '}
+            <span>
+                {formatCurrency(source ? calculateAmount(source) : 0)}
+            </span>
+        </p>
+    </div>
+    <div className="ps-block__content">
+        <ul className="ps-block__product">{productContent}</ul>
+        <h3>
+            Total{' '}
+            <span>
+                {formatCurrency(source ? calculateAmount(source) : 0)}
+            </span>
+        </h3>
+    </div>
+</div>
         </>
     );
 };

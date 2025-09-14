@@ -15,9 +15,12 @@ const OnCartProduct = ({ product, children }) => {
             <div className="ps-product__content">
                 {product.title}
                 <p>
-                    <small>
-                        ${product.price} x {product.quantity}
-                    </small>
+                   import { formatCurrency } from '~/utilities/product-helper';
+
+<small>
+    {formatCurrency(product.price, product.currency || "EUR")} x {product.quantity}
+</small>
+
                 </p>
                 {children}
             </div>

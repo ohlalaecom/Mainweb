@@ -6,6 +6,7 @@ import useGetProducts from '~/hooks/useGetProducts';
 import { getStrapiImageURL } from '~/services/strapiServices/image/getStrapiImageService';
 import ModuleCartSummary from '~/components/ecomerce/modules/ModuleCartSummary';
 import { increaseItemQty, decreaseItemQty } from '~/redux/features/ecommerceSlide';
+import { formatCurrency } from '~/utilities/product-helper';
 import './cart.css';
 
 export default function CartContent() {
@@ -102,7 +103,9 @@ export default function CartContent() {
                                         {item.title}
                                     </Link>
                                 </td>
-                                <td>${item.sale_price || item.price}</td>
+                                <td>
+  {formatCurrency(item.sale_price || item.price)}
+</td>
                                 <td>
                                     <div className="form-group--number">
                                         <button
@@ -122,7 +125,9 @@ export default function CartContent() {
                                         </button>
                                     </div>
                                 </td>
-                                <td>${item.quantity * (item.sale_price || item.price)}</td>
+                              <td>
+  {formatCurrency(item.quantity * (item.sale_price || item.price))}
+</td>
                             </tr>
                         ))}
                     </tbody>

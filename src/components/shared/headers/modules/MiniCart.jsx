@@ -5,6 +5,7 @@ import useEcomerce from '~/hooks/useEcomerce';
 import { calculateAmount } from '~/utilities/ecomerce-helpers';
 import useGetProducts from '~/hooks/useGetProducts';
 import { getStrapiImageURL } from '~/services/strapiServices/image/getStrapiImageService';
+import { formatCurrency } from '~/utilities/product-helper';
 
 const MiniCart = () => {
     const { removeItem } = useEcomerce();
@@ -86,7 +87,7 @@ const cartProducts = useMemo(() => {
                                         }}
                                     />
                                     <h3>{product.title}</h3>
-                                    <p>Price: ${product.price}</p>
+                                   <p>Price: {formatCurrency(product.price)}</p>
                                     <p>Quantity: {product.quantity}</p>
                                     <button
                                         className="remove-item btn btn-danger"
@@ -99,7 +100,8 @@ const cartProducts = useMemo(() => {
                         </div>
                         <div className="ps-cart__footer">
                             <h3>
-                                Sub Total: <strong>${cartAmount}</strong>
+                              
+Sub Total: <strong>{formatCurrency(cartAmount)}</strong>
                             </h3>
                             <figure>
                                 <Link href="/account/shopping-cart" className="ps-btn" style={{color: "white"}}>
