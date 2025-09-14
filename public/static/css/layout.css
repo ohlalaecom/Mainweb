@@ -33129,3 +33129,19 @@
     background: #f9f9f9;
     cursor: pointer;
 }
+.ps-newsletter .form-control {
+    height: 50px !important;
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    box-sizing: border-box !important;
+    padding: 0 12px !important; /* keeps text aligned */
+}
+a{
+  color:#000000!important;
+  font-size:11px;
+}
+
+a:hover{
+  color:#005cbf!important;
+  font-size:11px;
+}
