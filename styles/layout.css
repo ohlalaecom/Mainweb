@@ -34411,13 +34411,14 @@ body {
 
 }
 
-.ps-newsletter .form-control {
+/* put in layout.css */
+.ps-newsletter .ps-form__right .form-group--nest .form-control {
     height: 50px !important;
     font-size: 16px !important;
-    line-height: 1.5 !important;
-    box-sizing: border-box !important;
-    padding: 0 12px !important; /* keeps text aligned */
+    line-height: 50px !important;
+    padding: 0 12px !important;
 }
+
 a{
   color:#000000!important;
   font-size:15px;
@@ -34427,3 +34428,4 @@ a:hover{
   color:#005cbf!important;
 
 }
+
