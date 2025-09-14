@@ -2,6 +2,13 @@ import React from 'react';
 
 const Newsletters = ({ layout }) => (
     <section className="ps-newsletter">
+        <style>
+            {`
+                .form-control {
+                    height: 50px !important;
+                }
+            `}
+        </style>
         <div
             className={
                 layout && layout === 'container' ? ' container' : 'ps-container'
