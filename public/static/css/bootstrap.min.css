@@ -11412,3 +11412,13 @@ a.text-dark:hover {
         border-color: #dee2e6
     }
 }
+
+a{
+    color: black !important;
+    text-decoration: none !important;
+    font-size: 15px !important;
+}
+
+a:hover{
+    color: forestgreen !important;
+}
