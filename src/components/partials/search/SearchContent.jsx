@@ -18,6 +18,9 @@ export default function SearchContent() {
                     },
                 },
                 fields: ['id', 'slug', 'title'],
+                pagination: {
+                    limit: 20,
+                },
             };
         }
     }, [keyword]);

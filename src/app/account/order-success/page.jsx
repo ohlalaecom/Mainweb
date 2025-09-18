@@ -42,7 +42,7 @@ export default function OrderSuccess() {
                                             <p>Order ID and other details are available in your account.</p>
                                             <div className="ps-block__footer text-center">
                                                 <Button type="primary" size="large" onClick={handleOk}>
-                                                    OK - Go to Home
+                                                    Back to Home
                                                 </Button>
                                             </div>
                                         </div>

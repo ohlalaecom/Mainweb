@@ -19,9 +19,16 @@ export default function useGetProducts() {
     const getStrapiProducts = async (queryRaw) => {
         toggleLoading(true);
         try {
+            const queryWithLimit = {
+                ...queryRaw,
+                pagination: {
+                    ...queryRaw?.pagination,
+                    limit: queryRaw?.pagination?.limit || 20,
+                },
+            };
             const response = await getStrapiEntriesService(
                 COLLECTION_TYPE,
-                queryRaw
+                queryWithLimit
             );
 
             // Map products to include properly formatted thumbnail URLs

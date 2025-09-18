@@ -28,19 +28,21 @@ export default function useProduct(product, productID) {
             layout="responsive"
             width={200}
             height={200}
+            loading="lazy"
         />
     ) : (
-        <img src="https://placehold.co/400x400" alt="" />
+        <img src="https://placehold.co/400x400" alt="" loading="lazy" />
     );
 
     const productName = product ? (
-        <Link
-            href={'/product/[pid]'}
-            as={`/product/${productID}`}
+        <a
+            href={`/product/${productID}`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="ps-product__title"
         >
             {product.title}
-        </Link>
+        </a>
     ) : (
         <p>Untitled</p>
     );

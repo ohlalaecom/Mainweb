@@ -36,6 +36,9 @@ export default function useGetProducCollection(collectionSlug) {
                             populate: '*',
                         },
                     },
+                    pagination: {
+                        limit: 10,
+                    },
                 },
             },
         };

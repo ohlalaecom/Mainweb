@@ -96,9 +96,9 @@ const ShopCategories = () => {
                         {products.length > 0 ? (
                             products.map((product) => (
                                 <li key={product.id}>
-                                    <Link href={`/product/${product.attributes.slug}`}>
+                                    <a href={`/product/${product.attributes.slug}`} target="_blank" rel="noopener noreferrer">
                                         {product.attributes.title}
-                                    </Link>
+                                    </a>
                                 </li>
                             ))
                         ) : (

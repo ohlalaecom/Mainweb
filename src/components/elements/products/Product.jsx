@@ -69,14 +69,14 @@ const Product = ({ product }) => {
     return (
         <div className="ps-product"  style={{ width: "200px", marginLeft: "-20px" }}>
             <div className="ps-product__thumbnail">
-                <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
+                <a href={`/product/${product.id}`} target="_blank" rel="noopener noreferrer">
                     {thumbnailImage || (
                         <img
                             src="/static/img/products/martfury-product-placeholder.svg"
                             alt={product?.attributes?.title || 'Product'}
                         />
                     )}
-                </Link>
+                </a>
                 {badge && badge(product)}
                 <ProductActions product={product}  />
             </div>
@@ -85,9 +85,7 @@ const Product = ({ product }) => {
                     Young Shop
                 </Link> */}
                 <div className="ps-product__content">
-                     <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
                     {title}
-                </Link>
                     <div className="ps-product__rating">
                         <Rating />
                         <span>025</span>
@@ -95,10 +93,7 @@ const Product = ({ product }) => {
                     {price}
                 </div>
                 <div className="ps-product__content hover">
-                 <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
                     {title}
-                </Link>
-                   
                     {price}
                 </div>
             </div>

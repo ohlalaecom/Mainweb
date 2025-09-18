@@ -11,9 +11,9 @@ const WideProduct = ({ product }) => {
     return (
         <div className="ps-product ps-product--wide">
             <div className="ps-product__thumbnail">
-                <Link href={'/product/[pid]'} as={`/product/${product.id}`}>
+                <a href={`/product/${product.id}`} target="_blank" rel="noopener noreferrer">
                     {thumbnailImage}
-                </Link>
+                </a>
             </div>
             <div className="ps-product__container">
                 <div className="ps-product__content">
