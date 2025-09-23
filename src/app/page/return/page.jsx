@@ -65,7 +65,7 @@ export default function Return() {
                     <p>If you have any questions or need assistance with your return or exchange, please reach out to our customer support team:</p>
                     <ul className="list-unstyled">
                         <li><strong>Email:</strong> support@jacobs-electronics.com</li>
-                        <li><strong>Phone:</strong> +357 26 272134</li>
+                        <li><strong>Phone:</strong> 00357- 992 00 991</li>
                     </ul>
                 </div>
             </div>

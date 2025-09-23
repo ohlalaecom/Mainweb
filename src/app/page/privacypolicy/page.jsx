@@ -84,7 +84,7 @@ export default function PrivacyPolicy() {
                     <p>If you have any questions about this Privacy Policy, please contact us:</p>
                     <ul className="list-unstyled">
                         <li><strong>Email:</strong> contact@jacobs-electronics.com</li>
-                        <li><strong>Phone:</strong> +357 26 272134</li>
+                        <li><strong>Phone:</strong> 00357- 992 00 991</li>
                         <li><strong>Address:</strong> Makariou III Ave 160, Emba 8221, Cyprus</li>
                     </ul>
                 </div>

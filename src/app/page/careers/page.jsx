@@ -25,6 +25,7 @@ export default function Page() {
 
                 <div className="container mt-5">
                     <h2 className="text-center mb-4">Join Our Team</h2>
+                <div class="p-5 p-5" style={{ width: "90%", margin: "auto", border: "1px #ccc solid" }}>
                     <p className="text-muted text-justify">
                         At <strong>jacobs-electronics.com</strong>, we believe in innovation, teamwork, and growth. We're always looking for
                         passionate individuals to join our team and contribute to our mission of delivering top-quality
@@ -60,7 +61,7 @@ export default function Page() {
                 <h3 className="text-center text-primary">Apply Now</h3>
                 <p className="text-muted text-center">Submit your details and upload your CV to apply for a position.</p>
                 <div className="row justify-content-center">
-                    <div className="col-12"> {/* Changed from col-md-6 to col-12 for full width */}
+                    <div className="col-10"> {/* Changed from col-md-6 to col-12 for full width */}
                         <form action="/submit-application" method="POST" enctype="multipart/form-data">
                             <div className="mb-3">
                                 <label className="form-label"><strong>Full Name</strong></label>
@@ -94,9 +95,8 @@ export default function Page() {
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
-
+            </div></div>
+</div>
             <Newletters layout="container" />
         </PageContainer>
     );

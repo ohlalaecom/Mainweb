@@ -19,10 +19,10 @@ export default function DefaultHomeContent() {
             <HomeDefaultDealOfDay collectionSlug="deals-of-the-day" />
             {/* <HomeAdsColumns /> */}
             {/* <HomeDefaultTopCategories /> */}
-            <HomeDefaultProductListing
+            {/* <HomeDefaultProductListing
                 categorySlug="computers-and-electronics"
                 title="Computers and Electronics"
-            />
+            /> */}
            
       
             {/* <HomeAds /> */}

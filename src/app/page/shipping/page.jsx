@@ -61,7 +61,7 @@ export default function Shipping() {
                     <p>If you encounter any issues with your shipment, including delays, lost packages, or damaged goods, please contact our customer service team at:</p>
                     <ul className="list-unstyled">
                         <li><strong>Email:</strong> support@jacobs-electronics.com</li>
-                        <li><strong>Phone:</strong> +357 26 272134</li>
+                        <li><strong>Phone:</strong> 00357- 992 00 991</li>
                     </ul>
 
                     <h3 className="text-success mt-4">9. International Shipping</h3>
@@ -74,7 +74,7 @@ export default function Shipping() {
                     <p>If you have any questions regarding shipping, please contact us:</p>
                     <ul className="list-unstyled">
                         <li><strong>Email:</strong> support@jacobs-electronics.com</li>
-                        <li><strong>Phone:</strong> +357 26 272134</li>
+                        <li><strong>Phone:</strong> 00357- 992 00 991</li>
                     </ul>
                 </div>
             </div>

@@ -20,11 +20,20 @@ export default function Page() {
     return (
         <PageContainer footer={<FooterDefault />} title="Affiliates">
             <div className="ps-page--single">
-                <img src="/static/img/bg/about-us2.jpg" className="text-center" alt="" />
+                 <img
+                    src="/static/img/bg/about-us2.jpg"
+                    alt=""
+                    style={{
+                        width: "100%",
+                        height: "50vh",
+                        objectFit: "cover"
+                    }}
+                />
                 <BreadCrumb breacrumb={breadCrumb} />
 
                 <div className="container mt-5">
                     <h2 className="text-center mb-4">Affiliate Program</h2>
+                    <div class="p-5 p-5" style={{ width: "90%", margin: "auto", border: "1px #ccc solid" }}>
                     <p className="text-muted text-justify">
                         Join the <strong>jacobs-electronics.com Affiliate Program</strong> and earn commissions by promoting high-quality
                         computers, laptops, and accessories. Whether you're a blogger, influencer, or tech enthusiast,
@@ -55,6 +64,7 @@ export default function Page() {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
             <Newletters layout="container" />
         </PageContainer>
