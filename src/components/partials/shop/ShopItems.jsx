@@ -124,7 +124,7 @@ const ShopItems = ({ columns = 4, pageSize = 12 }) => {
                                 <li className={listView ? 'active' : ''}>
                                     <a href="#" onClick={handleChangeViewMode}>
                                         <i className="icon-grid" />
-                                    </a>
+                                     </a>
                                 </li>
                                 <li className={!listView ? 'active' : ''}>
                                     <a href="#" onClick={handleChangeViewMode}>

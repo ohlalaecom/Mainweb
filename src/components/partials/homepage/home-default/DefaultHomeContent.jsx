@@ -2,7 +2,7 @@
 import React from 'react';
 import HomeDefaultBanner from '~/components/partials/homepage/home-default/HomeDefaultBanner';
 import SiteFeatures from '~/components/partials/homepage/home-default/SiteFeatures';
-import HomeDefaultDealOfDay from '~/components/partials/homepage/home-default/HomeDefaultDealOfDay';
+import HomeDefaulttDealOfDay from '~/components/partials/homepage/home-default/HomeDefaultDealOfDay';
 import HomeAdsColumns from '~/components/partials/homepage/home-default/HomeAdsColumns';
 import HomeDefaultTopCategories from '~/components/partials/homepage/home-default/HomeDefaultTopCategories';
 import HomeDefaultProductListing from '~/components/partials/homepage/home-default/HomeDefaultProductListing';
@@ -16,7 +16,7 @@ export default function DefaultHomeContent() {
         <main id="homepage-1">
             <HomeDefaultBanner />
             {/* <SiteFeatures /> */}
-            <HomeDefaultDealOfDay collectionSlug="deals-of-the-day" />
+            {/* <HomeDefaultDealOfDay collectionSlug="deals-of-the-day" /> */}
             {/* <HomeAdsColumns /> */}
             {/* <HomeDefaultTopCategories /> */}
             {/* <HomeDefaultProductListing

@@ -6,7 +6,12 @@ import { getStrapiImageURL } from '~/services/strapiServices/image/getStrapiImag
 
 export default function useProduct(product, productID) {
     // Default to EUR if no currency is provided
-    const currency = product?.currency?.toUpperCase() || 'EUR';
+    let currency = product?.currency?.toUpperCase() || 'EUR';
+
+    // Fix invalid currency codes
+    if (currency === 'EURO') {
+        currency = 'EUR';
+    }
 
     const productPrice = product?.sale_price ? (
         <p className="ps-product__price sale">

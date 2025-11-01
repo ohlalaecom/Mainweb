@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Link from 'next/link';
 import Slider from 'react-slick';
+import { useSearchParams } from 'next/navigation';
 import Product from '../../../components/elements/products/Product';
 import { carouselStandard } from '../../../utilities/carousel-helpers';
 
@@ -18,6 +19,21 @@ class CategoriesBestSeller extends Component {
                 (collection) => collection.slug === 'shop-best-seller-items'
             ).products;
         }
+
+        // Apply price filtering if URL parameters are present
+        const searchParams = useSearchParams();
+        const priceGt = searchParams.get('price_gt');
+        const priceLt = searchParams.get('price_lt');
+
+        if (products && products.length > 0 && (priceGt || priceLt)) {
+            products = products.filter(product => {
+                const productPrice = product.price || 0;
+                const meetsMin = !priceGt || productPrice >= parseInt(priceGt);
+                const meetsMax = !priceLt || productPrice <= parseInt(priceLt);
+                return meetsMin && meetsMax;
+            });
+        }
+
         return (
             <div className="ps-product-list ps-product-list--2">
                 <div className="ps-section__header">
