@@ -89,7 +89,7 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
                                     <LightGallery
                                         speed={500}
                                         plugins={[lgThumbnail, lgZoom]}>
-                                        <img src={item.url} alt={item.url} />
+                                        <img src={item.url} alt={item.url} onError={(e) => { e.target.src = '/static/img/products/martfury-product-placeholder.svg'; }} />
                                     </LightGallery>
                                 </a>
                             </SwiperSlide>
@@ -124,6 +124,7 @@ const ThumbnailDefault = ({ product, vertical = true }) => {
                                     index === activeIndex ? 'active' : ''
                                 }`}
                                 onClick={() => setActiveIndex(index)}
+                                onError={(e) => { e.target.src = '/static/img/products/martfury-product-placeholder.svg'; }}
                             />
                         </SwiperSlide>
                     ))}

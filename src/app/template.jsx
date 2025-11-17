@@ -3,7 +3,7 @@ import React from 'react';
 import Providers from '~/redux/provider';
 import PageLoader from '~/components/elements/common/PageLoader';
 import MobileNavigation from '~/components/shared/navigation/MobileNavigation';
-import { BackTop } from 'antd';
+import { FloatButton } from 'antd';
 import getHeadData, {
     generatePageMetadata,
 } from '~/utilities/seo/RoutePathsSEO';
@@ -16,11 +16,11 @@ export default function Template({ children }) {
             {children}
             <PageLoader />
             <MobileNavigation />
-            <BackTop>
+            <FloatButton.BackTop>
                 <button className="ps-btn--backtop">
                     <i className="icon-arrow-up" />
                 </button>
-            </BackTop>
+            </FloatButton.BackTop>
         </Providers>
     );
 }

@@ -27,12 +27,10 @@ export default function useProduct(product, productID) {
     );
 
     const productThumbnailImage = product?.thumbnail ? (
-        <Image
+        <img
             src={getStrapiImageURL(product.thumbnail)}
             alt=""
-            layout="responsive"
-            width={200}
-            height={200}
+            style={{ width: '100%', height: 'auto', maxWidth: '200px' }}
             loading="lazy"
         />
     ) : (

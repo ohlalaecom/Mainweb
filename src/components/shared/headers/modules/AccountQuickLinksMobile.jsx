@@ -158,23 +158,23 @@ export default function AccountQuickLinksMobile() {
     };
 
 
-    const menu = (
-        <Menu>
-            {accountLinks.map((link) => (
-                <Menu.Item key={link.url}>
-                    <Link href={link.url}>{link.text}</Link>
-                </Menu.Item>
-            ))}
-            <Menu.Item key="logout">
+    const menuItems = [
+        ...accountLinks.map((link) => ({
+            key: link.url,
+            label: <Link href={link.url}>{link.text}</Link>,
+        })),
+        {
+            key: 'logout',
+            label: (
                 <a href="#" onClick={handleLogout}>
                     Logout
                 </a>
-            </Menu.Item>
-        </Menu>
-    );
+            ),
+        },
+    ];
 
     return (
-        <Dropdown overlay={menu} placement="bottomLeft">
+        <Dropdown menu={{ items: menuItems }} placement="bottomLeft">
             <a href="#" className="header__extra ps-user--mobile">
                 <i className="icon-user" />
             </a>

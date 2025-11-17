@@ -74,7 +74,7 @@ const ThumbnailWithBadge = ({ product, vertical = true }) => {
         return images.length > 0
             ? images.map((item) => (
                   <div className="item" key={item}>
-                      <img src={item} alt={item} />
+                      <img src={item} alt={item} onError={(e) => { e.target.src = '/static/img/products/martfury-product-placeholder.svg'; }} />
                   </div>
               ))
             : null;
@@ -85,7 +85,7 @@ const ThumbnailWithBadge = ({ product, vertical = true }) => {
             ? images.map((item, index) => (
                   <div className="item" key={item}>
                       <a href="#" onClick={(e) => e.preventDefault()}>
-                          <img src={item} alt={item} />
+                          <img src={item} alt={item} onError={(e) => { e.target.src = '/static/img/products/martfury-product-placeholder.svg'; }} />
                       </a>
                   </div>
               ))

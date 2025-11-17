@@ -143,11 +143,10 @@ const HomeDefaultDealOfDay = ({ collectionSlug, fullWidth = false }) => {
                     <div className="ps-block--countdown-deal">
                         <div className="ps-block__left">
                             {dealImage ? (
-                                <Image
+                                <img
                                     src={dealImage}
                                     alt="Deal of the day"
-                               
-                                    priority // Ensures the image loads quickly
+                                    style={{ width: '100%', height: 'auto', maxWidth: '500px' }}
                                 />
                             ) : (
                                 <p></p>

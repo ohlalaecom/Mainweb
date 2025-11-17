@@ -74,6 +74,9 @@ const Product = ({ product }) => {
                         <img
                             src="/static/img/products/martfury-product-placeholder.svg"
                             alt={product?.attributes?.title || 'Product'}
+                            onError={(e) => {
+                                e.target.src = '/static/img/products/martfury-product-placeholder.svg';
+                            }}
                         />
                     )}
                 </a>

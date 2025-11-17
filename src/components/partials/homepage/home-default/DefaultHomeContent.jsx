@@ -16,13 +16,13 @@ export default function DefaultHomeContent() {
         <main id="homepage-1">
             <HomeDefaultBanner />
             {/* <SiteFeatures /> */}
-            {/* <HomeDefaultDealOfDay collectionSlug="deals-of-the-day" /> */}
+            <HomeDefaulttDealOfDay collectionSlug="deals-of-the-day" />
             {/* <HomeAdsColumns /> */}
             {/* <HomeDefaultTopCategories /> */}
-            {/* <HomeDefaultProductListing
+            <HomeDefaultProductListing
                 categorySlug="computers-and-electronics"
                 title="Computers and Electronics"
-            /> */}
+            /> 
            
       
             {/* <HomeAds /> */}

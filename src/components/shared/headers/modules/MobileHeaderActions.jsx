@@ -41,14 +41,18 @@ const MobileHeaderActions = () => {
     const isLoggedIn = useSelector(({ user }) => user.isLoggedIn);
 
     const guestMenu = (
-        <Menu>
-            <Menu.Item key="/account/login">
-                <Link href="/account/login">Login</Link>
-            </Menu.Item>
-            <Menu.Item key="/account/register">
-                <Link href="/account/register">Register</Link>
-            </Menu.Item>
-        </Menu>
+        <Menu
+            items={[
+                {
+                    key: '/account/login',
+                    label: <Link href="/account/login">Login</Link>,
+                },
+                {
+                    key: '/account/register',
+                    label: <Link href="/account/register">Register</Link>,
+                },
+            ]}
+        />
     );
 
     return (
@@ -63,7 +67,7 @@ const MobileHeaderActions = () => {
             {isLoggedIn ? (
                 <AccountQuickLinksMobile />
             ) : (
-                <Dropdown overlay={guestMenu} placement="bottomLeft">
+                <Dropdown menu={{ items: guestMenu.props.items }} placement="bottomLeft">
                     <a href="#" className="header__extra ps-user--mobile">
                         <i className="icon-user" />
                     </a>

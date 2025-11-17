@@ -89,11 +89,10 @@ export default function CartContent() {
                             <tr key={item.id}>
                                 <td>
                                     <Link href={'/product/[pid]'} as={`/product/${item.id}`}>
-                                        <Image
+                                        <img
                                             src={item.thumbnailImage}
                                             alt={item.title}
-                                            width={80}
-                                            height={80}
+                                            style={{ width: '80px', height: '80px', objectFit: 'cover' }}
                                             className="ps-cart-item__thumbnail"
                                         />
                                     </Link>

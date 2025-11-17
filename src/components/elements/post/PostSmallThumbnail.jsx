@@ -6,12 +6,10 @@ import { getStrapiImageURL } from '~/services/strapiServices/image/getStrapiImag
 
 const PostSmallThumbnail = ({ post }) => {
     const thumbnailImage = post.attributes?.thumbnail ? (
-        <Image
+        <img
             src={getStrapiImageURL(post.attributes.thumbnail)}
             alt=""
-            layout="responsive"
-            width={200}
-            height={200}
+            style={{ width: '100%', height: 'auto', maxWidth: '200px' }}
         />
     ) : (
         <img src="https://placehold.co/600x400" alt="" />
